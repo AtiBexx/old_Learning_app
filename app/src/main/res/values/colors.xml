@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="badAnswerColor2">#D32F2F</color>
+    <color name="badAnswerColor">#FF0000</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="button_pr">#7E7A7A</color> <!--button pressed color-->
+    <color name="button_default">#E2215CF3</color>
+    <color name="textColorHint">#757575</color>
+    <color name="answerInputTextColorHint">#A1887F</color>
+</resources>

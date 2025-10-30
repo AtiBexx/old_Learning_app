@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <!--Teljes scrool || full scroll -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/mainscrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+    <!--Nagyítás || Zoom -->
+        <com.attibexx.old_learning_app.ui.CooperativeZoomContainer
+            android:id="@+id/zoomContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <!--kerdes szamlalo || Question Counter -->
+                <TextView
+                    android:id="@+id/questionCounter"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/textviewborder"
+                    android:gravity="center_vertical"
+                    android:padding="2dp"
+                    android:text="@string/questionCounter_format"
+                    android:textColor="@android:color/black"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <!-- A kérdés szövege || The question of text-->
+                <!-- android:nestedScrollingEnabled="true"-->
+                <!--ez fontos hogy mindenhol görgethető legyen || It is important to make every place scrollable-->
+                <ScrollView
+                    android:id="@+id/questionScroll"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/textviewborder"
+                    android:fadeScrollbars="false"
+                    android:nestedScrollingEnabled="true"
+                    android:scrollbarThumbVertical="@drawable/scrollbar_thumb"
+                    android:scrollbarTrackVertical="@drawable/scrollbar_track"
+                    android:scrollbars="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/questionCounter">
+
+                    <TextView
+                        android:id="@+id/questionOfText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/questionTextHint"
+                        android:padding="20dp"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@color/textColorHint"
+                        android:textSize="26sp" />
+                </ScrollView>
+                <!-- A felhasználó válasza || The User Answer -->
+                <ScrollView
+                    android:id="@+id/answerInputScroll"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/edittextborder"
+                    android:fadeScrollbars="false"
+                    android:nestedScrollingEnabled="true"
+                    android:scrollbarThumbVertical="@drawable/scrollbar_thumb"
+                    android:scrollbarTrackVertical="@drawable/scrollbar_track"
+                    android:scrollbars="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/questionScroll">
+
+                    <EditText
+                        android:id="@+id/answerInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="no"
+                        android:background="@null"
+                        android:hint="@string/answerInputHint"
+                        android:inputType="textMultiLine"
+                        android:padding="20dp"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="#A1887F"
+                        android:textSize="26sp"
+                        tools:ignore="VisualLintTextFieldSize" />
+                </ScrollView>
+                <!--Visszajelzési Szöveg (helyes /helytelen válasz)feedback text(right of answer and bad or not correctly bad answer)-->
+                <ScrollView
+                    android:id="@+id/feedbackTextScroll"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/textviewborder"
+                    android:fadeScrollbars="false"
+                    android:nestedScrollingEnabled="true"
+                    android:scrollbarThumbVertical="@drawable/scrollbar_thumb"
+                    android:scrollbarTrackVertical="@drawable/scrollbar_track"
+                    android:scrollbars="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/answerInputScroll">
+
+                    <TextView
+                        android:id="@+id/feedbackText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/feedbackTetxtHint"
+                        android:padding="20dp"
+                        android:textColor="@color/badAnswerColor"
+                        android:textColorHint="#757575"
+                        android:textSize="26sp" />
+                </ScrollView>
+                <!-- Bal navigációs nyíl (előző kérdés) || Left navigation arrow (previous question) -->
+                <ImageButton
+                    android:id="@+id/previousQuestionButton"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:contentDescription="@string/previousQuestionButtonHint"
+                    android:src="@drawable/ic_arrow_left"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/feedbackTextScroll"
+                    tools:ignore="ImageContrastCheck" />
+                <!-- Jobb navigációs nyíl (következő kérdés) || Right navigation arrow (next question) -->
+                <ImageButton
+                    android:id="@+id/nextQuestionButton"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="@string/nextQuestionButtonHint"
+                    android:src="@drawable/ic_arrow_right"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/feedbackTextScroll"
+                    tools:ignore="ImageContrastCheck" />
+
+                <!--Gombok || Buttons -->
+                <ScrollView
+                    android:id="@+id/buttonScroll"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:clipToPadding="true"
+                    android:fadeScrollbars="false"
+                    android:nestedScrollingEnabled="true"
+                    android:paddingBottom="0dp"
+                    android:scrollbarThumbVertical="@drawable/scrollbar_thumb"
+                    android:scrollbarTrackVertical="@drawable/scrollbar_track"
+                    android:scrollbars="vertical"
+                    android:overScrollMode="never"
+                    app:layout_constrainedHeight="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/nextQuestionButton">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <!--Válasz ellenőrzése Gomb || Check Answer Button-->
+                        <Button
+                            android:id="@+id/CheckAnswerButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:drawablePadding="2.dp"
+                            android:gravity="center"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:padding="0dp"
+                            android:text="@string/checkAnswerButtonText"
+                            android:textColor="@color/white"
+                            android:textSize="22sp"
+                            app:backgroundTint="@color/button_pressed"
+                            app:cornerRadius="0.dp"
+                            app:icon="@drawable/baseline_check_24"
+                            app:iconGravity="textStart"
+                            app:iconTint="@android:color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="VisualLintButtonSize,TextContrastCheck" />
+                        <!--Kérdések ujraíndítása Gomb || Reset Questions Button-->
+                        <Button
+                            android:id="@+id/ResetQuestionsButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="10dp"
+                            android:drawablePadding="2.dp"
+                            android:gravity="center"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:padding="0dp"
+                            android:text="@string/restartQuestionButtonText"
+                            android:textColor="@color/white"
+                            android:textSize="22sp"
+                            app:backgroundTint="@color/button_pressed"
+                            app:cornerRadius="0.dp"
+                            app:icon="@drawable/icon_round_question_mark"
+                            app:iconGravity="textStart"
+                            app:iconTint="@android:color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/CheckAnswerButton"
+                            tools:ignore="VisualLintButtonSize" />
+                        <!--Json fájl betöltése || Load Json File-->
+                        <Button
+                            android:id="@+id/JsonLoadingButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="10dp"
+                            android:drawablePadding="2.dp"
+                            android:gravity="center"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:padding="0dp"
+                            android:text="@string/jsonFilesLoadingText"
+                            android:textColor="@color/white"
+                            android:textSize="22sp"
+                            app:backgroundTint="@color/button_pressed"
+                            app:cornerRadius="0.dp"
+                            app:icon="@drawable/round_attach_file_24"
+                            app:iconGravity="textStart"
+                            app:iconTint="@android:color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/ResetQuestionsButton"
+                            tools:ignore="VisualLintButtonSize" />
+                        <!--Beállítások Gomb || Settings Button-->
+                        <Button
+                            android:id="@+id/SettingsButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="10dp"
+                            android:drawablePadding="2.dp"
+                            android:gravity="center"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:padding="0dp"
+                            android:text="@string/settingsButtonText"
+                            android:textColor="@color/white"
+                            android:textSize="22sp"
+                            app:backgroundTint="@color/button_pressed"
+                            app:cornerRadius="0.dp"
+                            app:icon="@drawable/oip"
+                            app:iconGravity="textStart"
+                            app:iconTint="@android:color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/JsonLoadingButton"
+                            tools:ignore="VisualLintButtonSize" />
+                        <!--Kérdések Létrehozása Gomb || Create Questions Button-->
+                        <Button
+                            android:id="@+id/CreateQuestionsButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="10dp"
+                            android:drawablePadding="2.dp"
+                            android:gravity="center"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:padding="0dp"
+                            android:text="@string/CreateQuestionsButtonText"
+                            android:textColor="@color/white"
+                            android:textSize="22sp"
+                            app:backgroundTint="@color/button_pressed"
+                            app:cornerRadius="0.dp"
+                            app:icon="@drawable/question_mark_12620"
+                            app:iconGravity="textStart"
+                            app:iconTint="@android:color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/SettingsButton"
+                            tools:ignore="VisualLintButtonSize" />
+                        <!--Kérdések Szerkesztése Gomb || Edit Questions Button-->
+                        <Button
+                            android:id="@+id/EditQuestionsButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="2dp"
+                            android:drawablePadding="2.dp"
+                            android:gravity="center"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:padding="0dp"
+                            android:text="@string/EditQuestionButtonText"
+                            android:textColor="@color/white"
+                            android:textSize="22sp"
+                            app:backgroundTint="@color/button_pressed"
+                            app:cornerRadius="0.dp"
+                            app:icon="@drawable/image_questionedit"
+                            app:iconGravity="textStart"
+                            app:iconTint="@android:color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/CreateQuestionsButton"
+                            tools:ignore="VisualLintButtonSize" />
+                        <Space
+                            android:id="@+id/bottom_spacer"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            app:layout_constraintTop_toBottomOf="@id/EditQuestionsButton"
+                            app:layout_constraintBottom_toBottomOf="parent" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </ScrollView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.attibexx.old_learning_app.ui.CooperativeZoomContainer>
+    </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>

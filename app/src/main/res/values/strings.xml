@@ -1,0 +1,118 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Learning_App</string>
+    <string name="wrong_answer_with_correct_answer">Hibás válasz. Helyes válasz: %1$s</string>
+    <string name="questionCounter_format">Kérdés: %1$d/%2$d</string>
+    <string name="questionTextHint">A kérdés itt fog megjeleni</string>
+    <string name="answerInputHint">Ide írd a választ/válaszokat</string>
+    <string name="feedbackTetxtHint">A helyes válasz itt lesz!</string>
+    <string name="previousQuestionButtonHint">Előző kérdés</string>
+    <string name="nextQuestionButtonHint">Következő kérdés</string>
+    <string name="checkAnswerButtonText" tools:ignore="Typos">Válasz/ok ellenőrzése</string>
+    <string name="restartQuestionButtonText">A Kérdések ujraindítása</string>
+    <string name="jsonFilesLoadingText">Json fájl betöltése</string>
+    <string name="EditQuestionButtonText">Kérdések Szerkesztése</string>
+    <string name="CreateQuestionsButtonText">Kérdések létrehozása</string>
+    <string name="settingsButtonText">Beállítások</string>
+    <string name="checkStoragePermissionText1">Engedély megadva!</string>
+    <string name="checkStoragePermissionText2">Engedély megtagadva!</string>
+    <string name="permissionRequest_ResultText1">Engedélyek megadva</string>
+    <string name="permissionRequest_ResultText2">Engedélyek szükségesek a fájlok eléréséhez</string>
+    <string name="RequestStoragePermission_Text1">Teljes fájlhozzáférés már engedélyezve!</string>
+    <string name="RequestStoragePermissionFile_Text1">Fájlhozzáférési engedély már megadva!</string>
+    <string name="RequestStoragePermissionWrite_Text1">Fájl írási engedély már megadva</string>
+    <string name="alreadyHasPermissionsText">Minden szükséges engedély már meg van adva</string>
+    <string name="noQuestionsText">Nincsenek kérdések betöltve</string>
+    <string name="questionCounter_empty">0/0</string>
+    <string name="invalid_question_Index">Hiba : Érvénytelen kérdésindex</string>
+    <string name="inputStreamNullText">Nem sikerült megnyitni a fájlt mert az inputStream null volt</string>
+    <string name="jsonParseError1">IO Hiba a JSON olvasása közben</string>
+    <string name="jsonParseError2">JSON Feldolgozási Hiba</string>
+    <string name="filePickerLauncherLoadedQuestionText">%1$d kérdések betöltve.</string>
+    <string name="filepickerLauncherErrorText">Nem sikerült kérdéseket beolvasni a fájlból, vagy a fájl üres.</string>
+    <string name="filepickerLauncherNofileText">Nincs fájl kiválasztva</string>
+    <string name="rightAnswer">Helyes válasz!</string>
+    <string name="all_answered">Nincs több kérdés!</string>
+    <string name="no_questions_loaded_for_checking">Nincsenek kérdések betöltve az ellenőrzéshez!</string>
+    <string name="error_checking_answer">Hiba történt a válasz ellenőrzése közben!</string>
+    <string name="questions_restarted">A kérdések sikeresen újraindultak!</string>
+    <string name="no_questions_to_restart">Nincs kérdés, amit újra lehetne indítani.\n</string>
+    <string name="no_questions_to_navigate">Nincsenek kérdések a navigáláshoz!</string>
+    <string name="already_at_last_question">Már az utolsó kérdésnél vagy.</string>
+    <string name="already_at_first_question">Az első kérdésnél vagy nem tudsz visszamenni.</string>
+    <string name="answerQuestionInputHint">Írd be ide a kérdéseket és válaszokat egymás után.</string>
+    <string name="currentStatus">Jelenlegi állapot: Kérdés bevitele</string>
+    <string name="enter_next_question_answer_buttonText">Kérdés/válasz bevitele</string>
+    <string name="saveFileButtonText">Mentés Fájlba</string>
+    <string name="allDataDelete">Az eddigi bevitt adatok tőrlése</string>
+    <string name="backToTheMainMenuText">Visszalépés a főmenübe</string>
+    <string name="create_question_save_file_location_selected">Mentési hely kiválasztva: %1$s</string>
+    <string name="create_question_file_selection_cancelled_or_error">Fájl kiválasztása megszakítva valami hiba történt!</string>
+    <string name="create_question_status_enter_question">Kérdés megadása:</string>
+    <string name="create_question_button_next_to_answers">Tovább a válaszokhoz</string>
+    <string name="create_question_hint_enter_question">Kérlek ide írd be a kérdést…</string>
+    <string name="create_question_status_enter_answers_for" tools:ignore="Typos">Válasz(ok) megadása ehhez a kérdéshez: \"%1$s\"</string>
+    <string name="create_question_button_save_answers_and_next_q">Válaszok mentése és új kérdés</string>
+    <string name="create_question_hint_enter_answers_csv">Kérlek írd be a helyes választ/válaszokat egymás után, vesszővel elválasztva…</string>
+    <string name="create_question_answer_pair_saved">érdés-válasz pár elmentve! Összesen: %1$d</string>
+    <string name="create_question_please_enter_something">Kérlek, írj be valamit!</string>
+    <string name="create_question_error_incomplete_pair">Hiba: A kérdés vagy a válaszok hiányosak a mentéshez.</string>
+    <string name="create_question_nothing_to_save">Nincs mit menteni.Nem írtál be semmit.</string>
+    <string name="create_question_last_pending_pair_saved_toast">Az utolsó kérdés-válasz pár hozzáadva a mentéshez.</string>
+    <string name="create_question_please_provide_answers_for_current_q_before_saving">Kérlek, add meg a válaszokat is az aktuális kérdéshez a mentés előtt!</string>
+    <string name="createquestion_press_next_to_add_current_question_first">Kérlek, nyomj a \'Tovább\' gombra az aktuális kérdés rögzítéséhez, mielőtt mentenél!</string>
+    <string name="create_question_add_answers_for_this_question_too">Kérlek, add meg a választ/válaszokat is ehhez a kérdéshez.(Utány nyomj a tovább gombra)</string>
+    <string name="create_question_nothing_to_save_final">Nincs adat nincsenek adatok nincs mit menteni.</string>
+    <string name="create_question_error_creating_json">Hiba a JSON fájl létrehozásakor: %1$s</string>
+    <string name="create_question_please_select_save_location_first">Kérlek, válaszd ki a mentési helyet!</string>
+    <string name="create_question_file_saved_to_location">A fájl sikeresen mentve ide: %1$s</string>
+    <string name="create_question_error_saving_file_location">Hiba a fájl mentésekor a kiválasztott helyre: %1$s</string>
+    <string name="not_available">Nem elérhető</string>
+    <string name="wallpaper_image_description">Papagájok</string>
+    <string name="appVersion">LearningApp v1.0</string>
+    <string name="question_counter_empty_state">0/0</string>
+    <string name="create_question_json_file_created">A Json fájl sikeresen léterhozva!</string>
+    <string name="Create_Question_Save_Cancel_Json">Mentés megszakítva</string>
+    <string name="create_question_file_location_selected">A mentési hely kiválasztva.</string>
+    <string name="create_question_file_location_not_selected">A mentési hely nincskiválasztva(megszakítva)</string>
+    <string name="create_question_all_data_cleared_toast">Minden eddigi bevitt adat törölve lett.</string>
+    <string name="create_question_nothing_to_delete">Nincs mit törölni.\nNem volt a bemenetben elmentett\nkérdés-válasz pár.</string>
+    <string name="create_question_delete_confirmation_title">Megerősítés</string>
+    <string name="create_question_delete_confirmation_message">Biztosan törölni szeretnéd \naz összes eddig bevitt\nkérdést és válasz párt?</string>
+    <string name="create_question_delete_confirmation_positive_button">Törlés</string>
+    <string name="create_question_delete_confirmation_negative_button">Mégse</string>
+    <string name="jsonEditHint">Itt lesznek a kérdések \nés a válaszok
+\nJson formátumban:\n\n
+      [\n
+    {
+        \n\"question\": \"___________?\",
+       \n\"rightAnswers\": [\"_____________\"],
+        \n\"answered\": false
+  \n},
+    \n{
+        \n\"question\": \"_______________?\",
+        \n\"rightAnswers\": [\"_________\", \"___________\"],
+        \n\"answered\": false
+    \n}\n
+        ]
+</string>
+    <string name="edit_activity_openFileJson">Json fájl megnyitása</string>
+    <string name="edit_Activity_Json_Validate">Json struktúra ellenőrzése</string>
+    <string name="edit_Activity_JsonPretty">Json_formázása</string>
+    <string name="edit_activity_PasteButton">Beilesztés vágolapról</string>
+    <string name="edit_Activity_copyButton">Másolás vágolapra</string>
+    <string name="edit_Activity_JsonSaveButton">Mentés(JSON)</string>
+    <string name="edit_Activity_jsonFileAsSaveButton">Mentés másként(JSON)</string>
+    <string name="code_editor_description">Kódszerkesztő mező</string>
+    <string name="ClipBoard_text">A kód a vágolapra másolva</string>
+    <string name="Clipdata_copied_code">Kód vágolapra másolva.</string>
+    <string name="ClipBoard_success_message">Beillesztve a vágólapról</string>
+    <string name="paste_not_text_message">A vágólapon nem szöveg található</string>
+    <string name="Clipboard_paste_no_data_message">A vágólap üres</string>
+    <string name="delete_all_dialog_title">Biztosan törölsz mindent?</string>
+    <string name="delete_all_dialog_message">Ez a művelet nem vonható vissza. Minden tartalom elvész.</string>
+    <string name="delete_success_message">A tartalom törölve lett.</string>
+    <string name="deleteBuilder_delete_button_text">Törlés</string>
+    <string name="deleteBuilder_cancel_button_text">Mégse</string>
+    <string name="ecit_question_undo_button">Visszavonás</string>
+
+</resources>
