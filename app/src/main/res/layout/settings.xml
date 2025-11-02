@@ -7,152 +7,205 @@
     android:layout_height="match_parent"
     tools:context=".SettingsActivity">
 
-    <ImageView
-        android:id="@+id/walpaperImageview"
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/mainscrollView"
         android:layout_width="match_parent"
-        app:srcCompat="@drawable/walpaper"
-        android:layout_height="470dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:scaleType="fitXY"
-        android:alpha="0.8"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:contentDescription="@string/wallpaper_image_description" />
-    <View
-        android:id="@+id/imageOverlay"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="#40000000"
-        app:layout_constraintTop_toTopOf="@id/walpaperImageview"
-        app:layout_constraintBottom_toBottomOf="@id/walpaperImageview"
-        app:layout_constraintStart_toStartOf="@id/walpaperImageview"
-        app:layout_constraintEnd_toEndOf="@id/walpaperImageview" />
-    <TextView
-        android:id="@+id/imageOverlayText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/appVersion"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        android:textStyle="bold|italic"
-        android:background="#F5979696"
-        android:gravity="center_horizontal"
-        app:layout_constraintStart_toStartOf="@id/walpaperImageview"
-        app:layout_constraintEnd_toEndOf="@id/walpaperImageview"
-        app:layout_constraintBottom_toBottomOf="@id/walpaperImageview"
-        android:layout_marginBottom="0dp" />
-
-    <!--Gombok || Buttons -->
-    <ScrollView
-        android:id="@+id/buttonScroll"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="16dp"
-        android:paddingBottom="20dp"
-        android:fadeScrollbars="false"
-        android:scrollbarThumbVertical="@drawable/scrollbar_thumb"
-        android:scrollbarTrackVertical="@drawable/scrollbar_track"
-        android:scrollbars="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageOverlayText"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <!--Nagyítás || Zoom -->
+        <com.attibexx.old_learning_app.ui.CooperativeZoomContainer
+            android:id="@+id/zoomContainer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <!--Következö Gomb kérdés és válasz bevitele || Next Question and Answer Input Button-->
-            <Button
-                android:id="@+id/nextButtonInputAnswerQuestion"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginBottom="4dp"
-                android:gravity="center"
-                android:padding="0dp"
-                android:text="@string/enter_next_question_answer_buttonText"
-                android:textColor="@color/white"
-                android:textSize="22sp"
-                app:backgroundTint="@color/button_pressed"
-                app:icon="@drawable/baseline_check_24"
-                app:iconGravity="textStart"
-                android:drawablePadding="2.dp"
-                app:cornerRadius="0.dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="VisualLintButtonSize" />
-            <!--Mentés fájlba Gomb || Save File Button-->
-            <Button
-                android:id="@+id/saveFileButton"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="4dp"
-                android:padding="0dp"
-                android:gravity="center"
-                android:text="@string/saveFileButtonText"
-                android:textColor="@color/white"
-                android:textSize="22sp"
-                app:backgroundTint="@color/button_pressed"
-                app:icon="@drawable/outline_cloud_upload_24"
-                app:iconGravity="textStart"
-                android:drawablePadding="2.dp"
-                app:cornerRadius="0.dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/nextButtonInputAnswerQuestion"
-                tools:ignore="VisualLintButtonSize" />
-            <!--Fájlok mentési helye || File saving location-->
-            <Button
-                android:id="@+id/all_delete_button"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="4dp"
-                android:padding="0dp"
-                android:gravity="center"
-                android:text="@string/allDataDelete"
-                android:textColor="@color/white"
-                android:textSize="22sp"
-                app:backgroundTint="@color/button_pressed"
-                app:icon="@drawable/outline_home_storage_24"
-                app:iconGravity="textStart"
-                android:drawablePadding="2.dp"
-                app:cornerRadius="0.dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/saveFileButton"
-                tools:ignore="VisualLintButtonSize" />
-            <!--Vissza a főmenü gomb || Back to main menu button-->
-            <Button
-                android:id="@+id/backToTheMainMenuButton"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="4dp"
-                android:padding="0dp"
-                android:gravity="center"
-                android:text="@string/backToTheMainMenuText"
-                android:textColor="@color/white"
-                android:textSize="22sp"
-                app:backgroundTint="@color/button_pressed"
-                app:icon="@drawable/outline_menu_24"
-                app:iconGravity="textStart"
-                android:drawablePadding="2.dp"
-                app:cornerRadius="0.dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/all_delete_button"
-                tools:ignore="VisualLintButtonSize" />
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/walpaperImageview"
+                    android:layout_width="match_parent"
+                    android:layout_height="480dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginEnd="16dp"
+                    android:alpha="0.8"
+                    android:contentDescription="@string/wallpaper_image_description"
+                    android:scaleType="fitXY"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/walpaper" />
+
+                <View
+                    android:id="@+id/imageOverlay"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="#40000000"
+                    app:layout_constraintBottom_toBottomOf="@id/walpaperImageview"
+                    app:layout_constraintEnd_toEndOf="@id/walpaperImageview"
+                    app:layout_constraintStart_toStartOf="@id/walpaperImageview"
+                    app:layout_constraintTop_toTopOf="@id/walpaperImageview" />
+
+                <TextView
+                    android:id="@+id/imageOverlayText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="0dp"
+                    android:background="#F5979696"
+                    android:gravity="center_horizontal"
+                    android:text="@string/appVersion"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="@id/walpaperImageview"
+                    app:layout_constraintEnd_toEndOf="@id/walpaperImageview"
+                    app:layout_constraintStart_toStartOf="@id/walpaperImageview" />
+
+                <!--Gombok || Buttons -->
+                <ScrollView
+                    android:id="@+id/buttonScroll"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:clipToPadding="true"
+                    android:fadeScrollbars="false"
+                    android:nestedScrollingEnabled="true"
+                    android:paddingBottom="0dp"
+                    android:scrollbarThumbVertical="@drawable/scrollbar_thumb"
+                    android:scrollbarTrackVertical="@drawable/scrollbar_track"
+                    android:scrollbars="vertical"
+                    android:overScrollMode="never"
+                    app:layout_constrainedHeight="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageOverlayText">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <!--Következö Gomb kérdés és válasz bevitele || Next Question and Answer Input Button-->
+                        <Button
+                            android:id="@+id/selectThemeButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="10dp"
+                            android:drawablePadding="2.dp"
+                            android:gravity="center"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:padding="0dp"
+                            android:text="@string/settings_select_Theme_Button"
+                            android:textColor="@color/white"
+                            android:textSize="22sp"
+                            app:backgroundTint="@color/button_pressed"
+                            app:cornerRadius="0.dp"
+                            app:icon="@drawable/baseline_theme_24"
+                            app:iconGravity="textStart"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="VisualLintButtonSize,TouchTargetSizeCheck" />
+                        <!--Mentés fájlba Gomb || Save File Button-->
+                        <Button
+                            android:id="@+id/jsonProcessingButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="10dp"
+                            android:drawablePadding="2.dp"
+                            android:gravity="center"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:padding="0dp"
+                            android:text="@string/json_processing_Button"
+                            android:textColor="@color/white"
+                            android:textSize="22sp"
+                            app:backgroundTint="@color/button_pressed"
+                            app:cornerRadius="0.dp"
+                            app:icon="@drawable/outline_process_chart_24"
+                            app:iconGravity="textStart"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/selectThemeButton"
+                            tools:ignore="VisualLintButtonSize,TouchTargetSizeCheck" />
+                        <!--Fájlok mentési helye || File saving location-->
+                        <Button
+                            android:id="@+id/informationButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="10dp"
+                            android:drawablePadding="2.dp"
+                            android:gravity="center"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:padding="0dp"
+                            android:text="@string/informationButton"
+                            android:textColor="@color/white"
+                            android:textSize="22sp"
+                            app:backgroundTint="@color/button_pressed"
+                            app:cornerRadius="0.dp"
+                            app:icon="@drawable/baseline_information_24"
+                            app:iconGravity="textStart"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/jsonProcessingButton"
+                            tools:ignore="VisualLintButtonSize,TouchTargetSizeCheck" />
+
+                        <!--Egyéb beállítások || Other settings-->
+                        <Button
+                            android:id="@+id/otherSettingsButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="10dp"
+                            android:drawablePadding="2.dp"
+                            android:gravity="center"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:padding="0dp"
+                            android:text="@string/otherSettingsButton"
+                            android:textColor="@color/white"
+                            android:textSize="22sp"
+                            app:backgroundTint="@color/button_pressed"
+                            app:cornerRadius="0.dp"
+                            app:icon="@drawable/outline_settings_applications_24"
+                            app:iconGravity="textStart"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/informationButton"
+                            tools:ignore="VisualLintButtonSize,TouchTargetSizeCheck" />
+                        <!--Vissza a főmenü gomb || Back to main menu button-->
+                        <Button
+                            android:id="@+id/backToTheMainMenuButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginTop="4dp"
+                            android:drawablePadding="2.dp"
+                            android:gravity="center"
+                            android:padding="0dp"
+                            android:text="@string/backToTheMainMenuText"
+                            android:textColor="@color/white"
+                            android:textSize="22sp"
+                            app:backgroundTint="@color/button_pressed"
+                            app:cornerRadius="0.dp"
+                            app:icon="@drawable/outline_menu_24"
+                            app:iconGravity="textStart"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/otherSettingsButton"
+                            tools:ignore="VisualLintButtonSize" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </ScrollView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.attibexx.old_learning_app.ui.CooperativeZoomContainer>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -112,7 +112,28 @@
     <string name="delete_all_dialog_message">Ez a művelet nem vonható vissza. Minden tartalom elvész.</string>
     <string name="delete_success_message">A tartalom törölve lett.</string>
     <string name="deleteBuilder_delete_button_text">Törlés</string>
-    <string name="deleteBuilder_cancel_button_text">Mégse</string>
+    <string name="cancel_button_text">Mégse</string>
     <string name="ecit_question_undo_button">Visszavonás</string>
+    <string name="beautify_empty_text">Nincs mit formázni a fájl üres!</string>
+    <string name="json_any_error_message">Hiba történt a folyamat közben!</string>
+    <string name="beautify_invalid_json">Hiba: A szöveg nem érvényes JSON!\nHiányzik egy zárójel vagy egyéb.</string>
+    <string name="beautify_success_sucess">A JSON fájl sikeresen formázva.</string>
+    <string name="validate_empty_text">Nincs mit ellenőrizni!\nA fájl üres.</string>
+    <string name="validate_success_text">A JSON struktúra érvényes!</string>
+    <string name="validate_invalid_json">Hiba: A JSON struktúra érvénytelen!</string>
+    <string name="file_read_success">A fájl sikeresen megnyitva.</string>
+    <string name="open_file_read_error">Hiba történt a fájl megnyitása közben!</string>
+    <string name="save_file_error">Hiba történt a fájl mentése közben.</string>
+    <string name="save_file_success">Fájl sikeresen elmentve.</string>
+    <string name="save_file_empty_error">Nincs mit menteni, a szerkesztő üres!</string>
+    <string name="overwrite_dialog_title">Fájl felülírása</string>
+    <string name="overwrite_dialog_message">Biztosan felülírod a meglévő fájlt? Ez a művelet nem vonható vissza.</string>
+    <string name="overwrite_button_text">Felülírás</string>
+    <string name="undoButton_stack_is_empty">Nincs mit visszavonni</string>
+    <string name="settings_select_Theme_Button">Téma választása</string>
+    <string name="json_processing_Button">Json feldolgozó választása</string>
+    <string name="informationButton">Információ</string>
+    <string name="otherSettingsButton">egyéb beállítások</string>
+
 
 </resources>

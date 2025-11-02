@@ -1,20 +1,28 @@
 package com.attibexx.old_learning_app
 
+import android.text.TextWatcher
+import android.text.Editable
 import android.content.ClipData
 import android.content.ClipDescription
 import android.content.ClipboardManager
+import android.content.Intent
 import android.content.res.Configuration
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.util.Log.isLoggable
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.attibexx.old_learning_app.databinding.ActivityEditQuestionBinding
-
+import com.google.gson.GsonBuilder
+import com.google.gson.JsonParser
+import com.google.gson.JsonSyntaxException
+import androidx.core.graphics.toColorInt
 
 class EditQuestionActivity : AppCompatActivity() {
 
@@ -24,9 +32,50 @@ class EditQuestionActivity : AppCompatActivity() {
         private const val TAG = "EditQuestionActivity"
     }
 
+    // Eltároljuk a szerkesztett fájl uri-ját
+    // Store the edited file uri
+    private var currentFileUri: android.net.Uri? = null
+
 
     // binding példányosítása || Instance of binding
     private lateinit var binding: ActivityEditQuestionBinding
+
+    // A Fájlelválasztó pédányosítása || Instance of the file picker launcher
+    private val openFileLauncher = registerForActivityResult(
+        ActivityResultContracts.OpenDocument()
+    ) { uri: android.net.Uri? ->
+        // Ez a blokk akkor gut le ha a felhasználó kiválasztott egy fájlt
+        // This block will run if the user has selected a file
+        if (uri != null) {
+            // Beolvassuk a kiválasztott fájlt
+            // Read the selected file
+            readTextFromFile(uri)
+        }
+    }
+
+    // A fájl létrehozásához (mentéshez) használt launcher
+    // Launcher used to create a file
+    private val createFileLauncher = registerForActivityResult(
+        ActivityResultContracts.CreateDocument("application/json")
+    ) {
+        // Ez a blokk akkor fut le ha a felhasználó kiválasztott
+        // egy mentési helyet és egy fájl nevet a mentéshez.
+        // This block will run if the user has selected a directory
+        // and a file name for saving.
+            uri: android.net.Uri? ->
+        // Ha a uri nem üres
+        // If the uri is not empty
+        //uri?.let { writeTextToFile(it) }
+        if (uri != null) {
+            writeTextToFile(uri)
+        }
+    }
+
+    // Verem az előzmények tárolására a visszavonás funkcióhoz.
+    // Stack for storing history for the undo functionality.
+    /*private val historyStack = Stack<String>()*/
+    private val historyStack = ArrayDeque<String>()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,11 +114,203 @@ class EditQuestionActivity : AppCompatActivity() {
             this, R.drawable.textviewborder
         )
 
+        // Sorszámozás bekapcsolása és stílusának beállítása
+        // Enable line numbers and set the style
+        binding.codeView.setEnableLineNumber(true)
+        binding.codeView.setLineNumberTextColor(Color.GRAY)
+        binding.codeView.setLineNumberTextSize(30f)
+
+        // JSON minták beállítása (egyszer, induláskor)
+        val patterns = HashMap<java.util.regex.Pattern, Int>()
+        // Ez a sor a dokumentációból származik a JSON kiemeléshez
+        patterns[java.util.regex.Pattern.compile(
+            "\"(.*?)\"")] = "#A3BE8C".toColorInt() // Zöld szín stringekhez || Green color for Strings
+        binding.codeView.setSyntaxPatternsMap(patterns)
+
+        // hozzáadunk egy TextWatchert hogy figyeljük a szöveg változásait.
+        // Add a TextWatcher to watch for text changes.
+        binding.codeView.addTextChangedListener(object : TextWatcher {
+            private var beforeText: String? = null
+
+            // ez a metódus fut le mielőtt a szöveg megváltozna
+            // this method runs before the text changes
+            override fun beforeTextChanged(
+                s: CharSequence?,
+                start: Int,
+                count: Int,
+                after: Int
+            ) {
+                // Elmentjük a szöveg aktuális állapotát a változás ELŐTT.
+                // We save the current state of the text BEFORE the change.
+                beforeText = s.toString()
+            }
+
+            // Ez a metódus fut le, miközben a szöveg változik.
+            // This method runs while the text is changing.
+            override fun onTextChanged(
+                s: CharSequence?,
+                start: Int,
+                before: Int,
+                count: Int
+            ) {
+            }
+
+            // Ez a metódus fut le miután a szöveg megváltozott
+            // This methods runs after the text has changed.
+            override fun afterTextChanged(s: Editable?) {
+
+                // A változás után a beforeText-et beteszük a verembe.
+                //
+                /*if (beforeText != null) {
+                    //historyStack.push(beforeText)
+                    historyStack.addLast(beforeText!!)
+                }*/
+                beforeText?.let {
+                    historyStack.addLast(it)
+                }
+            }
+        })
+    }
+    // Létrehozuk a fájlBeolvasó függvényünket
+    // Let's create our fileReader function
+    /**
+     * Beolvassa egy adott Uri-n keresztül elérhető fájl szöveges tartalmát.
+     * Reads the text content of a file accessible via a given Uri.
+     */
+    private fun readTextFromFile(uri: android.net.Uri) {
+
+        val fileContentReader = StringBuilder()
+
+        try {
+            // A contentResolver segítségével megnyitunk
+            // egy bemeneti adatfolyamatot.
+            // We use contentResolver to open
+            // an input stream.
+            contentResolver.openInputStream(uri)?.use { inputStream ->
+                // A BufferReader segítségével beolvassuk a szöveg tartalmát.
+                // We use BufferReader to read the text content.
+                // val fileContentReader = inputStream.bufferedReader().readText()
+                //Ezzel egyybe olvasnánk be a fájl de mi soronként fogjuk
+                // Így megelözük a memória problémákat a fájlOlvasása közben.
+                inputStream.bufferedReader().forEachLine { line ->
+
+                    // Minden sort hozzáadunk a StringBuilderhez,
+                    // és egy sortörést is.
+                    // We add each line to the StringBuilder,
+                    // along with a newline character.
+                    /* Kell hogy sorok ne ragadjanak össze
+                    * És a végén el kell távolítani az utolsó
+                    * sortőrést ha nincs már szöveg a fájlban
+                    */
+                    fileContentReader.append(line).append('\n')
+                }
+            }
+            // A legutolsó, felesleges sortörést eltávolítjuk,
+            // ha van tartalom.
+            // We remove the last, unnecessary newline
+            // character if there is content.
+            if (fileContentReader.isNotEmpty()) {
+                fileContentReader.setLength(fileContentReader.length - 1)
+            }
+            // Beállítjuk az egész tartalmat a codeViev-be
+            // Set the whole text to the codeView
+            binding.codeView.setText(fileContentReader)
+
+            // A szintaxis és a sorszám frisítésse
+            // Refresh the syntax and line numbers
+            refreshCodeView()
+
+            // Fontos megnyitás után eltároljuk az URI-t
+            // Important: We store the URI after opening it
+            this.currentFileUri = uri
+
+            // Írunk a felhasználónak egy üzenetett
+            // hogy, sikeress volt a fájlbeolvasás
+
+            Toast.makeText(
+                this, getString(
+                    R.string.file_read_success
+                ),
+                Toast.LENGTH_SHORT
+            ).show()
+
+        } catch (e: Exception) {
+
+            // Hiba esetén most is jelzünk a felhasználónak
+            // We will still notify the user in case of an error
+            Toast.makeText(
+                this, getString(
+                    R.string.open_file_read_error
+                ),
+                Toast.LENGTH_SHORT
+            ).show()
+            // Most pedig kiírjuk a hibát konzolba is
+            // Now we print the error to the console as well
+            Log.e(TAG, "Error reading file: $uri", e)
+        }
+    }
+    // Létrehozunk egy fájlbaíró függvényt
+    // Let's create our fileWriter function
+    /**
+     * Beírja a CodeView tartalmát egy adott Uri-n keresztül elérhető fájlba.
+     * Writes the content of the CodeView to a file accessible via a given Uri.
+     */
+    private fun writeTextToFile(uri: android.net.Uri) {
+        try {
+            // A contentResolver segítségével megnyitunk egy kimeneti adatfolyamatot.
+            // We use contentResolver to open an output stream.
+            contentResolver.openOutputStream(uri)?.use { outputStream ->
+                // A stream-re ráteszünk egy írót, és beleírjuk a CodeView tartalmát.
+                // We attach a writer to the stream and write the content of the CodeView
+                outputStream.writer().write(binding.codeView.text.toString())
+
+                /*outputStream.bufferedWriter().use { writer ->
+                writer.write(binding.codeView.text.toString())
+            }*/
+            }
+            // Üzenünk a felhasználónak a sikeres mentésről
+            // Notify the user of the successful save
+
+            // fontos a sikeres mentés után is eltároljuk az uri-t
+            // Important: We store the URI after a successful save
+            this.currentFileUri = uri
+            Toast.makeText(
+                this,
+                getString(
+                    R.string.save_file_success
+                ),
+                Toast.LENGTH_SHORT
+            ).show()
+        } catch (e: Exception) {
+            //Hiba esetén jelzünk a felhasználonak egy üzenetet
+            // We will still notify the user in case of an error
+            Toast.makeText(
+                this,
+                getString(
+                    R.string.save_file_error
+                ),
+                Toast.LENGTH_LONG
+            ).show()
+            // Most pedig kiírjuk a hibát konzolba is
+            // Now we print the error to the console as well
+            Log.e(TAG, "Error writing file: $uri", e)
+        }
     }
 
+    /**
+     * A CodeView frissítése a sorszámozás javításához.
+     * Updates the CodeView to fix the line numbering.
+     */
+    private fun refreshCodeView() {
+        // Újrafuttatja a szintaxis kiemelőt a könyvtár saját API-jával,
+        // ami a sorszámokat is frissíti.
+        // Re-runs the syntax highlighter using the library's own API,
+        // which also refreshes the line numbers.
+        binding.codeView.reHighlightSyntax()
+    }
 
     // A gombok eseménykezelőjének a függvénye
-// The function of the button event handler
+    // The function of the button event handler
     private fun setupButtonListeners() {
 
         // Másolás vágolapra gomb eseménykezelője
@@ -150,6 +391,11 @@ class EditQuestionActivity : AppCompatActivity() {
                     // Now we paste the text into codeView
                     binding.codeView.setText(textToPaste)
 
+                    // A szintaxis és a sorszám frisítésse
+                    // Refresh the syntax and line numbers
+                    refreshCodeView()
+
+
                     // Üzenünk a felhasználónak
                     // Notify the user
                     Toast.makeText(
@@ -177,6 +423,36 @@ class EditQuestionActivity : AppCompatActivity() {
         // The undo button event handler
         binding.undoButton.setOnClickListener {
 
+            // ellenőrizük van-e mit visszavonni a verembe
+            // Check if there is something to undo
+            if (historyStack.isNotEmpty()) {
+                // Kivesszük a legutóbbi állapotot a veremből
+                // (a .pop() metódus kiveszi és vissza is adja).
+                // We take the last state from the stack
+                // (the .pop() method takes it out and returns it).
+                //val previousText = historyStack.pop()
+                val previousText = historyStack.removeLast()
+
+                // Beállítjuk a visszaállított szöveget a codeView-ba.
+                // Set the restored text in the codeView.
+                binding.codeView.setText(previousText)
+
+                // A szintaxis és a sorszám frisítésse
+                // Refresh the syntax and line numbers
+                refreshCodeView()
+
+                // A visszavont szöveg a kurzor végére kerüljön ne az elejére
+                // Set the cursor to the end of the restored text
+                binding.codeView.setSelection(previousText.length)
+            } else {
+                // Ha a verem üres  jelezükk a felhasználónak.
+                // If the stack is empty, we notify the user.
+                Toast.makeText(
+                    this,
+                    getString(R.string.undoButton_stack_is_empty),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
 
         // A "Mindent töröl" gomb eseménykezelője
@@ -189,32 +465,50 @@ class EditQuestionActivity : AppCompatActivity() {
 
             // Állítsuk be az üzenetett és a címet a string erőforrásokból
             // Set the message and title from the string resources
-            deleteBuilder.setTitle(getString(
-                R.string.delete_all_dialog_title))
-            deleteBuilder.setMessage(getString(
-                R.string.delete_all_dialog_message))
+            deleteBuilder.setTitle(
+                getString(
+                    R.string.delete_all_dialog_title
+                )
+            )
+            deleteBuilder.setMessage(
+                getString(
+                    R.string.delete_all_dialog_message
+                )
+            )
 
             // Adjuk hozzá a törlés pozitív gombját(megerősítés)
             // Add a positive delete button (confirmation)
-            deleteBuilder.setPositiveButton(getString(
-                R.string.deleteBuilder_delete_button_text)) {
-                dialog,which ->
+            deleteBuilder.setPositiveButton(
+                getString(
+                    R.string.deleteBuilder_delete_button_text
+                )
+            ) { dialog, which ->
                 // Nincs Clear() függvénye
                 // There is no Clear() function.
                 binding.codeView.setText("")
 
+                // A szintaxis és a sorszám frisítésse
+                // Refresh the syntax and line numbers
+                refreshCodeView()
+
+
                 // visszajelzés a sikeres tőrlésről
                 // Feedback on successful deletion.
-                Toast.makeText(this, getString(
-                    R.string.delete_success_message),
-                    Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this, getString(
+                        R.string.delete_success_message
+                    ),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
             // Adjuk hozzá a törlés negatív gombját(mégse)
             // Add a negative delete button (cancel)
 
-            deleteBuilder.setNegativeButton(getString(
-                R.string.deleteBuilder_cancel_button_text)) {
-                dialog, which ->
+            deleteBuilder.setNegativeButton(
+                getString(
+                    R.string.cancel_button_text
+                )
+            ) { dialog, which ->
                 // nem csinálunk semmit csak bezárjuk
                 // we don't do anything and just close
                 dialog.dismiss()
@@ -228,45 +522,238 @@ class EditQuestionActivity : AppCompatActivity() {
         // The Json Format button event handler
         binding.beautifyButton.setOnClickListener {
 
+            // lekérjük a jelenlegi szöveget
+            // Get the current text
+            val currentJsonText = binding.codeView.text.toString()
+
+            // Most ellenőrizük van -e mit formázni
+            // Now we check if there is something to format
+            if (currentJsonText.isBlank()) {
+                Toast.makeText(
+                    this, getString(
+                        R.string.beautify_empty_text
+                    ),
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
+            try {
+                // Hozzunk létre egy PrettyPrint Gsonpéldányt
+                // Create a PrettyPrint Gson instance
+                val gson = GsonBuilder()
+                    .setPrettyPrinting().create()
+
+                // Értelmezük a stringet JsonElemként
+                // Parse the string as a JsonElement
+                val jsonElement = JsonParser.parseString(currentJsonText)
+
+                // Alakítsuk avissza a JsonElementett
+                // szép formázott stringgé
+                // Format the JsonElement back to a pretty-formatted string
+                val prettyJsonText = gson.toJson(jsonElement)
+
+                // Állítsuk be az új formázott szöveget
+                // Set the new pretty-formatted text
+                binding.codeView.setText(prettyJsonText)
+                // A szintaxis és a sorszám frisítésse
+                // Refresh the syntax and line numbers
+                refreshCodeView()
+
+                // Visszajelzünk a felhasználónak a formázás sikeréről
+                // Notify the user of the successful formatting
+                Toast.makeText(
+                    this, getString(
+                        R.string.beautify_success_sucess
+                    ),
+                    Toast.LENGTH_SHORT
+                ).show()
+
+            } catch (_: JsonSyntaxException) {
+                // Hiba esetén, ha a szöveg nem valid JSON
+                // hiányzik egy zárojel bármi
+                // If the text is not valid JSON
+                // missing a closing bracket or braces or any
+                Toast.makeText(
+                    this, getString(
+                        R.string.beautify_invalid_json
+                    ),
+                    Toast.LENGTH_LONG
+                ).show()
+
+            } catch (_: Exception) {
+
+                // Bármilyen más hiba esetén "Elfogyott a memória" stb stb ritka
+                // Any other errors like "Out of memory" etc etc are It is rare
+                Toast.makeText(
+                    this, getString(
+                        R.string.json_any_error_message
+                    ),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
         // A json Struktúra ellenőrzése gomb eseménykezelője
         // The Json Structure check button event handler
         binding.validateButton.setOnClickListener {
 
+            // Visszaadjuk a jelenlegi szöveget
+            // Return the current text
+            val jsonToValidate = binding.codeView.text.toString()
+
+            // ha a szöveg üres
+            // if the text is empty
+            if (jsonToValidate.isBlank()) {
+                // Írunk egy üzenettet a felhasználónak
+                // We write a message to the user
+                Toast.makeText(
+                    this, getString(
+                        R.string.validate_empty_text
+                    ),
+                    Toast.LENGTH_SHORT
+                ).show()
+                // Visszalépünk az eseménykezelőbe(setOnClickListener-be)
+                // We go back to the event handler (setOnClickListener)
+                return@setOnClickListener
+            }
+            // Kezeljük a hibákat
+            // Handle errors
+            try {
+                // Megprobáljuk értelmezni a szöveget
+                // Try to parse the text
+                JsonParser.parseString(jsonToValidate)
+
+                // Üzenünk a felhasználónak hogy minden rendben van
+                // Notify the user that everything is fine
+                Toast.makeText(
+                    this, getString(
+                        R.string.validate_success_text
+                    ),
+                    Toast.LENGTH_SHORT
+                ).show()
+
+            } catch (_: JsonSyntaxException) {
+                // Ha a parseString hibát dob, a JSON érvénytelen.
+                // If parseString throws an error, the JSON is invalid.
+                Toast.makeText(
+                    this, getString(
+                        R.string.validate_invalid_json
+                    ),
+                    Toast.LENGTH_SHORT
+                ).show()
+            } catch (_: Exception) {
+                // Bármilyen más hiba esetén "Elfogyott a memória" stb stb ritka
+                // Any other errors like "Out of memory" etc etc are It is rare
+                Toast.makeText(
+                    this, getString(
+                        R.string.json_any_error_message
+                    ),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
         // A Json fájl megnyitása gomb eseménykezelője
         // The Json file open button event handler
         binding.openFileButton.setOnClickListener {
 
+            // Elinditjuk a fájlelválasztó ablakot
+            // Start the file picker launcher
+            openFileLauncher.launch(arrayOf("application/json"))
         }
+
         // A Json fájl mentése gomb eseménykezelője
         // The Json file save button event handler
         binding.jsonFileSaveButton.setOnClickListener {
 
+            // Mielött mentenénk ellenőrizük van-e tartalom
+            // Before saving we check if there is something to save
+
+            if (binding.codeView.text.toString().isBlank()) {
+
+                // Ha nincs írunk egy üzenetett a felhasználónak
+                // If not, we write a message to the user.
+                Toast.makeText(
+                    this, getString(
+                        R.string.save_file_empty_error
+                    ),
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
+            // Ellenőrizük hogy, van e már mentett Uri-nk(Fájlunk)
+            // Check if there is already a saved Uri (file)
+
+            // Deklaráljuk a currentFileUri változót más változóban
+            // Declare the currentFileUri variable in another variable
+            val fileToSaveUri = currentFileUri
+
+            if (fileToSaveUri != null) {
+                val builder = android.app.AlertDialog.Builder(this)
+
+                // Állítsuk be az üzenetett és a címet a string erőforrásokból
+                // Set the message and title from the string resources
+                builder.setTitle(getString(R.string.overwrite_dialog_title))
+                builder.setMessage(getString(R.string.overwrite_dialog_message))
+
+                // Adjuk hozzá a mentés pozitív gombját(megerősítés)
+                // Add a positive save button (confirmation)
+                builder.setPositiveButton(
+                    getString(
+                        R.string.overwrite_button_text
+                    )
+                )
+                { dialog, which ->
+                    writeTextToFile(fileToSaveUri)
+                }
+                // Adjuk hozzá a mentés negatív gombját(mégse)
+                // Add a negative save button (cancel)
+                builder.setNegativeButton(
+                    getString(
+                        R.string.cancel_button_text
+                    )
+                )
+                { dialog, which ->
+                    dialog.dismiss()
+                }
+                builder.create().show()
+            } else {
+                // Ha még nincs fájl akkor a mentés másként funkció
+                // If there is no file yet, the save as function is used
+                createFileLauncher.launch("document.json")
+            }
         }
-        // A Json fájl mentés másként gomb eseménykezelője
-        // The Json file save as button event handler
+
+// A Json fájl mentés másként gomb eseménykezelője
+// The Json file save as button event handler
         binding.jsonFileSaveAsButton.setOnClickListener {
+            // Mielőtt mentenénk, ellenőrizzük, van-e mit menteni
+            // Before saving we check if there is something to save
+            if (binding.codeView.text.toString().isBlank()) {
+                Toast.makeText(
+                    this, getString(R.string.save_file_empty_error),
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
 
+            // Ez is a "fájl létrehozása" ablakot indítja.
+            createFileLauncher.launch("document.json")
         }
-        // A Vissza a főmenü gomb eseménykezelője
-        // The Back to main menu button event handler
+
+// A Vissza a főmenü gomb eseménykezelője
+// The Back to main menu button event handler
         binding.backToTheMainMenuButton.setOnClickListener {
+            // Létrehozunk egy szándékot (Intent), hogy elindítsuk a MainActivity-t.
+            // We create an Intent to start MainActivity.
+            val intent = Intent(this, MainActivity::class.java)
 
+            // Elinditjuk a MainActivity-t.
+            // We start MainActivity.
+            startActivity(intent)
+
+            // Bezárjuk a jelenlegi Activity-t (EditQuestionActivity).
+            // Close the current Activity (EditQuestionActivity).
+            finish()
         }
-
-
-
-
-        //TODO
-    }
-
-    // Egy segédfüggvény, ami frissíti a CodeView-et
-// a sorszámozási hiba javítására
-// A helper function that updates CodeView
-// to fix the sequence numbering error
-    private fun updateCodeViewAdapter() {
-
     }
 
 

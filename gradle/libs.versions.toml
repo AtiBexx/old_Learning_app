@@ -4,6 +4,7 @@ agp = "8.12.3"
 codeviewVersion = "1.3.9"
 #noinspection NewerVersionAvailable
 gson = "2.10.1"
+#noinspection NewerVersionAvailable
 kotlin = "2.2.20"
 coreKtx = "1.17.0"
 junit = "4.13.2"
