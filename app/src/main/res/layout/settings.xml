@@ -92,7 +92,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                        <!--Következö Gomb kérdés és válasz bevitele || Next Question and Answer Input Button-->
+                        <!--Téma választása gomb || Select Theme Button-->
                         <Button
                             android:id="@+id/selectThemeButton"
                             android:layout_width="match_parent"
@@ -114,7 +114,7 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             tools:ignore="VisualLintButtonSize,TouchTargetSizeCheck" />
-                        <!--Mentés fájlba Gomb || Save File Button-->
+                        <!--json folyamat választása gomb || Json processing Button-->
                         <Button
                             android:id="@+id/jsonProcessingButton"
                             android:layout_width="match_parent"
@@ -136,7 +136,7 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/selectThemeButton"
                             tools:ignore="VisualLintButtonSize,TouchTargetSizeCheck" />
-                        <!--Fájlok mentési helye || File saving location-->
+                        <!--Információs gomb || Information Button-->
                         <Button
                             android:id="@+id/informationButton"
                             android:layout_width="match_parent"

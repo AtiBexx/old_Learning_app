@@ -31,6 +31,7 @@
         <activity android:name=".SettingsActivity" android:exported="false" />
         <activity android:name=".CreateQuestionActivity" android:exported="false" />
         <activity android:name=".EditQuestionActivity" android:exported="false" />
+
     </application>
 
 </manifest>
