@@ -1,7 +1,5 @@
 package com.attibexx.old_learning_app
 
-import android.text.TextWatcher
-import android.text.Editable
 import android.content.ClipData
 import android.content.ClipDescription
 import android.content.ClipboardManager
@@ -9,6 +7,8 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.util.Log.isLoggable
 import android.widget.Toast
@@ -16,13 +16,15 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.toColorInt
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.attibexx.old_learning_app.databinding.ActivityEditQuestionBinding
+import com.attibexx.old_learning_app.json.JsonProcessorFactory
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonParser
 import com.google.gson.JsonSyntaxException
-import androidx.core.graphics.toColorInt
+
 
 class EditQuestionActivity : AppCompatActivity() {
 
@@ -124,7 +126,8 @@ class EditQuestionActivity : AppCompatActivity() {
         val patterns = HashMap<java.util.regex.Pattern, Int>()
         // Ez a sor a dokumentációból származik a JSON kiemeléshez
         patterns[java.util.regex.Pattern.compile(
-            "\"(.*?)\"")] = "#A3BE8C".toColorInt() // Zöld szín stringekhez || Green color for Strings
+            "\"(.*?)\""
+        )] = "#A3BE8C".toColorInt() // Zöld szín stringekhez || Green color for Strings
         binding.codeView.setSyntaxPatternsMap(patterns)
 
         // hozzáadunk egy TextWatchert hogy figyeljük a szöveg változásait.
@@ -179,42 +182,39 @@ class EditQuestionActivity : AppCompatActivity() {
      */
     private fun readTextFromFile(uri: android.net.Uri) {
 
-        val fileContentReader = StringBuilder()
-
         try {
-            // A contentResolver segítségével megnyitunk
-            // egy bemeneti adatfolyamatot.
-            // We use contentResolver to open
-            // an input stream.
-            contentResolver.openInputStream(uri)?.use { inputStream ->
-                // A BufferReader segítségével beolvassuk a szöveg tartalmát.
-                // We use BufferReader to read the text content.
-                // val fileContentReader = inputStream.bufferedReader().readText()
-                //Ezzel egyybe olvasnánk be a fájl de mi soronként fogjuk
-                // Így megelözük a memória problémákat a fájlOlvasása közben.
-                inputStream.bufferedReader().forEachLine { line ->
+            val loader = JsonProcessorFactory.create(this)
+            val questionList: List<QuestionAnswer> = loader.readJsonQuestion(uri)
 
-                    // Minden sort hozzáadunk a StringBuilderhez,
-                    // és egy sortörést is.
-                    // We add each line to the StringBuilder,
-                    // along with a newline character.
-                    /* Kell hogy sorok ne ragadjanak össze
-                    * És a végén el kell távolítani az utolsó
-                    * sortőrést ha nincs már szöveg a fájlban
-                    */
-                    fileContentReader.append(line).append('\n')
-                }
+            // Ha a betöltés sikertelen volt
+            // (üres listát adott vissza), jelezzük.
+            // If the load was unsuccessful
+            // (returned an empty list), we will notify you.
+            if (questionList.isEmpty()) {
+                Toast.makeText(this, getString(R.string.jsonParseError1), Toast.LENGTH_LONG).show()
+                return
             }
-            // A legutolsó, felesleges sortörést eltávolítjuk,
-            // ha van tartalom.
-            // We remove the last, unnecessary newline
-            // character if there is content.
-            if (fileContentReader.isNotEmpty()) {
-                fileContentReader.setLength(fileContentReader.length - 1)
+
+            // Most kérj egy MENTŐT a gyárunktól. Ezt arra használjuk,
+            // hogy az adat-objektumokat szépen formázott, olvasható szöveggé alakítsuk vissza.
+            // Now ask our factory for a RESCUE. We use this to
+            // convert the data objects back into nicely formatted, readable text.
+            val saver = JsonProcessorFactory.createSaver(this)
+            val formattedJsonString = saver.createJsonString(
+                questionList
+            )
+
+            // Beállítjuk a formázott szöveget a CodeView-ba.
+            // We set the formatted text in CodeView.
+            if (formattedJsonString != null) {
+                binding.codeView.setText(formattedJsonString)
+            } else {
+                // Ha a visszaalakítás valamiért sikertelen, jelezzük.
+                // If the conversion fails for some reason, we will let you know.
+                Toast.makeText(this, getString(R.string.beautify_invalid_json), Toast.LENGTH_LONG)
+                    .show()
+                return
             }
-            // Beállítjuk az egész tartalmat a codeViev-be
-            // Set the whole text to the codeView
-            binding.codeView.setText(fileContentReader)
 
             // A szintaxis és a sorszám frisítésse
             // Refresh the syntax and line numbers
@@ -257,17 +257,49 @@ class EditQuestionActivity : AppCompatActivity() {
      */
     private fun writeTextToFile(uri: android.net.Uri) {
         try {
-            // A contentResolver segítségével megnyitunk egy kimeneti adatfolyamatot.
-            // We use contentResolver to open an output stream.
-            contentResolver.openOutputStream(uri)?.use { outputStream ->
-                // A stream-re ráteszünk egy írót, és beleírjuk a CodeView tartalmát.
-                // We attach a writer to the stream and write the content of the CodeView
-                outputStream.writer().write(binding.codeView.text.toString())
+            val currentJsonText = binding.codeView.text.toString()
 
-                /*outputStream.bufferedWriter().use { writer ->
-                writer.write(binding.codeView.text.toString())
-            }*/
+            val questionList: List<QuestionAnswer> = try {
+                val parser = com.google.gson.Gson()
+                parser.fromJson(
+                    currentJsonText,
+                    object : com.google.gson.reflect.TypeToken<List<QuestionAnswer>>() {}.type
+                )
+            } catch (e: Exception) {
+                Toast.makeText(
+                    this, getString(R.string.error_Json_Save_Format),
+                    Toast.LENGTH_LONG
+                ).show()
+                Log.e(TAG, getString(R.string.writeTextJsonError), e)
+                return
             }
+            // használjunk JsonProcessorFactoryt
+            // Use JsonProcessorFactory
+            val saverMode = JsonProcessorFactory.createSaver(this)
+
+            // Használjuk a JsonElmentőt a végleges,
+            // formázott JSON string létrehozásához.
+            // Use JsonSave to create the final,
+            // formatted JSON string.
+            val jsonStringToSave = saverMode.createJsonString(
+                questionList
+            )
+
+            if (jsonStringToSave == null) {
+                Toast.makeText(
+                    this, getString(
+                        R.string.save_file_error
+                    ), Toast.LENGTH_LONG
+                ).show()
+                return
+            }
+
+            // Mentsük el a fájlt a uri helyére.
+            // Save the file to the uri location.
+            contentResolver.openOutputStream(uri)?.use { outputStream ->
+                outputStream.writer().write(jsonStringToSave)
+            }
+
             // Üzenünk a felhasználónak a sikeres mentésről
             // Notify the user of the successful save
 
@@ -310,7 +342,7 @@ class EditQuestionActivity : AppCompatActivity() {
     }
 
     // A gombok eseménykezelőjének a függvénye
-    // The function of the button event handler
+// The function of the button event handler
     private fun setupButtonListeners() {
 
         // Másolás vágolapra gomb eseménykezelője
@@ -373,18 +405,18 @@ class EditQuestionActivity : AppCompatActivity() {
                     // Lekérjük az első elemet a szövegböl
                     // Get the first element from the text
                     /*
-                    Az Android operációs rendszer a felhasználó által kijelölt
-                     és másolt szöveget (legyen az egyetlen szó, két sor,
-                      vagy akár egy komplett 1000 soros kód) egyetlen l
-                      ogikai egységként kezeli, és ezt az egységet teszi
-                       be a vágólap ClipData objektumának első (0-s indexű) elemébe.
-                       *
-                       The Android operating system treats the text selected and copied
-                        by the user (whether it is a single word, two lines, or
-                        even a complete 1000 lines of code) as a single logical
-                        unit, and places this unit in the first (0-indexed)
-                        element of the ClipData object of the clipboard.
-                     */
+            Az Android operációs rendszer a felhasználó által kijelölt
+             és másolt szöveget (legyen az egyetlen szó, két sor,
+              vagy akár egy komplett 1000 soros kód) egyetlen l
+              ogikai egységként kezeli, és ezt az egységet teszi
+               be a vágólap ClipData objektumának első (0-s indexű) elemébe.
+               *
+               The Android operating system treats the text selected and copied
+                by the user (whether it is a single word, two lines, or
+                even a complete 1000 lines of code) as a single logical
+                unit, and places this unit in the first (0-indexed)
+                element of the ClipData object of the clipboard.
+             */
                     val textToPaste = clipData.getItemAt(0).text.toString()
 
                     // Most beillesztjük a szöveget a codeViewbe
@@ -756,7 +788,6 @@ class EditQuestionActivity : AppCompatActivity() {
         }
     }
 
-
     // ÁllapotVáltozások kezelése a képernyő elforgatásakor
 // Handling state changes when rotating the screen
     override fun onConfigurationChanged(newConfig: Configuration) {
@@ -769,4 +800,7 @@ class EditQuestionActivity : AppCompatActivity() {
         }
     }
 }
+
+
+
 

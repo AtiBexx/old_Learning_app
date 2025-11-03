@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.attibexx.old_learning_app.databinding.ActivityCreateQuestionBinding
-import com.attibexx.old_learning_app.json.JsonSaver
+import com.attibexx.old_learning_app.json.JsonProcessorFactory
 
 
 class CreateQuestionActivity : AppCompatActivity() {
@@ -46,13 +46,6 @@ class CreateQuestionActivity : AppCompatActivity() {
     //Az a változó ami ideglenesen tárolja a JSON string-eit.
     //The variable that temporarily stores JSON strings.
     private var jsonStringToSave: String = ""
-
-    //SharedPreferences példányosítása.
-    // Erre szükségünk lesz a mentési mód olvasásához.
-    // Instantiate SharedPreferences.
-    // We'll need this to read the save mode.
-    private val prefs by lazy { getSharedPreferences("prefs", MODE_PRIVATE) }
-
 
     // A JsonSaver(Json fájl mentése) példányosítása
     // Instance of JsonSaver(Json file saving)
@@ -507,32 +500,11 @@ class CreateQuestionActivity : AppCompatActivity() {
                 }
                 // Json fájl létrehozása
                 // Create a JSON file
-                // Használjuk a MainActivity-ben definiált kulcsokat az egységességért.
-                // Let's use the keys defined in MainActivity for consistency.
-                val saverMode = prefs.getString(
-                    MainActivity.JSON_SAVER_MODE,
-                    MainActivity.MODE_SERIALIZABLE
-                )
-                val jsonString = when (saverMode) {
-                    MainActivity.MODE_SERIALIZABLE -> JsonSaver.createJsonString(questionAnswerPairs)
-                    MainActivity.MODE_MANUAL_JSON -> JsonSaver.createSimpleJsonString(
-                        questionAnswerPairs
-                    )
+                // Használjuk a JsonProcessFactoryt
+                // Use the JsonProcessFactory
+                val saverMode = JsonProcessorFactory.createSaver(this)
+                val jsonString = saverMode.createJsonString(questionAnswerPairs)
 
-                    MainActivity.MODE_GSON -> JsonSaver.createGsonString(questionAnswerPairs)
-                    MainActivity.MODE_CPP -> JsonSaver.createJsonStringWithCpp(questionAnswerPairs)
-                    else -> {
-                        //Csinálunk egy debug üzenetett is
-                        //Create a debug message as well
-                        if (isLoggable(TAG, Log.WARN)) {
-                            Log.w(
-                                TAG,
-                                "Unknown saver mode: '$saverMode', using default (Serialization)"
-                            )
-                        }
-                        JsonSaver.createJsonString(questionAnswerPairs)
-                    }
-                }
                 // Ellenőrizzük, hogy a JSON létrehozása sikeres volt-e
                 // Check if JSON creation was successful
                 if (jsonString != null) {

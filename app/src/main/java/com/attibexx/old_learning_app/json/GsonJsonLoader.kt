@@ -7,8 +7,8 @@ import com.attibexx.old_learning_app.QuestionAnswer
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken // Fontos a listákhoz!
 
-class GsonJsonLoader(private val context: Context) {
-    fun readJsonQuestion(uri: Uri): List<QuestionAnswer> {
+class GsonJsonLoader(private val context: Context) : JsonProcessorFactory.JsonQuestionLoader {
+    override fun readJsonQuestion(uri: Uri): List<QuestionAnswer> {
         val jsonGsonParser = Gson()
         try {
             val inputStream = context.contentResolver.openInputStream(uri)

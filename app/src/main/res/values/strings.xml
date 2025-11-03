@@ -134,6 +134,12 @@
     <string name="json_processing_Button">Json feldolgozó választása</string>
     <string name="informationButton">Információ</string>
     <string name="otherSettingsButton">egyéb beállítások</string>
+    <string name="select_theme_title">Téma kiválasztása</string>
+    <string name="select_json_processor">A Json feldolgozó választása</string>
+    <string name="choosenJsonProcess">A kiválasztott JSON feldolgozó: %1$s</string>
+    <string name="error_Json_Save_Format">A szöveg hibás JSON formátumú, mentés megszakítva!</string>
+    <string name="writeTextJsonError">A felhasználó által szerkesztett JSON szöveg hibás.</string>
+    <string name="language_selection_button">Nyelv választáss</string>
 
 
 </resources>

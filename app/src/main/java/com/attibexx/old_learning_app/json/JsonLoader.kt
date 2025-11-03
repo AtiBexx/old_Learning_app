@@ -8,8 +8,8 @@ import com.attibexx.old_learning_app.R
 import org.json.JSONArray
 import org.json.JSONException
 
-class JsonLoader(private val context: Context) {
-    fun readJsonQuestion(uri: Uri): List<QuestionAnswer> {
+class JsonLoader(private val context: Context) : JsonProcessorFactory.JsonQuestionLoader {
+    override fun readJsonQuestion(uri: Uri): List<QuestionAnswer> {
         // Erre a jsonParser objektumra már nincs szükség
         // val jsonParser = Json { ... }
 

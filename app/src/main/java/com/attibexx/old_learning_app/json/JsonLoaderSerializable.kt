@@ -8,8 +8,8 @@ import com.attibexx.old_learning_app.R
 import kotlinx.serialization.SerializationException
 import kotlinx.serialization.json.Json
 
-class JsonLoaderSerializable(private val context: Context) {
-    fun readJsonQuestion(uri: Uri): List<QuestionAnswer> {
+class JsonLoaderSerializable(private val context: Context) : JsonProcessorFactory.JsonQuestionLoader {
+    override fun readJsonQuestion(uri: Uri): List<QuestionAnswer> {
         val jsonParser = Json {
             //alapvető értékek || default values
             //val question: String,

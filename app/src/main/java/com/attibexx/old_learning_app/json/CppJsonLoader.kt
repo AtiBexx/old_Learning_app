@@ -7,9 +7,9 @@ import com.attibexx.old_learning_app.QuestionAnswer
 import com.attibexx.old_learning_app.R
 import java.io.IOException
 
-class CppJsonLoader(private val context: Context) {
+class CppJsonLoader(private val context: Context) : JsonProcessorFactory.JsonQuestionLoader {
 
-    fun readJsonQuestion(uri: Uri): List<QuestionAnswer> {
+    override fun readJsonQuestion(uri: Uri): List<QuestionAnswer> {
         try {
             val inputStream = context.contentResolver.openInputStream(uri)
             if (inputStream != null) {

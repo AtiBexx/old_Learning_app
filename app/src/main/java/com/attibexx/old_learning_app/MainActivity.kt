@@ -21,10 +21,7 @@ import androidx.core.net.toUri
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.attibexx.old_learning_app.databinding.ActivityMainBinding
-import com.attibexx.old_learning_app.json.CppJsonLoader
-import com.attibexx.old_learning_app.json.GsonJsonLoader
-import com.attibexx.old_learning_app.json.JsonLoader
-import com.attibexx.old_learning_app.json.JsonLoaderSerializable
+import com.attibexx.old_learning_app.json.JsonProcessorFactory
 
 
 class MainActivity : AppCompatActivity() {
@@ -32,22 +29,6 @@ class MainActivity : AppCompatActivity() {
     //Variables declaration
     //Binding osztály példányosítása
     private lateinit var binding: ActivityMainBinding
-
-    //1. A JsonBetöltö példánya (Kotlinx.Serialization alapú)
-    //1. Json loader instance (Kotlinx.Serialization based)
-    private val jsonLoaderSerializable by lazy { JsonLoaderSerializable(this) }
-
-    // 2. A "sima" org.json alapú
-    // 2. The "plain" org.json based
-    private val jsonLoader by lazy { JsonLoader(this) }
-
-    // 3. A Gson alapú
-    // 3. The Gson based
-    private val gsonJsonLoader by lazy { GsonJsonLoader(this) }
-
-    // 4. A C++/JNI alapú
-    // 4. The C++/JNI based
-    private val cppJsonLoader by lazy { CppJsonLoader(this) }
 
     //aktuális kérdés indexe
     //index of current question
@@ -73,7 +54,7 @@ class MainActivity : AppCompatActivity() {
 
     //A prefs használatához példányosítás
     //Toast üzenetek állapotainak elmentésére ||
-    private val prefs by lazy { getSharedPreferences("prefs", MODE_PRIVATE) }
+    private val prefs by lazy { getSharedPreferences(JsonProcessorFactory.PREFS_FILE_NAME, MODE_PRIVATE) }
     //a by lazy miatt nem kell elhelyzni az oncreate-ban
     //because of by lazy it doesn't need to be placed in oncreate
     /*private lateinit var prefs: SharedPreferences
@@ -98,9 +79,6 @@ Used when you need a "static" variable or function in Kotlin.
   MyClass.myStaticFunc()
 */
     companion object {
-        //Json Saver MOde létrehozása
-        //Json Saver Mode creation
-        const val JSON_SAVER_MODE = "json_saver_mode"
         // Logoláshoz használt címke
         // Label used for logging
         private const val TAG = "MainActivity"
@@ -111,16 +89,6 @@ Used when you need a "static" variable or function in Kotlin.
         //prefs-hez tartozó kulcs || prefs key
         private const val PREF_PERMISSION_TOAST_SHOWN = "permission_toast_shown"
 
-        // JSON Feldolgozó Módok Kulcsai || JSON Loader Mode Keys
-        // Ezt a kulcsot használjuk a SharedPreferences-ben a mód mentésére.
-        // Use this key to store the mode in the SharedPreferences.
-        const val JSON_LOADER_MODE = "json_loader_mode"
-
-        // Ezek az értékek, amiket a kulcs alatt tárolunk
-        const val MODE_SERIALIZABLE = "serializable"
-        const val MODE_MANUAL_JSON = "manual_json"
-        const val MODE_GSON = "gson"
-        const val MODE_CPP = "cpp"
     }
 
     //onCreate függvény
@@ -253,30 +221,8 @@ Used when you need a "static" variable or function in Kotlin.
     //A JSON választható betöltö módok függvénye
     //JSON depends on the available loading modes
     private fun loadQuestionWithSelectedParser(uri: Uri): List<QuestionAnswer> {
-        //Olvassuk ki a mentett módott a SharedPerferences-ből.
-        //Alapértelmezett lesz a 'serializable' mód ha nincs kiválasztva semmi.
-        //Read the selected mode from the SharedPreferences.
-        //The default mode will be 'serializable' if nothing is selected.
-        val selectedMode = prefs.getString(JSON_LOADER_MODE, MODE_SERIALIZABLE)
-        if (Log.isLoggable(TAG, Log.DEBUG)) {
-            Log.d(TAG, "JsonLoader of Selected mode: $selectedMode")
-        }
-        //A when segítségével listázuk a módokat
-        //Use when to list the modes
-        return when (selectedMode) {
-            MODE_SERIALIZABLE -> jsonLoaderSerializable.readJsonQuestion(uri)
-            MODE_MANUAL_JSON -> jsonLoader.readJsonQuestion(uri)
-            MODE_GSON -> gsonJsonLoader.readJsonQuestion(uri)
-            MODE_CPP -> cppJsonLoader.readJsonQuestion(uri)
-            else -> {
-                Log.w(
-                    "MainActivity",
-                    "Unknown JSON loader mode: '$selectedMode' using 'serializable'"
-                )
-                jsonLoaderSerializable.readJsonQuestion(uri)
-            }
-        }
-
+        val loader = JsonProcessorFactory.create(this)
+        return loader.readJsonQuestion(uri)
     }
 
     //Az engedély ellenőrzése
