@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Inlärningsapp</string>
+    <string name="wrong_answer_with_correct_answer">Fel svar. Rätt svar är: %1$s</string>
+    <string name="questionCounter_format">Fråga: %1$d/%2$d</string>
+    <string name="questionTextHint">Frågan kommer att visas här</string>
+    <string name="answerInputHint">Skriv svaret/svaren här</string>
+    <string name="feedbackTetxtHint">Rätt svar kommer att vara här!</string>
+    <string name="previousQuestionButtonHint">Föregående fråga</string>
+    <string name="nextQuestionButtonHint">Nästa fråga</string>
+    <string name="checkAnswerButtonText" tools:ignore="Typos">Kontrollera svar</string>
+    <string name="restartQuestionButtonText">Starta om frågor</string>
+    <string name="jsonFilesLoadingText">Ladda Json-fil</string>
+    <string name="EditQuestionButtonText">Redigera frågor</string>
+    <string name="CreateQuestionsButtonText">Skapa frågor</string>
+    <string name="settingsButtonText">Inställningar</string>
+    <string name="checkStoragePermissionText1">Behörighet beviljad!</string>
+    <string name="checkStoragePermissionText2">Behörighet nekad!</string>
+    <string name="permissionRequest_ResultText2">Behörigheter krävs för att komma åt filer</string>
+    <string name="noQuestionsText">Inga frågor inlästa</string>
+    <string name="invalid_question_Index">Fel: Ogiltigt frågeindex</string>
+    <string name="inputStreamNullText">Kunde inte öppna filen eftersom inputStream var null</string>
+    <string name="jsonParseError1">IO-fel vid läsning av JSON</string>
+    <string name="jsonParseError2">JSON-bearbetningsfel</string>
+    <string name="filePickerLauncherLoadedQuestionText">%1$d frågor inlästa.</string>
+    <string name="filepickerLauncherErrorText">Kunde inte läsa frågor från filen, eller så är filen tom.</string>
+    <string name="filepickerLauncherNofileText">Ingen fil vald</string>
+    <string name="rightAnswer">Rätt svar!</string>
+    <string name="all_answered">Inga fler frågor!</string>
+    <string name="no_questions_loaded_for_checking">Inga frågor inlästa för kontroll!</string>
+    <string name="error_checking_answer">Ett fel uppstod vid kontroll av svaret!</string>
+    <string name="questions_restarted">Frågorna har startats om framgångsrikt!</string>
+    <string name="no_questions_to_restart">Inga frågor att starta om.\n</string>
+    <string name="no_questions_to_navigate">Inga frågor att navigera!</string>
+    <string name="already_at_last_question">Du är redan på sista frågan.</string>
+    <string name="already_at_first_question">Du är på första frågan, du kan inte gå tillbaka.</string>
+    <string name="answerQuestionInputHint">Ange frågorna och svaren här efter varandra.</string>
+    <string name="currentStatus">Nuvarande status: Anger fråga</string>
+    <string name="enter_next_question_answer_buttonText">Ange fråga/svar</string>
+    <string name="saveFileButtonText">Spara till fil</string>
+    <string name="allDataDelete">Radera all inmatad data</string>
+    <string name="backToTheMainMenuText">Tillbaka till huvudmenyn</string>
+    <string name="create_question_status_enter_question">Ange fråga:</string>
+    <string name="create_question_button_next_to_answers">Vidare till svar</string>
+    <string name="create_question_hint_enter_question">Vänligen skriv frågan här…</string>
+    <string name="create_question_status_enter_answers_for" tools:ignore="Typos">Ange svar för denna fråga: \"%1$s\"</string>
+    <string name="create_question_button_save_answers_and_next_q">Spara svar och ny fråga</string>
+    <string name="create_question_hint_enter_answers_csv">Vänligen ange det/de korrekta svaret/svaren, separerade med kommatecken…</string>
+    <string name="create_question_answer_pair_saved">Fråge-svar-par sparat! Totalt: %1$d</string>
+    <string name="create_question_please_enter_something">Vänligen ange något!</string>
+    <string name="create_question_error_incomplete_pair">Fel: Frågan eller svaren är ofullständiga för att spara.</string>
+    <string name="create_question_nothing_to_save">Inget att spara. Du har inte angett något.</string>
+    <string name="create_question_last_pending_pair_saved_toast">Det sista väntande fråge-svar-paret har lagts till för att sparas.</string>
+    <string name="create_question_please_provide_answers_for_current_q_before_saving">Vänligen ange svaren för den aktuella frågan innan du sparar!</string>
+    <string name="createquestion_press_next_to_add_current_question_first">Vänligen tryck på \'Nästa\' för att registrera den aktuella frågan innan du sparar!</string>
+    <string name="create_question_add_answers_for_this_question_too">Vänligen ange även svaret/svaren för denna fråga. (Tryck sedan på nästa-knappen)</string>
+    <string name="create_question_nothing_to_save_final">Ingen data att spara.</string>
+    <string name="create_question_error_creating_json">Fel vid skapande av JSON-fil: %1$s</string>
+    <string name="wallpaper_image_description">Papegojor</string>
+    <string name="appVersion">LearningApp v1.0</string>
+    <string name="question_counter_empty_state">0/0</string>
+    <string name="create_question_json_file_created">Json-filen har skapats framgångsrikt!</string>
+    <string name="Create_Question_Save_Cancel_Json">Spara avbröts</string>
+    <string name="create_question_all_data_cleared_toast">All tidigare inmatad data har raderats.</string>
+    <string name="create_question_nothing_to_delete">Inget att radera.\nDet fanns inget sparat\nfråge-svar-par i inmatningen.</string>
+    <string name="create_question_delete_confirmation_title">Bekräftelse</string>
+    <string name="create_question_delete_confirmation_message">Är du säker på att du vill radera\nalla tidigare inmatade\nfråge- och svarspar?</string>
+    <string name="create_question_delete_confirmation_positive_button">Radera</string>
+    <string name="create_question_delete_confirmation_negative_button">Avbryt</string>
+    <string name="jsonEditHint">Här kommer frågorna\noch svaren att vara\ni Json-format:\n\n
+      [\n
+    {
+        \n\"question\": \"___________?\",
+       \n\"rightAnswers\": [\"_____________\"],
+        \n\"answered\": false
+  \n},
+    \n{
+        \n\"question\": \"_______________?\",
+        \n\"rightAnswers\": [\"_________\", \"___________\"],
+        \n\"answered\": false
+    \n}\n
+        ]
+</string>
+    <string name="edit_activity_openFileJson">Öppna Json-fil</string>
+    <string name="edit_Activity_Json_Validate">Validera Json-struktur</string>
+    <string name="edit_Activity_JsonPretty">Formatera Json</string>
+    <string name="edit_activity_PasteButton">Klistra in från urklipp</string>
+    <string name="edit_Activity_copyButton">Kopiera till urklipp</string>
+    <string name="edit_Activity_JsonSaveButton">Spara (JSON)</string>
+    <string name="edit_Activity_jsonFileAsSaveButton">Spara som (JSON)</string>
+    <string name="ClipBoard_text">Koden har kopierats till urklipp</string>
+    <string name="Clipdata_copied_code">Kod kopierad till urklipp.</string>
+    <string name="ClipBoard_success_message">Inklistrad från urklipp</string>
+    <string name="paste_not_text_message">Urklipp innehåller inte text</string>
+    <string name="Clipboard_paste_no_data_message">Urklipp är tomt</string>
+    <string name="delete_all_dialog_title">Är du säker på att du vill radera allt?</string>
+    <string name="delete_all_dialog_message">Denna åtgärd kan inte ångras. Allt innehåll kommer att förloras.</string>
+    <string name="delete_success_message">Innehållet har raderats.</string>
+    <string name="deleteBuilder_delete_button_text">Radera</string>
+    <string name="cancel_button_text">Avbryt</string>
+    <string name="ecit_question_undo_button">Ångra</string>
+    <string name="beautify_empty_text">Inget att formatera, filen är tom!</string>
+    <string name="json_any_error_message">Ett fel uppstod under processen!</string>
+    <string name="beautify_invalid_json">Fel: Texten är inte giltig JSON!\nEn hakparentes eller något annat saknas.</string>
+    <string name="beautify_success_sucess">JSON-filen har formaterats framgångsrikt.</string>
+    <string name="validate_empty_text">Inget att validera!\nFilen är tom.</string>
+    <string name="validate_success_text">JSON-strukturen är giltig!</string>
+    <string name="validate_invalid_json">Fel: JSON-strukturen är ogiltig!</string>
+    <string name="file_read_success">Filen öppnades framgångsrikt.</string>
+    <string name="open_file_read_error">Ett fel uppstod vid öppning av filen!</string>
+    <string name="save_file_error">Ett fel uppstod vid sparande av filen.</string>
+    <string name="save_file_success">Filen sparades framgångsrikt.</string>
+    <string name="save_file_empty_error">Inget att spara, redigeraren är tom!</string>
+    <string name="overwrite_dialog_title">Skriv över fil</string>
+    <string name="overwrite_dialog_message">Är du säker på att du vill skriva över den befintliga filen? Denna åtgärd kan inte ångras.</string>
+    <string name="overwrite_button_text">Skriv över</string>
+    <string name="undoButton_stack_is_empty">Inget att ångra</string>
+    <string name="settings_select_Theme_Button">Välj tema</string>
+    <string name="json_processing_Button">Välj Json-processor</string>
+    <string name="informationButton">Information</string>
+    <string name="otherSettingsButton">Andra inställningar</string>
+    <string name="select_theme_title">Välj tema</string>
+    <string name="select_json_processor">Välj Json-processor</string>
+    <string name="choosenJsonProcess">Vald JSON-processor: %1$s</string>
+    <string name="error_Json_Save_Format">Texten har ett ogiltigt JSON-format, spara avbröts!</string>
+    <string name="writeTextJsonError">JSON-texten som redigerats av användaren är ogiltig.</string>
+    <string name="language_selection_button">Välj språk</string>
+    <string name="information_title">Information</string>
+    <string name="information_message">Detta är en inlärningsstödsapplikation\nsom låter dig skapa och svara på frågor.\nMålet är att effektivt tillägna sig läroplanen\ngenom repetition.\nLearningApp\nVersion: 1.0\nSkapad av: Attibexx\n</string>
+    <string name="select_language_title">Välj språk: %1$s</string>
+    <string name="other_settings_title">Andra inställningar</string>
+    <string name="setting_enable_animations">Aktivera animationer</string>
+    <string name="setting_enable_hints">Aktivera ledtrådar</string>
+    <string name="button_save">Spara</string>
+    <string name="zoom_Button_Enable_hints">Aktivera zoom</string>
+    <string name="settings_saved">Inställningar sparade</string>
+    <string name="hint_on" />
+    <string name="pruntyiContentDesc">Prüntyi undulaten</string>
+    <string name="pakitoContentDescr">Pákító den gröna papegojan</string>
+</resources>

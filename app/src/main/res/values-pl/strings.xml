@@ -1,0 +1,139 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Learning_App</string>
+    <string name="wrong_answer_with_correct_answer">Błędna odpowiedź. Poprawna odpowiedź: %1$s</string>
+    <string name="questionCounter_format">Pytanie: %1$d/%2$d</string>
+    <string name="questionTextHint">Pytanie pojawi się tutaj</string>
+    <string name="answerInputHint">Wpisz tutaj odpowiedź/odpowiedzi</string>
+    <string name="feedbackTetxtHint">Poprawna odpowiedź będzie tutaj!</string>
+    <string name="previousQuestionButtonHint">Poprzednie pytanie</string>
+    <string name="nextQuestionButtonHint">Następne pytanie</string>
+    <string name="checkAnswerButtonText" tools:ignore="Typos">Sprawdź odpowiedź/odpowiedzi</string>
+    <string name="restartQuestionButtonText">Zrestartuj pytania</string>
+    <string name="jsonFilesLoadingText">Wczytywanie pliku Json</string>
+    <string name="EditQuestionButtonText">Edytuj pytania</string>
+    <string name="CreateQuestionsButtonText">Utwórz pytania</string>
+    <string name="settingsButtonText">Ustawienia</string>
+    <string name="checkStoragePermissionText1">Uprawnienie przyznane!</string>
+    <string name="checkStoragePermissionText2">Uprawnienie odrzucone!</string>
+    <string name="permissionRequest_ResultText2">Wymagane uprawnienia do dostępu do plików</string>
+    <string name="noQuestionsText">Brak wczytanych pytań</string>
+    <string name="invalid_question_Index">Błąd: Nieprawidłowy indeks pytania</string>
+    <string name="inputStreamNullText">Nie udało się otworzyć pliku, ponieważ inputStream był null</string>
+    <string name="jsonParseError1">Błąd IO podczas odczytu JSON</string>
+    <string name="jsonParseError2">Błąd przetwarzania JSON</string>
+    <string name="filePickerLauncherLoadedQuestionText">Wczytano %1$d pytań.</string>
+    <string name="filepickerLauncherErrorText">Nie udało się odczytać pytań z pliku lub plik jest pusty.</string>
+    <string name="filepickerLauncherNofileText">Nie wybrano pliku</string>
+    <string name="rightAnswer">Poprawna odpowiedź!</string>
+    <string name="all_answered">Nie ma więcej pytań!</string>
+    <string name="no_questions_loaded_for_checking">Brak wczytanych pytań do sprawdzenia!</string>
+    <string name="error_checking_answer">Wystąpił błąd podczas sprawdzania odpowiedzi!</string>
+    <string name="questions_restarted">Pytania zostały pomyślnie zrestartowane!</string>
+    <string name="no_questions_to_restart">Brak pytań do zrestartowania.\n</string>
+    <string name="no_questions_to_navigate">Brak pytań do nawigacji!</string>
+    <string name="already_at_last_question">Jesteś już przy ostatnim pytaniu.</string>
+    <string name="already_at_first_question">Jesteś przy pierwszym pytaniu, nie możesz cofnąć się.</string>
+    <string name="answerQuestionInputHint">Wpisz tutaj pytania i odpowiedzi kolejno.</string>
+    <string name="currentStatus">Aktualny status: Wprowadzanie pytania</string>
+    <string name="enter_next_question_answer_buttonText">Wprowadzenie pytania/odpowiedzi</string>
+    <string name="saveFileButtonText">Zapisz do pliku</string>
+    <string name="allDataDelete">Usuń wszystkie dotychczas wprowadzone dane</string>
+    <string name="backToTheMainMenuText">Powrót do menu głównego</string>
+    <string name="create_question_status_enter_question">Podaj pytanie:</string>
+    <string name="create_question_button_next_to_answers">Przejdź do odpowiedzi</string>
+    <string name="create_question_hint_enter_question">Proszę wpisz tutaj pytanie…</string>
+    <string name="create_question_status_enter_answers_for" tools:ignore="Typos">Podaj odpowiedź/odpowiedzi dla tego pytania: \"%1$s\"</string>
+    <string name="create_question_button_save_answers_and_next_q">Zapisz odpowiedzi i nowe pytanie</string>
+    <string name="create_question_hint_enter_answers_csv">Proszę wpisz poprawną odpowiedź/odpowiedzi oddzielone przecinkami…</string>
+    <string name="create_question_answer_pair_saved">Para pytanie-odpowiedź zapisana! Łącznie: %1$d</string>
+    <string name="create_question_please_enter_something">Proszę wpisz coś!</string>
+    <string name="create_question_error_incomplete_pair">Błąd: Pytanie lub odpowiedzi są niekompletne do zapisania.</string>
+    <string name="create_question_nothing_to_save">Nie ma nic do zapisania. Nic nie wpisałeś.</string>
+    <string name="create_question_last_pending_pair_saved_toast">Ostatnia para pytanie-odpowiedź dodana do zapisania.</string>
+    <string name="create_question_please_provide_answers_for_current_q_before_saving">Proszę podaj również odpowiedzi dla bieżącego pytania przed zapisaniem!</string>
+    <string name="createquestion_press_next_to_add_current_question_first">Proszę naciśnij przycisk \'Dalej\', aby zarejestrować bieżące pytanie przed zapisaniem!</string>
+    <string name="create_question_add_answers_for_this_question_too">Proszę podaj również odpowiedź/odpowiedzi dla tego pytania. (Następnie naciśnij przycisk dalej)</string>
+    <string name="create_question_nothing_to_save_final">Brak danych, nie ma nic do zapisania.</string>
+    <string name="create_question_error_creating_json">Błąd podczas tworzenia pliku JSON: %1$s</string>
+    <string name="wallpaper_image_description">Papugi</string>
+    <string name="appVersion">LearningApp v1.0</string>
+    <string name="question_counter_empty_state">0/0</string>
+    <string name="create_question_json_file_created">Plik Json został pomyślnie utworzony!</string>
+    <string name="Create_Question_Save_Cancel_Json">Zapisywanie anulowane</string>
+    <string name="create_question_all_data_cleared_toast">Wszystkie dotychczas wprowadzone dane zostały usunięte.</string>
+    <string name="create_question_nothing_to_delete">Nie ma nic do usunięcia.\nNie było zapisanych par\npytanie-odpowiedź w wejściu.</string>
+    <string name="create_question_delete_confirmation_title">Potwierdzenie</string>
+    <string name="create_question_delete_confirmation_message">Czy na pewno chcesz usunąć\nwszystkie dotychczas wprowadzone\npytania i pary odpowiedzi?</string>
+    <string name="create_question_delete_confirmation_positive_button">Usuń</string>
+    <string name="create_question_delete_confirmation_negative_button">Anuluj</string>
+    <string name="jsonEditHint">Tutaj będą pytania\ni odpowiedzi\nw formacie Json:\n\n
+      [\n
+    {
+        \n\"question\": \"___________?\",
+       \n\"rightAnswers\": [\"_____________\"],
+        \n\"answered\": false
+  \n},
+    \n{
+        \n\"question\": \"_______________?\",
+        \n\"rightAnswers\": [\"_________\", \"___________\"],
+        \n\"answered\": false
+    \n}\n
+        ]
+</string>
+    <string name="edit_activity_openFileJson">Otwórz plik Json</string>
+    <string name="edit_Activity_Json_Validate">Sprawdź strukturę Json</string>
+    <string name="edit_Activity_JsonPretty">Formatowanie_Json</string>
+    <string name="edit_activity_PasteButton">Wklej ze schowka</string>
+    <string name="edit_Activity_copyButton">Kopiuj do schowka</string>
+    <string name="edit_Activity_JsonSaveButton">Zapisz(JSON)</string>
+    <string name="edit_Activity_jsonFileAsSaveButton">Zapisz jako(JSON)</string>
+    <string name="ClipBoard_text">Kod skopiowany do schowka</string>
+    <string name="Clipdata_copied_code">Kod skopiowany do schowka.</string>
+    <string name="ClipBoard_success_message">Wklejono ze schowka</string>
+    <string name="paste_not_text_message">W schowku nie ma tekstu</string>
+    <string name="Clipboard_paste_no_data_message">Schowek jest pusty</string>
+    <string name="delete_all_dialog_title">Czy na pewno chcesz usunąć wszystko?</string>
+    <string name="delete_all_dialog_message">Ta operacja jest nieodwracalna. Cała zawartość zostanie utracona.</string>
+    <string name="delete_success_message">Zawartość została usunięta.</string>
+    <string name="deleteBuilder_delete_button_text">Usuń</string>
+    <string name="cancel_button_text">Anuluj</string>
+    <string name="ecit_question_undo_button">Cofnij</string>
+    <string name="beautify_empty_text">Nie ma nic do formatowania, plik jest pusty!</string>
+    <string name="json_any_error_message">Wystąpił błąd podczas procesu!</string>
+    <string name="beautify_invalid_json">Błąd: Tekst nie jest prawidłowym JSON!\nBrakuje nawiasu lub czegoś innego.</string>
+    <string name="beautify_success_sucess">Plik JSON został pomyślnie sformatowany.</string>
+    <string name="validate_empty_text">Nie ma nic do sprawdzenia!\nPlik jest pusty.</string>
+    <string name="validate_success_text">Struktura JSON jest prawidłowa!</string>
+    <string name="validate_invalid_json">Błąd: Struktura JSON jest nieprawidłowa!</string>
+    <string name="file_read_success">Plik został pomyślnie otwarty.</string>
+    <string name="open_file_read_error">Wystąpił błąd podczas otwierania pliku!</string>
+    <string name="save_file_error">Wystąpił błąd podczas zapisywania pliku.</string>
+    <string name="save_file_success">Plik został pomyślnie zapisany.</string>
+    <string name="save_file_empty_error">Nie ma nic do zapisania, edytor jest pusty!</string>
+    <string name="overwrite_dialog_title">Nadpisz plik</string>
+    <string name="overwrite_dialog_message">Czy na pewno chcesz nadpisać istniejący plik? Ta operacja jest nieodwracalna.</string>
+    <string name="overwrite_button_text">Nadpisz</string>
+    <string name="undoButton_stack_is_empty">Nie ma nic do cofnięcia</string>
+    <string name="settings_select_Theme_Button">Wybór motywu</string>
+    <string name="json_processing_Button">Wybór procesora Json</string>
+    <string name="informationButton">Informacja</string>
+    <string name="otherSettingsButton">inne ustawienia</string>
+    <string name="select_theme_title">Wybór motywu</string>
+    <string name="select_json_processor">Wybór procesora Json</string>
+    <string name="choosenJsonProcess">Wybrany procesor JSON: %1$s</string>
+    <string name="error_Json_Save_Format">Tekst ma nieprawidłowy format JSON, zapisywanie anulowane!</string>
+    <string name="writeTextJsonError">Tekst JSON edytowany przez użytkownika jest nieprawidłowy.</string>
+    <string name="language_selection_button">Wybór języka</string>
+    <string name="information_title">Informacja</string>
+    <string name="information_message">To jest aplikacja wspierająca naukę,\nktóra umożliwia tworzenie pytań\ni udzielanie odpowiedzi.\nCelem jest efektywne opanowanie\nmateriału edukacyjnego\npoprzez powtarzanie.\nLearningApp\nWersja: 1.0\nAutor: Attibexx\n</string>
+    <string name="select_language_title">Wybór języka: %1$s</string>
+    <string name="other_settings_title">Inne ustawienia</string>
+    <string name="setting_enable_animations">Włącz animacje</string>
+    <string name="setting_enable_hints">Włącz podpowiedzi</string>
+    <string name="button_save">Zapisz</string>
+    <string name="zoom_Button_Enable_hints">Włącz powiększenie</string>
+    <string name="settings_saved">Ustawienia zapisane</string>
+    <string name="hint_on" />
+    <string name="pruntyiContentDesc">Prüntyi falista papużka</string>
+    <string name="pakitoContentDescr">Pákító zielona papuga</string>
+</resources>

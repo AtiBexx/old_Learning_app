@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Oppimissovellus</string>
+    <string name="wrong_answer_with_correct_answer">Väärä vastaus. Oikea vastaus on: %1$s</string>
+    <string name="questionCounter_format">Kysymys: %1$d/%2$d</string>
+    <string name="questionTextHint">Kysymys ilmestyy tähän</string>
+    <string name="answerInputHint">Kirjoita vastaus/vastaukset tähän</string>
+    <string name="feedbackTetxtHint">Oikea vastaus on täällä!</string>
+    <string name="previousQuestionButtonHint">Edellinen kysymys</string>
+    <string name="nextQuestionButtonHint">Seuraava kysymys</string>
+    <string name="checkAnswerButtonText" tools:ignore="Typos">Tarkista vastaus/vastaukset</string>
+    <string name="restartQuestionButtonText">Aloita kysymykset alusta</string>
+    <string name="jsonFilesLoadingText">Lataa Json-tiedosto</string>
+    <string name="EditQuestionButtonText">Muokkaa kysymyksiä</string>
+    <string name="CreateQuestionsButtonText">Luo kysymyksiä</string>
+    <string name="settingsButtonText">Asetukset</string>
+    <string name="checkStoragePermissionText1">Lupa myönnetty!</string>
+    <string name="checkStoragePermissionText2">Lupa evätty!</string>
+    <string name="permissionRequest_ResultText2">Tiedostojen käyttöön tarvitaan luvat</string>
+    <string name="noQuestionsText">Ei ladattuja kysymyksiä</string>
+    <string name="invalid_question_Index">Virhe: Virheellinen kysymysindeksi</string>
+    <string name="inputStreamNullText">Tiedoston avaaminen epäonnistui, koska inputStream oli null</string>
+    <string name="jsonParseError1">I/O-virhe JSON-lukemisen aikana</string>
+    <string name="jsonParseError2">JSON-käsittelyvirhe</string>
+    <string name="filePickerLauncherLoadedQuestionText">%1$d kysymystä ladattu.</string>
+    <string name="filepickerLauncherErrorText">Kysymysten lukeminen tiedostosta epäonnistui, tai tiedosto on tyhjä.</string>
+    <string name="filepickerLauncherNofileText">Ei valittua tiedostoa</string>
+    <string name="rightAnswer">Oikea vastaus!</string>
+    <string name="all_answered">Ei enää kysymyksiä!</string>
+    <string name="no_questions_loaded_for_checking">Ei ladattuja kysymyksiä tarkistettavaksi!</string>
+    <string name="error_checking_answer">Virhe vastauksen tarkistuksessa!</string>
+    <string name="questions_restarted">Kysymykset on aloitettu onnistuneesti alusta!</string>
+    <string name="no_questions_to_restart">Ei kysymyksiä aloitettavaksi alusta.\n</string>
+    <string name="no_questions_to_navigate">Ei kysymyksiä navigoitavaksi!</string>
+    <string name="already_at_last_question">Olet jo viimeisessä kysymyksessä.</string>
+    <string name="already_at_first_question">Olet ensimmäisessä kysymyksessä, et voi mennä taaksepäin.</string>
+    <string name="answerQuestionInputHint">Syötä kysymykset ja vastaukset tähän peräkkäin.</string>
+    <string name="currentStatus">Nykyinen tila: Syötetään kysymystä</string>
+    <string name="enter_next_question_answer_buttonText">Syötä kysymys/vastaus</string>
+    <string name="saveFileButtonText">Tallenna tiedostoon</string>
+    <string name="allDataDelete">Poista kaikki syötetyt tiedot</string>
+    <string name="backToTheMainMenuText">Palaa päävalikkoon</string>
+    <string name="create_question_status_enter_question">Syötä kysymys:</string>
+    <string name="create_question_button_next_to_answers">Siirry vastauksiin</string>
+    <string name="create_question_hint_enter_question">Kirjoita kysymys tähän…</string>
+    <string name="create_question_status_enter_answers_for" tools:ignore="Typos">Syötä vastaus/vastaukset tähän kysymykseen: \"%1$s\"</string>
+    <string name="create_question_button_save_answers_and_next_q">Tallenna vastaukset ja uusi kysymys</string>
+    <string name="create_question_hint_enter_answers_csv">Syötä oikea/oikeat vastaus/vastaukset pilkulla erotettuna…</string>
+    <string name="create_question_answer_pair_saved">Kysymys-vastaus-pari tallennettu! Yhteensä: %1$d</string>
+    <string name="create_question_please_enter_something">Syötä jotain!</string>
+    <string name="create_question_error_incomplete_pair">Virhe: Kysymys tai vastaukset ovat puutteellisia tallentamista varten.</string>
+    <string name="create_question_nothing_to_save">Ei mitään tallennettavaa. Et syöttänyt mitään.</string>
+    <string name="create_question_last_pending_pair_saved_toast">Viimeinen odottava kysymys-vastaus-pari on lisätty tallennukseen.</string>
+    <string name="create_question_please_provide_answers_for_current_q_before_saving">Anna vastaukset nykyiseen kysymykseen ennen tallentamista!</string>
+    <string name="createquestion_press_next_to_add_current_question_first">Paina \'Seuraava\' tallentaaksesi nykyisen kysymyksen ennen tallennusta!</string>
+    <string name="create_question_add_answers_for_this_question_too">Anna myös vastaus/vastaukset tähän kysymykseen. (Paina sitten seuraava-painiketta)</string>
+    <string name="create_question_nothing_to_save_final">Ei tallennettavia tietoja.</string>
+    <string name="create_question_error_creating_json">Virhe JSON-tiedostoa luotaessa: %1$s</string>
+    <string name="wallpaper_image_description">Papukaijat</string>
+    <string name="appVersion">LearningApp v1.0</string>
+    <string name="question_counter_empty_state">0/0</string>
+    <string name="create_question_json_file_created">Json-tiedosto on luotu onnistuneesti!</string>
+    <string name="Create_Question_Save_Cancel_Json">Tallennus peruutettu</string>
+    <string name="create_question_all_data_cleared_toast">Kaikki aiemmin syötetyt tiedot on poistettu.</string>
+    <string name="create_question_nothing_to_delete">Ei mitään poistettavaa.\nSyötteessä ei ollut tallennettua\nkysymys-vastaus-paria.</string>
+    <string name="create_question_delete_confirmation_title">Vahvistus</string>
+    <string name="create_question_delete_confirmation_message">Haluatko varmasti poistaa\nkaikki aiemmin syötetyt\nkysymys- ja vastausparit?</string>
+    <string name="create_question_delete_confirmation_positive_button">Poista</string>
+    <string name="create_question_delete_confirmation_negative_button">Peruuta</string>
+    <string name="jsonEditHint">Tässä ovat kysymykset\nja vastaukset\nJson-muodossa:\n\n
+      [\n
+    {
+        \n\"question\": \"___________?\",
+       \n\"rightAnswers\": [\"_____________\"],
+        \n\"answered\": false
+  \n},
+    \n{
+        \n\"question\": \"_______________?\",
+        \n\"rightAnswers\": [\"_________\", \"___________\"],
+        \n\"answered\": false
+    \n}\n
+        ]
+</string>
+    <string name="edit_activity_openFileJson">Avaa Json-tiedosto</string>
+    <string name="edit_Activity_Json_Validate">Vahvista Json-rakenne</string>
+    <string name="edit_Activity_JsonPretty">Muotoile Json</string>
+    <string name="edit_activity_PasteButton">Liitä leikepöydältä</string>
+    <string name="edit_Activity_copyButton">Kopioi leikepöydälle</string>
+    <string name="edit_Activity_JsonSaveButton">Tallenna (JSON)</string>
+    <string name="edit_Activity_jsonFileAsSaveButton">Tallenna nimellä (JSON)</string>
+    <string name="ClipBoard_text">Koodi on kopioitu leikepöydälle</string>
+    <string name="Clipdata_copied_code">Koodi kopioitu leikepöydälle.</string>
+    <string name="ClipBoard_success_message">Liitetty leikepöydältä</string>
+    <string name="paste_not_text_message">Leikepöytä ei sisällä tekstiä</string>
+    <string name="Clipboard_paste_no_data_message">Leikepöytä on tyhjä</string>
+    <string name="delete_all_dialog_title">Haluatko varmasti poistaa kaiken?</string>
+    <string name="delete_all_dialog_message">Tätä toimintoa ei voi peruuttaa. Kaikki sisältö menetetään.</string>
+    <string name="delete_success_message">Sisältö on poistettu.</string>
+    <string name="deleteBuilder_delete_button_text">Poista</string>
+    <string name="cancel_button_text">Peruuta</string>
+    <string name="ecit_question_undo_button">Kumoa</string>
+    <string name="beautify_empty_text">Ei mitään muotoiltavaa, tiedosto on tyhjä!</string>
+    <string name="json_any_error_message">Prosessin aikana tapahtui virhe!</string>
+    <string name="beautify_invalid_json">Virhe: Teksti ei ole kelvollista JSON-muotoa!\nSulkumerkki tai jokin muu puuttuu.</string>
+    <string name="beautify_success_sucess">JSON-tiedosto on muotoiltu onnistuneesti.</string>
+    <string name="validate_empty_text">Ei mitään validoitavaa!\nTiedosto on tyhjä.</string>
+    <string name="validate_success_text">JSON-rakenne on kelvollinen!</string>
+    <string name="validate_invalid_json">Virhe: JSON-rakenne on virheellinen!</string>
+    <string name="file_read_success">Tiedosto avattiin onnistuneesti.</string>
+    <string name="open_file_read_error">Tiedoston avaamisessa tapahtui virhe!</string>
+    <string name="save_file_error">Tiedoston tallentamisessa tapahtui virhe.</string>
+    <string name="save_file_success">Tiedosto tallennettiin onnistuneesti.</string>
+    <string name="save_file_empty_error">Ei mitään tallennettavaa, editori on tyhjä!</string>
+    <string name="overwrite_dialog_title">Korvaa tiedosto</string>
+    <string name="overwrite_dialog_message">Haluatko varmasti korvata olemassa olevan tiedoston? Tätä toimintoa ei voi peruuttaa.</string>
+    <string name="overwrite_button_text">Korvaa</string>
+    <string name="undoButton_stack_is_empty">Ei mitään kumottavaa</string>
+    <string name="settings_select_Theme_Button">Valitse teema</string>
+    <string name="json_processing_Button">Valitse Json-prosessori</string>
+    <string name="informationButton">Tietoja</string>
+    <string name="otherSettingsButton">Muut asetukset</string>
+    <string name="select_theme_title">Valitse teema</string>
+    <string name="select_json_processor">Valitse Json-prosessori</string>
+    <string name="choosenJsonProcess">Valittu JSON-prosessori: %1$s</string>
+    <string name="error_Json_Save_Format">Tekstillä on virheellinen JSON-muoto, tallennus peruutettu!</string>
+    <string name="writeTextJsonError">Käyttäjän muokkaama JSON-teksti on virheellinen.</string>
+    <string name="language_selection_button">Valitse kieli</string>
+    <string name="information_title">Tietoja</string>
+    <string name="information_message">Tämä on oppimisen tukisovellus,\njoka antaa sinun luoda ja vastata kysymyksiin.\nTavoitteena on omaksua opetusmateriaali tehokkaasti\ntoiston kautta.\nLearningApp\nVersio: 1.0\nTekijä: Attibexx\n</string>
+    <string name="select_language_title">Valitse kieli: %1$s</string>
+    <string name="other_settings_title">Muut asetukset</string>
+    <string name="setting_enable_animations">Ota animaatiot käyttöön</string>
+    <string name="setting_enable_hints">Ota vihjeet käyttöön</string>
+    <string name="button_save">Tallenna</string>
+    <string name="zoom_Button_Enable_hints">Ota zoomaus käyttöön</string>
+    <string name="settings_saved">Asetukset tallennettu</string>
+    <string name="hint_on" />
+    <string name="pruntyiContentDesc">Prüntyi undulaatti</string>
+    <string name="pakitoContentDescr">Pakito vihreä papukaija</string>
+</resources>

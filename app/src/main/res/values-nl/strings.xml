@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Leer-app</string>
+    <string name="wrong_answer_with_correct_answer">Fout antwoord. Het juiste antwoord is: %1$s</string>
+    <string name="questionCounter_format">Vraag: %1$d/%2$d</string>
+    <string name="questionTextHint">De vraag verschijnt hier</string>
+    <string name="answerInputHint">Typ hier het antwoord/de antwoorden</string>
+    <string name="feedbackTetxtHint">Het juiste antwoord staat hier!</string>
+    <string name="previousQuestionButtonHint">Vorige vraag</string>
+    <string name="nextQuestionButtonHint">Volgende vraag</string>
+    <string name="checkAnswerButtonText" tools:ignore="Typos">Controleer antwoord(en)</string>
+    <string name="restartQuestionButtonText">Start vragen opnieuw</string>
+    <string name="jsonFilesLoadingText">Laad Json-bestand</string>
+    <string name="EditQuestionButtonText">Bewerk vragen</string>
+    <string name="CreateQuestionsButtonText">Maak vragen</string>
+    <string name="settingsButtonText">Instellingen</string>
+    <string name="checkStoragePermissionText1">Toestemming verleend!</string>
+    <string name="checkStoragePermissionText2">Toestemming geweigerd!</string>
+    <string name="permissionRequest_ResultText2">Toestemmingen zijn vereist om toegang te krijgen tot bestanden</string>
+    <string name="noQuestionsText">Geen vragen geladen</string>
+    <string name="invalid_question_Index">Fout: Ongeldige vraagindex</string>
+    <string name="inputStreamNullText">Kon het bestand niet openen omdat inputStream null was</string>
+    <string name="jsonParseError1">I/O-fout bij het lezen van JSON</string>
+    <string name="jsonParseError2">JSON-verwerkingsfout</string>
+    <string name="filePickerLauncherLoadedQuestionText">%1$d vragen geladen.</string>
+    <string name="filepickerLauncherErrorText">Kon geen vragen uit het bestand lezen, of het bestand is leeg.</string>
+    <string name="filepickerLauncherNofileText">Geen bestand geselecteerd</string>
+    <string name="rightAnswer">Juist antwoord!</string>
+    <string name="all_answered">Geen vragen meer!</string>
+    <string name="no_questions_loaded_for_checking">Geen vragen geladen om te controleren!</string>
+    <string name="error_checking_answer">Er is een fout opgetreden bij het controleren van het antwoord!</string>
+    <string name="questions_restarted">De vragen zijn succesvol opnieuw gestart!</string>
+    <string name="no_questions_to_restart">Geen vragen om opnieuw te starten.\n</string>
+    <string name="no_questions_to_navigate">Geen vragen om te navigeren!</string>
+    <string name="already_at_last_question">U bent al bij de laatste vraag.</string>
+    <string name="already_at_first_question">U bent bij de eerste vraag, u kunt niet terug.</string>
+    <string name="answerQuestionInputHint">Voer hier de vragen en antwoorden na elkaar in.</string>
+    <string name="currentStatus">Huidige status: Vraag invoeren</string>
+    <string name="enter_next_question_answer_buttonText">Voer vraag/antwoord in</string>
+    <string name="saveFileButtonText">Opslaan in bestand</string>
+    <string name="allDataDelete">Wis alle ingevoerde gegevens</string>
+    <string name="backToTheMainMenuText">Terug naar het hoofdmenu</string>
+    <string name="create_question_status_enter_question">Voer vraag in:</string>
+    <string name="create_question_button_next_to_answers">Ga naar antwoorden</string>
+    <string name="create_question_hint_enter_question">Typ de vraag hier…</string>
+    <string name="create_question_status_enter_answers_for" tools:ignore="Typos">Voer antwoord(en) in voor deze vraag: \"%1$s\"</string>
+    <string name="create_question_button_save_answers_and_next_q">Sla antwoorden op en nieuwe vraag</string>
+    <string name="create_question_hint_enter_answers_csv">Voer het/de juiste antwoord(en) in, gescheiden door komma\'s…</string>
+    <string name="create_question_answer_pair_saved">Vraag-antwoord-paar opgeslagen! Totaal: %1$d</string>
+    <string name="create_question_please_enter_something">Voer alstublieft iets in!</string>
+    <string name="create_question_error_incomplete_pair">Fout: Vraag of antwoorden zijn onvolledig om op te slaan.</string>
+    <string name="create_question_nothing_to_save">Niets om op te slaan. U hebt niets ingevoerd.</string>
+    <string name="create_question_last_pending_pair_saved_toast">Het laatste openstaande vraag-antwoord-paar is toegevoegd om op te slaan.</string>
+    <string name="create_question_please_provide_answers_for_current_q_before_saving">Geef alstublieft de antwoorden voor de huidige vraag voordat u opslaat!</string>
+    <string name="createquestion_press_next_to_add_current_question_first">Druk op \'Volgende\' om de huidige vraag vast te leggen voordat u opslaat!</string>
+    <string name="create_question_add_answers_for_this_question_too">Geef alstublieft ook het/de antwoord(en) voor deze vraag. (Druk dan op de volgende knop)</string>
+    <string name="create_question_nothing_to_save_final">Geen gegevens om op te slaan.</string>
+    <string name="create_question_error_creating_json">Fout bij het maken van het JSON-bestand: %1$s</string>
+    <string name="wallpaper_image_description">Papegaaien</string>
+    <string name="appVersion">LearningApp v1.0</string>
+    <string name="question_counter_empty_state">0/0</string>
+    <string name="create_question_json_file_created">Json-bestand succesvol aangemaakt!</string>
+    <string name="Create_Question_Save_Cancel_Json">Opslaan geannuleerd</string>
+    <string name="create_question_all_data_cleared_toast">Alle eerder ingevoerde gegevens zijn gewist.</string>
+    <string name="create_question_nothing_to_delete">Niets om te wissen.\nEr was geen opgeslagen\nvraag-antwoord-paar in de invoer.</string>
+    <string name="create_question_delete_confirmation_title">Bevestiging</string>
+    <string name="create_question_delete_confirmation_message">Weet u zeker dat u\nalle eerder ingevoerde\nvraag- en antwoordparen wilt wissen?</string>
+    <string name="create_question_delete_confirmation_positive_button">Wissen</string>
+    <string name="create_question_delete_confirmation_negative_button">Annuleren</string>
+    <string name="jsonEditHint">Hier zullen de vragen\nen antwoorden zijn\nin Json-formaat:\n\n
+      [\n
+    {
+        \n\"question\": \"___________?\",
+       \n\"rightAnswers\": [\"_____________\"],
+        \n\"answered\": false
+  \n},
+    \n{
+        \n\"question\": \"_______________?\",
+        \n\"rightAnswers\": [\"_________\", \"___________\"],
+        \n\"answered\": false
+    \n}\n
+        ]
+</string>
+    <string name="edit_activity_openFileJson">Open Json-bestand</string>
+    <string name="edit_Activity_Json_Validate">Valideer Json-structuur</string>
+    <string name="edit_Activity_JsonPretty">Formatteer Json</string>
+    <string name="edit_activity_PasteButton">Plakken van klembord</string>
+    <string name="edit_Activity_copyButton">Kopiëren naar klembord</string>
+    <string name="edit_Activity_JsonSaveButton">Opslaan (JSON)</string>
+    <string name="edit_Activity_jsonFileAsSaveButton">Opslaan als (JSON)</string>
+    <string name="ClipBoard_text">Code gekopieerd naar klembord</string>
+    <string name="Clipdata_copied_code">Code gekopieerd naar klembord.</string>
+    <string name="ClipBoard_success_message">Geplakt van klembord</string>
+    <string name="paste_not_text_message">Klembord bevat geen tekst</string>
+    <string name="Clipboard_paste_no_data_message">Klembord is leeg</string>
+    <string name="delete_all_dialog_title">Weet u zeker dat u alles wilt wissen?</string>
+    <string name="delete_all_dialog_message">Deze actie kan niet ongedaan worden gemaakt. Alle inhoud gaat verloren.</string>
+    <string name="delete_success_message">De inhoud is gewist.</string>
+    <string name="deleteBuilder_delete_button_text">Wissen</string>
+    <string name="cancel_button_text">Annuleren</string>
+    <string name="ecit_question_undo_button">Ongedaan maken</string>
+    <string name="beautify_empty_text">Niets te formatteren, het bestand is leeg!</string>
+    <string name="json_any_error_message">Er is een fout opgetreden tijdens het proces!</string>
+    <string name="beautify_invalid_json">Fout: De tekst is geen geldige JSON!\nEen haakje of iets anders ontbreekt.</string>
+    <string name="beautify_success_sucess">Het JSON-bestand is succesvol geformatteerd.</string>
+    <string name="validate_empty_text">Niets te valideren!\nHet bestand is leeg.</string>
+    <string name="validate_success_text">De JSON-structuur is geldig!</string>
+    <string name="validate_invalid_json">Fout: De JSON-structuur is ongeldig!</string>
+    <string name="file_read_success">Bestand succesvol geopend.</string>
+    <string name="open_file_read_error">Er is een fout opgetreden bij het openen van het bestand!</string>
+    <string name="save_file_error">Er is een fout opgetreden bij het opslaan van het bestand.</string>
+    <string name="save_file_success">Bestand succesvol opgeslagen.</string>
+    <string name="save_file_empty_error">Niets om op te slaan, de editor is leeg!</string>
+    <string name="overwrite_dialog_title">Bestand overschrijven</string>
+    <string name="overwrite_dialog_message">Weet u zeker dat u het bestaande bestand wilt overschrijven? Deze actie kan niet ongedaan worden gemaakt.</string>
+    <string name="overwrite_button_text">Overschrijven</string>
+    <string name="undoButton_stack_is_empty">Niets om ongedaan te maken</string>
+    <string name="settings_select_Theme_Button">Kies thema</string>
+    <string name="json_processing_Button">Kies Json-processor</string>
+    <string name="informationButton">Informatie</string>
+    <string name="otherSettingsButton">Andere instellingen</string>
+    <string name="select_theme_title">Kies thema</string>
+    <string name="select_json_processor">Kies Json-processor</string>
+    <string name="choosenJsonProcess">Gekozen JSON-processor: %1$s</string>
+    <string name="error_Json_Save_Format">De tekst heeft een ongeldig JSON-formaat, opslaan geannuleerd!</string>
+    <string name="writeTextJsonError">De door de gebruiker bewerkte JSON-tekst is ongeldig.</string>
+    <string name="language_selection_button">Kies taal</string>
+    <string name="information_title">Informatie</string>
+    <string name="information_message">Dit is een leerondersteunende applicatie\nwaarmee u vragen kunt maken en beantwoorden.\nHet doel is om de leerstof effectief te beheersen\ndoor herhaling.\nLearningApp\nVersie: 1.0\nGemaakt door: Attibexx\n</string>
+    <string name="select_language_title">Kies taal: %1$s</string>
+    <string name="other_settings_title">Andere instellingen</string>
+    <string name="setting_enable_animations">Schakel animaties in</string>
+    <string name="setting_enable_hints">Schakel hints in</string>
+    <string name="button_save">Opslaan</string>
+    <string name="zoom_Button_Enable_hints">Schakel zoom in</string>
+    <string name="settings_saved">Instellingen opgeslagen</string>
+    <string name="hint_on" />
+    <string name="pruntyiContentDesc">Prüntyi de grasparkiet</string>
+    <string name="pakitoContentDescr">Pákító de groene papegaai</string>
+</resources>

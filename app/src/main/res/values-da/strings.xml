@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Læringsapp</string>
+    <string name="wrong_answer_with_correct_answer">Forkert svar. Det rigtige svar er: %1$s</string>
+    <string name="questionCounter_format">Spørgsmål: %1$d/%2$d</string>
+    <string name="questionTextHint">Spørgsmålet vises her</string>
+    <string name="answerInputHint">Skriv svaret/svarene her</string>
+    <string name="feedbackTetxtHint">Det rigtige svar vil være her!</string>
+    <string name="previousQuestionButtonHint">Forrige spørgsmål</string>
+    <string name="nextQuestionButtonHint">Næste spørgsmål</string>
+    <string name="checkAnswerButtonText" tools:ignore="Typos">Kontroller svar</string>
+    <string name="restartQuestionButtonText">Genstart spørgsmål</string>
+    <string name="jsonFilesLoadingText">Indlæs Json-fil</string>
+    <string name="EditQuestionButtonText">Rediger spørgsmål</string>
+    <string name="CreateQuestionsButtonText">Opret spørgsmål</string>
+    <string name="settingsButtonText">Indstillinger</string>
+    <string name="checkStoragePermissionText1">Tilladelse givet!</string>
+    <string name="checkStoragePermissionText2">Tilladelse nægtet!</string>
+    <string name="permissionRequest_ResultText2">Der kræves tilladelser for at få adgang til filer</string>
+    <string name="noQuestionsText">Ingen spørgsmål indlæst</string>
+    <string name="invalid_question_Index">Fejl: Ugyldigt spørgsmålsindeks</string>
+    <string name="inputStreamNullText">Kunne ikke åbne filen, fordi inputStream var null</string>
+    <string name="jsonParseError1">IO-fejl under læsning af JSON</string>
+    <string name="jsonParseError2">JSON-behandlingsfejl</string>
+    <string name="filePickerLauncherLoadedQuestionText">%1$d spørgsmål indlæst.</string>
+    <string name="filepickerLauncherErrorText">Kunne ikke læse spørgsmål fra filen, eller filen er tom.</string>
+    <string name="filepickerLauncherNofileText">Ingen fil valgt</string>
+    <string name="rightAnswer">Rigtigt svar!</string>
+    <string name="all_answered">Ikke flere spørgsmål!</string>
+    <string name="no_questions_loaded_for_checking">Ingen spørgsmål indlæst til kontrol!</string>
+    <string name="error_checking_answer">Der opstod en fejl under kontrol af svaret!</string>
+    <string name="questions_restarted">Spørgsmålene er genstartet med succes!</string>
+    <string name="no_questions_to_restart">Ingen spørgsmål at genstarte.\n</string>
+    <string name="no_questions_to_navigate">Ingen spørgsmål at navigere!</string>
+    <string name="already_at_last_question">Du er allerede ved det sidste spørgsmål.</string>
+    <string name="already_at_first_question">Du er ved det første spørgsmål, du kan ikke gå tilbage.</string>
+    <string name="answerQuestionInputHint">Indtast spørgsmål og svar her efter hinanden.</string>
+    <string name="currentStatus">Nuværende status: Indtaster spørgsmål</string>
+    <string name="enter_next_question_answer_buttonText">Indtast spørgsmål/svar</string>
+    <string name="saveFileButtonText">Gem til fil</string>
+    <string name="allDataDelete">Slet alle indtastede data</string>
+    <string name="backToTheMainMenuText">Tilbage til hovedmenuen</string>
+    <string name="create_question_status_enter_question">Indtast spørgsmål:</string>
+    <string name="create_question_button_next_to_answers">Videre til svar</string>
+    <string name="create_question_hint_enter_question">Skriv venligst spørgsmålet her…</string>
+    <string name="create_question_status_enter_answers_for" tools:ignore="Typos">Indtast svar for dette spørgsmål: \"%1$s\"</string>
+    <string name="create_question_button_save_answers_and_next_q">Gem svar og nyt spørgsmål</string>
+    <string name="create_question_hint_enter_answers_csv">Indtast venligst det/de korrekte svar, adskilt med komma…</string>
+    <string name="create_question_answer_pair_saved">Spørgsmål-svar-par gemt! I alt: %1$d</string>
+    <string name="create_question_please_enter_something">Indtast venligst noget!</string>
+    <string name="create_question_error_incomplete_pair">Fejl: Spørgsmålet eller svarene er ufuldstændige for at gemme.</string>
+    <string name="create_question_nothing_to_save">Intet at gemme. Du har ikke indtastet noget.</string>
+    <string name="create_question_last_pending_pair_saved_toast">Det sidste ventende spørgsmål-svar-par er tilføjet til lagring.</string>
+    <string name="create_question_please_provide_answers_for_current_q_before_saving">Angiv venligst svarene til det aktuelle spørgsmål, før du gemmer!</string>
+    <string name="createquestion_press_next_to_add_current_question_first">Tryk venligst på \'Næste\' for at registrere det aktuelle spørgsmål, før du gemmer!</string>
+    <string name="create_question_add_answers_for_this_question_too">Angiv venligst også svaret/svarene til dette spørgsmål. (Tryk derefter på næste-knappen)</string>
+    <string name="create_question_nothing_to_save_final">Ingen data at gemme.</string>
+    <string name="create_question_error_creating_json">Fejl ved oprettelse af JSON-fil: %1$s</string>
+    <string name="wallpaper_image_description">Papegøjer</string>
+    <string name="appVersion">LearningApp v1.0</string>
+    <string name="question_counter_empty_state">0/0</string>
+    <string name="create_question_json_file_created">Json-filen er oprettet med succes!</string>
+    <string name="Create_Question_Save_Cancel_Json">Lagring annulleret</string>
+    <string name="create_question_all_data_cleared_toast">Alle tidligere indtastede data er blevet slettet.</string>
+    <string name="create_question_nothing_to_delete">Intet at slette.\nDer var intet gemt\nspørgsmål-svar-par i inputtet.</string>
+    <string name="create_question_delete_confirmation_title">Bekræftelse</string>
+    <string name="create_question_delete_confirmation_message">Er du sikker på, at du vil slette\nalle tidligere indtastede\nspørgsmål- og svarpar?</string>
+    <string name="create_question_delete_confirmation_positive_button">Slet</string>
+    <string name="create_question_delete_confirmation_negative_button">Annuller</string>
+    <string name="jsonEditHint">Her vil spørgsmålene\nog svarene være\ni Json-format:\n\n
+      [\n
+    {
+        \n\"question\": \"___________?\",
+       \n\"rightAnswers\": [\"_____________\"],
+        \n\"answered\": false
+  \n},
+    \n{
+        \n\"question\": \"_______________?\",
+        \n\"rightAnswers\": [\"_________\", \"___________\"],
+        \n\"answered\": false
+    \n}\n
+        ]
+</string>
+    <string name="edit_activity_openFileJson">Åbn Json-fil</string>
+    <string name="edit_Activity_Json_Validate">Valider Json-struktur</string>
+    <string name="edit_Activity_JsonPretty">Formater Json</string>
+    <string name="edit_activity_PasteButton">Indsæt fra udklipsholder</string>
+    <string name="edit_Activity_copyButton">Kopier til udklipsholder</string>
+    <string name="edit_Activity_JsonSaveButton">Gem (JSON)</string>
+    <string name="edit_Activity_jsonFileAsSaveButton">Gem som (JSON)</string>
+    <string name="ClipBoard_text">Koden er kopieret til udklipsholderen</string>
+    <string name="Clipdata_copied_code">Kode kopieret til udklipsholder.</string>
+    <string name="ClipBoard_success_message">Indsat fra udklipsholder</string>
+    <string name="paste_not_text_message">Udklipsholderen indeholder ikke tekst</string>
+    <string name="Clipboard_paste_no_data_message">Udklipsholderen er tom</string>
+    <string name="delete_all_dialog_title">Er du sikker på, at du vil slette alt?</string>
+    <string name="delete_all_dialog_message">Denne handling kan ikke fortrydes. Alt indhold vil gå tabt.</string>
+    <string name="delete_success_message">Indholdet er blevet slettet.</string>
+    <string name="deleteBuilder_delete_button_text">Slet</string>
+    <string name="cancel_button_text">Annuller</string>
+    <string name="ecit_question_undo_button">Fortryd</string>
+    <string name="beautify_empty_text">Intet at formatere, filen er tom!</string>
+    <string name="json_any_error_message">Der opstod en fejl under processen!</string>
+    <string name="beautify_invalid_json">Fejl: Teksten er ikke gyldig JSON!\nEn parentes eller noget andet mangler.</string>
+    <string name="beautify_success_sucess">JSON-filen er blevet formateret med succes.</string>
+    <string name="validate_empty_text">Intet at validere!\nFilen er tom.</string>
+    <string name="validate_success_text">JSON-strukturen er gyldig!</string>
+    <string name="validate_invalid_json">Fejl: JSON-strukturen er ugyldig!</string>
+    <string name="file_read_success">Filen blev åbnet med succes.</string>
+    <string name="open_file_read_error">Der opstod en fejl under åbning af filen!</string>
+    <string name="save_file_error">Der opstod en fejl under lagring af filen.</string>
+    <string name="save_file_success">Filen er gemt med succes.</string>
+    <string name="save_file_empty_error">Intet at gemme, editoren er tom!</string>
+    <string name="overwrite_dialog_title">Overskriv fil</string>
+    <string name="overwrite_dialog_message">Er du sikker på, at du vil overskrive den eksisterende fil? Denne handling kan ikke fortrydes.</string>
+    <string name="overwrite_button_text">Overskriv</string>
+    <string name="undoButton_stack_is_empty">Intet at fortryde</string>
+    <string name="settings_select_Theme_Button">Vælg tema</string>
+    <string name="json_processing_Button">Vælg Json-processor</string>
+    <string name="informationButton">Information</string>
+    <string name="otherSettingsButton">Andre indstillinger</string>
+    <string name="select_theme_title">Vælg tema</string>
+    <string name="select_json_processor">Vælg Json-processor</string>
+    <string name="choosenJsonProcess">Valgt JSON-processor: %1$s</string>
+    <string name="error_Json_Save_Format">Teksten har et ugyldigt JSON-format, lagring annulleret!</string>
+    <string name="writeTextJsonError">JSON-teksten redigeret af brugeren er ugyldig.</string>
+    <string name="language_selection_button">Vælg sprog</string>
+    <string name="information_title">Information</string>
+    <string name="information_message">Dette er en læringsstøtteapplikation\nder lader dig oprette og besvare spørgsmål.\nMålet er at tilegne sig pensum effektivt\ngennem gentagelse.\nLearningApp\nVersion: 1.0\nSkabt af: Attibexx\n</string>
+    <string name="select_language_title">Vælg sprog: %1$s</string>
+    <string name="other_settings_title">Andre indstillinger</string>
+    <string name="setting_enable_animations">Aktiver animationer</string>
+    <string name="setting_enable_hints">Aktiver tip</string>
+    <string name="button_save">Gem</string>
+    <string name="zoom_Button_Enable_hints">Aktiver zoom</string>
+    <string name="settings_saved">Indstillinger gemt</string>
+    <string name="hint_on" />
+    <string name="pruntyiContentDesc">Prüntyi undulaten</string>
+    <string name="pakitoContentDescr">Pákító den grønne papegøje</string>
+</resources>

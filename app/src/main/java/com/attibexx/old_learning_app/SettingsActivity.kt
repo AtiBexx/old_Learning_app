@@ -12,6 +12,9 @@ import androidx.appcompat.app.AppCompatDelegate
 import com.attibexx.old_learning_app.databinding.SettingsBinding
 import androidx.core.content.edit
 import com.attibexx.old_learning_app.json.JsonProcessorFactory
+import java.util.Locale
+import com.attibexx.old_learning_app.AppSettingsKeys.JSON_LOADER_MODE
+import com.attibexx.old_learning_app.AppSettingsKeys.PREFS_FILE_NAME
 
 
 class SettingsActivity : AppCompatActivity() {
@@ -21,7 +24,12 @@ class SettingsActivity : AppCompatActivity() {
 
     // Közös beállítás
     // common setting
-    private val prefs by lazy { getSharedPreferences(JsonProcessorFactory.PREFS_FILE_NAME, MODE_PRIVATE) }
+    private val prefs by lazy {
+        getSharedPreferences(
+            PREFS_FILE_NAME,
+            MODE_PRIVATE
+        )
+    }
 
     companion object {
         // Logoláshoz használt címke
@@ -135,7 +143,7 @@ class SettingsActivity : AppCompatActivity() {
             // Olvassuk ki a JELENLEGI mentett módot (ami egy string!)
             // Read the PREVIOUSLY saved mode (which is a string!)
             val savedMode = prefs.getString(
-                JsonProcessorFactory.JSON_LOADER_MODE,
+                JSON_LOADER_MODE,
                 JsonProcessorFactory.MODE_SERIALIZABLE
             )
             // Keressük meg, hogy a mentett mód hanyadik a listában,
@@ -143,15 +151,18 @@ class SettingsActivity : AppCompatActivity() {
             // Let's find out where the saved mode is in the list,
             // so that the radio button in the right option is selected.
             val savedChoiceIndex = processorModes.indexOf(savedMode).let {
-                if (it == -1) 0 else it }
+                if (it == -1) 0 else it
+            }
 
             // Az AlertDialog felépítése
             // Structure of AlertDialog
             val builder = androidx.appcompat.app.AlertDialog.Builder(this)
             builder.setTitle(R.string.select_json_processor)
 
-            builder.setSingleChoiceItems(jsonProcessorOptions,
-                savedChoiceIndex) { dialog, which ->
+            builder.setSingleChoiceItems(
+                jsonProcessorOptions,
+                savedChoiceIndex
+            ) { dialog, which ->
 
                 // Az index alapján válasszuk ki az elmentendő string konstanstott
                 // Based on the index, we select the string constant
@@ -160,14 +171,17 @@ class SettingsActivity : AppCompatActivity() {
                 // Elmentjük az új választást (a stringet!) a SharedPreferences-be
                 // Save the new choice (the string!) to the SharedPreferences
                 prefs.edit {
-                    putString(JsonProcessorFactory.JSON_LOADER_MODE, modeToSave)
+                    putString(JSON_LOADER_MODE, modeToSave)
                 }
                 // Visszajelzés a felhasználónak
                 // Feedback for User
                 val chosenOptionText = jsonProcessorOptions[which]
-                Toast.makeText(this,
-                    getString(R.string.choosenJsonProcess,
-                        chosenOptionText),
+                Toast.makeText(
+                    this,
+                    getString(
+                        R.string.choosenJsonProcess,
+                        chosenOptionText
+                    ),
                     Toast.LENGTH_SHORT
                 ).show()
 
@@ -187,17 +201,160 @@ class SettingsActivity : AppCompatActivity() {
         // Information Button
         binding.informationButton.setOnClickListener {
 
+            // Létrehozunk egy egyszerú dialógusAblakot
+            // We create a one-time dialog box
+            androidx.appcompat.app.AlertDialog.Builder(this)
+
+                // cím beállítása string.xml-ből
+                // title setting from string.xml
+                .setTitle(R.string.information_title)
+
+                // az üzenet beállítása string.xml-ből
+                // the message is set from string.xml
+                .setMessage(R.string.information_message)
+
+                // Egy ok gomb, ami csak bezárja az ablakot
+                // An ok button that just closes the window
+                .setPositiveButton(android.R.string.ok, null)
+
+                // Megjelenítjük az ablakot
+                // We display the window
+                .show()
         }
         // nyelválasztási gomb
         // Language selection button
         binding.languageSelectionButton.setOnClickListener {
 
-        }
+            // A választható opciók listája és a hozzájuk tartozó kódok
+            // List of selectable options and their codes
+            val languageOptions = resources.getStringArray(
+                R.array.language_options
+            )
+            val languageCodes = resources.getStringArray(
+                R.array.language_codes
+            )
 
-        //Egyéb beállítások
-        // Other settings
+            // Olvassuk ki a jelenleg mentett nyelvi kódot
+            // Read the saved language code
+            val savedLanguageCode = prefs.getString(AppSettingsKeys.LEARNING_APP_LANGUAGE, null)
+
+            // Keressük meg, hogy a mentett kód hanyadik a listában,
+            // hogy a rádiógomb a helyes opción álljon. Ha nincs mentve, -1.
+            // Let's find out where the saved code is in the list,
+            // so that the radio button in the right option is selected.
+            // if not saved, -1
+            val checkedItem = if (savedLanguageCode != null)
+                languageCodes.indexOf(savedLanguageCode) else -1
+
+            val builder = androidx.appcompat.app.AlertDialog.Builder(this)
+            builder.setTitle(R.string.select_language_title)
+
+            // A checkedItem beállítja, melyik rádiógomb legyen kiválasztva
+            // The checkedItem sets which radio button should be selected
+            builder.setSingleChoiceItems(languageOptions, checkedItem)
+            { dialog, which ->
+                val selectedLanguageCode = languageCodes[which] // hu , eng etc
+                val selectedLanguageName = languageOptions[which] //Magyar, Angol etc
+
+                // Mentsük el a kiválasztott nyelvet a sharedPreferences-be
+                // Save the selected language to the sharedPreferences
+                prefs.edit {
+                    putString(AppSettingsKeys.LEARNING_APP_LANGUAGE, selectedLanguageCode)
+                }
+
+                // Ez az új módszer nem elavult (deprecated)
+                // This new method is not outdated (deprecated)
+                val newLocale = Locale.forLanguageTag(selectedLanguageCode)
+                AppCompatDelegate.setApplicationLocales(
+                    androidx.core.os.LocaleListCompat.create(newLocale)
+                )
+
+                // Visszajelzés a felhasználónak a nyelv kiválasztásáról
+                // Feedback for the user about the language selection
+                Toast.makeText(
+                    this,
+                    getString(
+                        R.string.select_language_title,
+                        selectedLanguageName
+                    ),
+                    Toast.LENGTH_SHORT
+                ).show()
+
+                // Dialógus bezárása
+                // Dialog close
+                dialog.dismiss()
+            }
+
+            // Mégse gomb
+            // Cancel button
+            builder.setNegativeButton(R.string.cancel_button_text, null)
+
+            // Dialógus megjelenítése
+            // Dialog display
+            builder.create().show()
+        }
+        //Egyéb beállítások gomb
+        // Other settings button
         binding.otherSettingsButton.setOnClickListener {
 
+            // Létrehozunk az egyedi layaoutot a dialogushoz
+            // We create a unique layout for the dialog box
+            val dialogView = layoutInflater.inflate(R.layout.dialog_other_settings, null)
+            val switchAnimations =
+                dialogView.findViewById<com.google.android.material.switchmaterial.SwitchMaterial>(R.id.switch_animations)
+            val switchHints =
+                dialogView.findViewById<com.google.android.material.switchmaterial.SwitchMaterial>(R.id.switch_hints)
+            val switchZoom =
+                dialogView.findViewById<com.google.android.material.switchmaterial.SwitchMaterial>(R.id.switch_zoom)
+
+            // Kiolvassuk a jelenleg mentett értékeket,
+            // hogy a kapcsolók a helyes állásban legyenek
+            val areAnimationsEnabled = prefs.getBoolean(
+            AppSettingsKeys.ANIMATIONS_ENABLED, false)
+            val areHintsEnabled = prefs.getBoolean(
+                AppSettingsKeys.HINTS_ENABLED, false)
+            val areZoomEnabled = prefs.getBoolean(
+                AppSettingsKeys.ZOOM_ENABLED, false)
+
+            // Beállítjuk a kapcsolók állapotát a mentett értékek alapján
+            // Set the switch states according to the saved values
+            switchAnimations.isChecked = areAnimationsEnabled
+            switchHints.isChecked = areHintsEnabled
+            switchZoom.isChecked = areZoomEnabled
+
+            // Létrehozzuk az AlertDialog-ot
+            // We create the AlertDialog
+            androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle(R.string.other_settings_title)
+                .setView(dialogView) // Egyedi layaout beállítása || Set custom layout
+                .setNegativeButton(R.string.cancel_button_text, null) // "Mégse" "Cancel" gomb button
+                .setPositiveButton(R.string.button_save)
+                { dialog, _ ->
+
+                    // Mentjük az új értékeket a SharedPreferences-be
+                    // Save the new values to the SharedPreferences
+                    val newAnimationState = switchAnimations.isChecked
+                    val newHintsState = switchHints.isChecked
+                    val newZoomState = switchZoom.isChecked
+
+                    prefs.edit {
+                    putBoolean(AppSettingsKeys.ANIMATIONS_ENABLED, newAnimationState)
+                    putBoolean(AppSettingsKeys.HINTS_ENABLED, newHintsState)
+                    putBoolean(AppSettingsKeys.ZOOM_ENABLED, newZoomState)
+                    }
+
+                    // Visszajelzünk a felhasználónak
+                    // We provide feedback to the user
+                    Toast.makeText(
+                        this,
+                        R.string.settings_saved,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                    // Létrehozzuk és megjelenítjük az AlertDialog-ot
+                    // We create and display the AlertDialog
+                .create()
+                .show()
         }
         // Vissza a főmenübe gomb
         // Back to main menu button

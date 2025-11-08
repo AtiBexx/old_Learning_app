@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">אפליקציית למידה</string>
+    <string name="wrong_answer_with_correct_answer">תשובה שגויה. התשובה הנכונה היא: %1$s</string>
+    <string name="questionCounter_format">שאלה: %1$d/%2$d</string>
+    <string name="questionTextHint">השאלה תופיע כאן</string>
+    <string name="answerInputHint">כתוב את התשובה/תשובות כאן</string>
+    <string name="feedbackTetxtHint">התשובה הנכונה תהיה כאן!</string>
+    <string name="previousQuestionButtonHint">שאלה קודמת</string>
+    <string name="nextQuestionButtonHint">שאלה הבאה</string>
+    <string name="checkAnswerButtonText" tools:ignore="Typos">בדוק תשובה/תשובות</string>
+    <string name="restartQuestionButtonText">התחל שאלות מחדש</string>
+    <string name="jsonFilesLoadingText">טען קובץ Json</string>
+    <string name="EditQuestionButtonText">ערוך שאלות</string>
+    <string name="CreateQuestionsButtonText">צור שאלות</string>
+    <string name="settingsButtonText">הגדרות</string>
+    <string name="checkStoragePermissionText1">ההרשאה ניתנה!</string>
+    <string name="checkStoragePermissionText2">ההרשאה נדחתה!</string>
+    <string name="permissionRequest_ResultText2">נדרשות הרשאות כדי לגשת לקבצים</string>
+    <string name="noQuestionsText">לא נטענו שאלות</string>
+    <string name="invalid_question_Index">שגיאה: אינדקס שאלה לא חוקי</string>
+    <string name="inputStreamNullText">פתיחת הקובץ נכשלה כי inputStream היה ריק</string>
+    <string name="jsonParseError1">שגיאת קלט/פלט בעת קריאת JSON</string>
+    <string name="jsonParseError2">שגיאת עיבוד JSON</string>
+    <string name="filePickerLauncherLoadedQuestionText">נטענו %1$d שאלות.</string>
+    <string name="filepickerLauncherErrorText">קריאת השאלות מהקובץ נכשלה, או שהקובץ ריק.</string>
+    <string name="filepickerLauncherNofileText">לא נבחר קובץ</string>
+    <string name="rightAnswer">תשובה נכונה!</string>
+    <string name="all_answered">אין עוד שאלות!</string>
+    <string name="no_questions_loaded_for_checking">אין שאלות טעונות לבדיקה!</string>
+    <string name="error_checking_answer">אירעה שגיאה בבדיקת התשובה!</string>
+    <string name="questions_restarted">השאלות הופעלו מחדש בהצלחה!</string>
+    <string name="no_questions_to_restart">אין שאלות להפעלה מחדש.\n</string>
+    <string name="no_questions_to_navigate">אין שאלות לניווט!</string>
+    <string name="already_at_last_question">אתה כבר בשאלה האחרוна.</string>
+    <string name="already_at_first_question">אתה בשאלה הראשונה, אינך יכול לחזור.</string>
+    <string name="answerQuestionInputHint">הזן כאן את השאלות והתשובות בזו אחר זו.</string>
+    <string name="currentStatus">מצב נוכחי: הזנת שאלה</string>
+    <string name="enter_next_question_answer_buttonText">הזן שאלה/תשובה</string>
+    <string name="saveFileButtonText">שמור בקובץ</string>
+    <string name="allDataDelete">מחק את כל הנתונים שהוזנו</string>
+    <string name="backToTheMainMenuText">חזור לתפריט הראשי</string>
+    <string name="create_question_status_enter_question">הזן שאלה:</string>
+    <string name="create_question_button_next_to_answers">הבא לתשובות</string>
+    <string name="create_question_hint_enter_question">אנא הקלד את השאלה כאן…</string>
+    <string name="create_question_status_enter_answers_for" tools:ignore="Typos">הזן תשובה/תשובות לשאלה זו: \"%1$s\"</string>
+    <string name="create_question_button_save_answers_and_next_q">שמור תשובות ושאלה חדשה</string>
+    <string name="create_question_hint_enter_answers_csv">אנא הזן את התשובה/תשובות הנכונות, מופרדות בפסיקים…</string>
+    <string name="create_question_answer_pair_saved">זוג שאלה-תשובה נשמר! סה\"כ: %1$d</string>
+    <string name="create_question_please_enter_something">אנא, הזן משהו!</string>
+    <string name="create_question_error_incomplete_pair">שגיאה: השאלה או התשובות אינן מלאות לשמירה.</string>
+    <string name="create_question_nothing_to_save">אין מה לשמור. לא הזנת כלום.</string>
+    <string name="create_question_last_pending_pair_saved_toast">זוג השאלה-תשובה האחרון נוסף לשמירה.</string>
+    <string name="create_question_please_provide_answers_for_current_q_before_saving">אנא ספק תשובות לשאלה הנוכחית לפני השמירה!</string>
+    <string name="createquestion_press_next_to_add_current_question_first">אנא לחץ על \'הבא\' כדי לרשום את השאלה הנוכחית לפני השמירה!</string>
+    <string name="create_question_add_answers_for_this_question_too">אנא ספק גם את התשובה/תשובות לשאלה זו. (לאחר מכן לחץ על הכפתור הבא)</string>
+    <string name="create_question_nothing_to_save_final">אין נתונים לשמור.</string>
+    <string name="create_question_error_creating_json">שגיאה ביצירת קובץ JSON: %1$s</string>
+    <string name="wallpaper_image_description">תכים</string>
+    <string name="appVersion">LearningApp v1.0</string>
+    <string name="question_counter_empty_state">0/0</string>
+    <string name="create_question_json_file_created">קובץ ה-Json נוצר בהצלחה!</string>
+    <string name="Create_Question_Save_Cancel_Json">השמירה בוטלה</string>
+    <string name="create_question_all_data_cleared_toast">כל הנתונים שהוזנו בעבר נמחקו.</string>
+    <string name="create_question_nothing_to_delete">אין מה למחוק.\nלא היה זוג שאלה-תשובה\nשמור בקלט.</string>
+    <string name="create_question_delete_confirmation_title">אישור</string>
+    <string name="create_question_delete_confirmation_message">האם אתה בטוח שברצונך למחוק\nאת כל זוגות השאלות והתשובות\nשהוזנו בעבר?</string>
+    <string name="create_question_delete_confirmation_positive_button">מחק</string>
+    <string name="create_question_delete_confirmation_negative_button">ביטול</string>
+    <string name="jsonEditHint">השאלות והתשובות יהיו כאן\nבפורמט Json:\n\n
+      [\n
+    {
+        \n\"question\": \"___________?\",
+       \n\"rightAnswers\": [\"_____________\"],
+        \n\"answered\": false
+  \n},
+    \n{
+        \n\"question\": \"_______________?\",
+        \n\"rightAnswers\": [\"_________\", \"___________\"],
+        \n\"answered\": false
+    \n}\n
+        ]
+</string>
+    <string name="edit_activity_openFileJson">פתח קובץ Json</string>
+    <string name="edit_Activity_Json_Validate">אמת מבנה Json</string>
+    <string name="edit_Activity_JsonPretty">עצב Json</string>
+    <string name="edit_activity_PasteButton">הדבק מהלוח</string>
+    <string name="edit_Activity_copyButton">העתק ללוח</string>
+    <string name="edit_Activity_JsonSaveButton">שמור (JSON)</string>
+    <string name="edit_Activity_jsonFileAsSaveButton">שמור בשם (JSON)</string>
+    <string name="ClipBoard_text">הקוד הועתק ללוח</string>
+    <string name="Clipdata_copied_code">הקוד הועתק ללוח.</string>
+    <string name="ClipBoard_success_message">הודבק מהלוח</string>
+    <string name="paste_not_text_message">הלוח אינו מכיל טקסט</string>
+    <string name="Clipboard_paste_no_data_message">הלוח ריק</string>
+    <string name="delete_all_dialog_title">האם אתה בטוח שברצונך למחוק הכל?</string>
+    <string name="delete_all_dialog_message">לא ניתן לבטל פעולה זו. כל התוכן יאבד.</string>
+    <string name="delete_success_message">התוכן נמחק.</string>
+    <string name="deleteBuilder_delete_button_text">מחק</string>
+    <string name="cancel_button_text">ביטול</string>
+    <string name="ecit_question_undo_button">בטל</string>
+    <string name="beautify_empty_text">אין מה לעצב, הקובץ ריק!</string>
+    <string name="json_any_error_message">אירעה שגיאה במהלך התהליך!</string>
+    <string name="beautify_invalid_json">שגיאה: הטקסט אינו JSON חוקי!\nחסר סוגר או משהו אחר.</string>
+    <string name="beautify_success_sucess">קובץ ה-JSON עוצב בהצלחה.</string>
+    <string name="validate_empty_text">אין מה לאמת!\nהקובץ ריק.</string>
+    <string name="validate_success_text">מבנה ה-JSON חוקי!</string>
+    <string name="validate_invalid_json">שגיאה: מבנה ה-JSON אינו חוקי!</string>
+    <string name="file_read_success">הקובץ נפתח בהצלחה.</string>
+    <string name="open_file_read_error">אירעה שגיאה בפתיחת הקובץ!</string>
+    <string name="save_file_error">אירעה שגיאה בשמירת הקובץ.</string>
+    <string name="save_file_success">הקובץ נשמר בהצלחה.</string>
+    <string name="save_file_empty_error">אין מה לשמור, העורך ריק!</string>
+    <string name="overwrite_dialog_title">החלף קובץ</string>
+    <string name="overwrite_dialog_message">האם אתה בטוח שברצונך להחליף את הקובץ הקיים? לא ניתן לבטל פעולה זו.</string>
+    <string name="overwrite_button_text">החלף</string>
+    <string name="undoButton_stack_is_empty">אין מה לבטל</string>
+    <string name="settings_select_Theme_Button">בחר ערכת נושא</string>
+    <string name="json_processing_Button">בחר מעבד Json</string>
+    <string name="informationButton">מידע</string>
+    <string name="otherSettingsButton">הגדרות אחרות</string>
+    <string name="select_theme_title">בחר ערכת נושא</string>
+    <string name="select_json_processor">בחר מעבד Json</string>
+    <string name="choosenJsonProcess">מעבד ה-JSON שנבחר: %1$s</string>
+    <string name="error_Json_Save_Format">הטקסט בפורמט JSON לא חוקי, השמירה בוטלה!</string>
+    <string name="writeTextJsonError">טקסט ה-JSON שהמשתמש ערך אינו חוקי.</string>
+    <string name="language_selection_button">בחר שפה</string>
+    <string name="information_title">מידע</string>
+    <string name="information_message">זוהי אפליקציית תמיכה בלמידה\nהמאפשרת לך ליצור שאלות ולענות עליהן.\nהמטרה היא רכישה יעילה של תכנית הלימודים\nבאמצעות חזרה.\nLearningApp\nגרסה: 1.0\nנוצר על ידי: Attibexx\n</string>
+    <string name="select_language_title">בחר שפה: %1$s</string>
+    <string name="other_settings_title">הגדרות אחרות</string>
+    <string name="setting_enable_animations">אפשר אנימציות</string>
+    <string name="setting_enable_hints">אפשר רמזים</string>
+    <string name="button_save">שמור</string>
+    <string name="zoom_Button_Enable_hints">אפשר זום</string>
+    <string name="settings_saved">ההגדרות נשמרו</string>
+    <string name="hint_on" />
+    <string name="pruntyiContentDesc">פרונטי התוכון</string>
+    <string name="pakitoContentDescr">פאקיטו התוכי הירוק</string>
+</resources>

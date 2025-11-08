@@ -88,6 +88,20 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/questionScroll">
 
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <!-- Ez a "hint" szövege -->
+                    <TextView
+                        android:id="@+id/hintTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp"
+                        android:textColor="#A1887F"
+                        android:textSize="26sp"
+                        tools:text="@string/hint_on"
+                        tools:ignore="VisualLintOverlap" />
                     <EditText
                         android:id="@+id/answerInput"
                         android:layout_width="match_parent"
@@ -101,6 +115,7 @@
                         android:textColorHint="#A1887F"
                         android:textSize="26sp"
                         tools:ignore="VisualLintTextFieldSize" />
+                    </FrameLayout>
                 </ScrollView>
                 <!--Visszajelzési Szöveg (helyes /helytelen válasz)feedback text(right of answer and bad or not correctly bad answer)-->
                 <ScrollView
@@ -143,6 +158,35 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/feedbackTextScroll"
                     tools:ignore="ImageContrastCheck" />
+
+                <!-- Prüntyi a sárga papagáj a bal nyíl mellett || The yellow parrot next to the left arrow is Prüntyi -->
+                <ImageView
+                    android:id="@+id/pruntyiImageView"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="8dp"
+                    android:contentDescription="@string/pruntyiContentDesc"
+                    android:src="@drawable/pruntyi_150_150_jo"
+                    app:layout_constraintBottom_toBottomOf="@+id/previousQuestionButton"
+                    app:layout_constraintEnd_toStartOf="@+id/pakitoImageView"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@+id/previousQuestionButton"
+                    app:layout_constraintTop_toTopOf="@+id/previousQuestionButton" />
+
+                <!-- Pákító a Zöld papagáj || The Green Parrot is a peacemaker -->
+                <ImageView
+                    android:id="@+id/pakitoImageView"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_marginEnd="8dp"
+                    android:contentDescription="@string/pakitoContentDescr"
+                    android:src="@drawable/pakito_150_150_jo"
+                    app:layout_constraintBottom_toBottomOf="@+id/pruntyiImageView"
+                    app:layout_constraintEnd_toStartOf="@+id/nextQuestionButton"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/pruntyiImageView"
+                    app:layout_constraintTop_toTopOf="@+id/pruntyiImageView" />
                 <!-- Jobb navigációs nyíl (következő kérdés) || Right navigation arrow (next question) -->
                 <ImageButton
                     android:id="@+id/nextQuestionButton"

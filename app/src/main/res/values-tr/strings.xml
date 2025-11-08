@@ -1,0 +1,139 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Learning_App</string>
+    <string name="wrong_answer_with_correct_answer">Yanlış cevap. Doğru cevap: %1$s</string>
+    <string name="questionCounter_format">Soru: %1$d/%2$d</string>
+    <string name="questionTextHint">Soru burada görünecek</string>
+    <string name="answerInputHint">Cevabı/cevapları buraya yazın</string>
+    <string name="feedbackTetxtHint">Doğru cevap burada olacak!</string>
+    <string name="previousQuestionButtonHint">Önceki soru</string>
+    <string name="nextQuestionButtonHint">Sonraki soru</string>
+    <string name="checkAnswerButtonText" tools:ignore="Typos">Cevap/ları kontrol et</string>
+    <string name="restartQuestionButtonText">Soruları yeniden başlat</string>
+    <string name="jsonFilesLoadingText">Json dosyası yükleniyor</string>
+    <string name="EditQuestionButtonText">Soruları Düzenle</string>
+    <string name="CreateQuestionsButtonText">Soru Oluştur</string>
+    <string name="settingsButtonText">Ayarlar</string>
+    <string name="checkStoragePermissionText1">İzin verildi!</string>
+    <string name="checkStoragePermissionText2">İzin reddedildi!</string>
+    <string name="permissionRequest_ResultText2">Dosyalara erişmek için izinler gerekli</string>
+    <string name="noQuestionsText">Yüklenmiş soru yok</string>
+    <string name="invalid_question_Index">Hata: Geçersiz soru indeksi</string>
+    <string name="inputStreamNullText">InputStream null olduğu için dosya açılamadı</string>
+    <string name="jsonParseError1">JSON okunurken IO Hatası</string>
+    <string name="jsonParseError2">JSON İşleme Hatası</string>
+    <string name="filePickerLauncherLoadedQuestionText">%1$d soru yüklendi.</string>
+    <string name="filepickerLauncherErrorText">Dosyadan soru okunamadı veya dosya boş.</string>
+    <string name="filepickerLauncherNofileText">Seçili dosya yok</string>
+    <string name="rightAnswer">Doğru cevap!</string>
+    <string name="all_answered">Daha fazla soru yok!</string>
+    <string name="no_questions_loaded_for_checking">Kontrol için yüklenmiş soru yok!</string>
+    <string name="error_checking_answer">Cevap kontrol edilirken hata oluştu!</string>
+    <string name="questions_restarted">Sorular başarıyla yeniden başlatıldı!</string>
+    <string name="no_questions_to_restart">Yeniden başlatılacak soru yok.\n</string>
+    <string name="no_questions_to_navigate">Gezinmek için soru yok!</string>
+    <string name="already_at_last_question">Zaten son sorudasınız.</string>
+    <string name="already_at_first_question">İlk sorudasınız, geri gidemezsiniz.</string>
+    <string name="answerQuestionInputHint">Soruları ve cevapları sırayla buraya yazın.</string>
+    <string name="currentStatus">Mevcut durum: Soru girişi</string>
+    <string name="enter_next_question_answer_buttonText">Soru/cevap girişi</string>
+    <string name="saveFileButtonText">Dosyaya Kaydet</string>
+    <string name="allDataDelete">Şimdiye kadar girilen tüm verileri sil</string>
+    <string name="backToTheMainMenuText">Ana menüye geri dön</string>
+    <string name="create_question_status_enter_question">Soru belirtin:</string>
+    <string name="create_question_button_next_to_answers">Cevaplara geç</string>
+    <string name="create_question_hint_enter_question">Lütfen soruyu buraya yazın…</string>
+    <string name="create_question_status_enter_answers_for" tools:ignore="Typos">Bu soru için cevap(lar) belirtin: \"%1$s\"</string>
+    <string name="create_question_button_save_answers_and_next_q">Cevapları kaydet ve yeni soru</string>
+    <string name="create_question_hint_enter_answers_csv">Lütfen doğru cevabı/cevapları virgülle ayırarak yazın…</string>
+    <string name="create_question_answer_pair_saved">Soru-cevap çifti kaydedildi! Toplam: %1$d</string>
+    <string name="create_question_please_enter_something">Lütfen bir şey yazın!</string>
+    <string name="create_question_error_incomplete_pair">Hata: Soru veya cevaplar kayıt için eksik.</string>
+    <string name="create_question_nothing_to_save">Kaydedilecek bir şey yok. Hiçbir şey yazmadınız.</string>
+    <string name="create_question_last_pending_pair_saved_toast">Son soru-cevap çifti kayıt için eklendi.</string>
+    <string name="create_question_please_provide_answers_for_current_q_before_saving">Lütfen kaydetmeden önce mevcut soru için cevapları da verin!</string>
+    <string name="createquestion_press_next_to_add_current_question_first">Lütfen kaydetmeden önce mevcut soruyu kaydetmek için \'İleri\' düğmesine basın!</string>
+    <string name="create_question_add_answers_for_this_question_too">Lütfen bu soru için de cevabı/cevapları verin. (Ardından ileri düğmesine basın)</string>
+    <string name="create_question_nothing_to_save_final">Veri yok, kaydedilecek bir şey yok.</string>
+    <string name="create_question_error_creating_json">JSON dosyası oluşturulurken hata: %1$s</string>
+    <string name="wallpaper_image_description">Papağanlar</string>
+    <string name="appVersion">LearningApp v1.0</string>
+    <string name="question_counter_empty_state">0/0</string>
+    <string name="create_question_json_file_created">Json dosyası başarıyla oluşturuldu!</string>
+    <string name="Create_Question_Save_Cancel_Json">Kaydetme iptal edildi</string>
+    <string name="create_question_all_data_cleared_toast">Şimdiye kadar girilen tüm veriler silindi.</string>
+    <string name="create_question_nothing_to_delete">Silinecek bir şey yok.\nGirdide kaydedilmiş\nsoru-cevap çifti yoktu.</string>
+    <string name="create_question_delete_confirmation_title">Onay</string>
+    <string name="create_question_delete_confirmation_message">Şimdiye kadar girdiğiniz\ntüm soru ve cevap çiftlerini\nsilmek istediğinizden emin misiniz?</string>
+    <string name="create_question_delete_confirmation_positive_button">Sil</string>
+    <string name="create_question_delete_confirmation_negative_button">İptal</string>
+    <string name="jsonEditHint">Sorular ve cevaplar\nburada Json formatında olacak:\n\n
+      [\n
+    {
+        \n\"question\": \"___________?\",
+       \n\"rightAnswers\": [\"_____________\"],
+        \n\"answered\": false
+  \n},
+    \n{
+        \n\"question\": \"_______________?\",
+        \n\"rightAnswers\": [\"_________\", \"___________\"],
+        \n\"answered\": false
+    \n}\n
+        ]
+</string>
+    <string name="edit_activity_openFileJson">Json dosyasını aç</string>
+    <string name="edit_Activity_Json_Validate">Json yapısını kontrol et</string>
+    <string name="edit_Activity_JsonPretty">Json_biçimlendir</string>
+    <string name="edit_activity_PasteButton">Panodan yapıştır</string>
+    <string name="edit_Activity_copyButton">Panoya kopyala</string>
+    <string name="edit_Activity_JsonSaveButton">Kaydet(JSON)</string>
+    <string name="edit_Activity_jsonFileAsSaveButton">Farklı kaydet(JSON)</string>
+    <string name="ClipBoard_text">Kod panoya kopyalandı</string>
+    <string name="Clipdata_copied_code">Kod panoya kopyalandı.</string>
+    <string name="ClipBoard_success_message">Panodan yapıştırıldı</string>
+    <string name="paste_not_text_message">Panoda metin yok</string>
+    <string name="Clipboard_paste_no_data_message">Pano boş</string>
+    <string name="delete_all_dialog_title">Her şeyi silmek istediğinizden emin misiniz?</string>
+    <string name="delete_all_dialog_message">Bu işlem geri alınamaz. Tüm içerik kaybolacak.</string>
+    <string name="delete_success_message">İçerik silindi.</string>
+    <string name="deleteBuilder_delete_button_text">Sil</string>
+    <string name="cancel_button_text">İptal</string>
+    <string name="ecit_question_undo_button">Geri al</string>
+    <string name="beautify_empty_text">Biçimlendirilecek bir şey yok, dosya boş!</string>
+    <string name="json_any_error_message">İşlem sırasında hata oluştu!</string>
+    <string name="beautify_invalid_json">Hata: Metin geçerli bir JSON değil!\nBir parantez veya başka bir şey eksik.</string>
+    <string name="beautify_success_sucess">JSON dosyası başarıyla biçimlendirildi.</string>
+    <string name="validate_empty_text">Kontrol edilecek bir şey yok!\nDosya boş.</string>
+    <string name="validate_success_text">JSON yapısı geçerli!</string>
+    <string name="validate_invalid_json">Hata: JSON yapısı geçersiz!</string>
+    <string name="file_read_success">Dosya başarıyla açıldı.</string>
+    <string name="open_file_read_error">Dosya açılırken hata oluştu!</string>
+    <string name="save_file_error">Dosya kaydedilirken hata oluştu.</string>
+    <string name="save_file_success">Dosya başarıyla kaydedildi.</string>
+    <string name="save_file_empty_error">Kaydedilecek bir şey yok, düzenleyici boş!</string>
+    <string name="overwrite_dialog_title">Dosyanın üzerine yaz</string>
+    <string name="overwrite_dialog_message">Mevcut dosyanın üzerine yazmak istediğinizden emin misiniz? Bu işlem geri alınamaz.</string>
+    <string name="overwrite_button_text">Üzerine yaz</string>
+    <string name="undoButton_stack_is_empty">Geri alınacak bir şey yok</string>
+    <string name="settings_select_Theme_Button">Tema seç</string>
+    <string name="json_processing_Button">Json işlemci seç</string>
+    <string name="informationButton">Bilgi</string>
+    <string name="otherSettingsButton">diğer ayarlar</string>
+    <string name="select_theme_title">Tema seçimi</string>
+    <string name="select_json_processor">Json işlemci seçimi</string>
+    <string name="choosenJsonProcess">Seçilen JSON işlemci: %1$s</string>
+    <string name="error_Json_Save_Format">Metin hatalı JSON formatında, kayıt iptal edildi!</string>
+    <string name="writeTextJsonError">Kullanıcı tarafından düzenlenen JSON metni hatalı.</string>
+    <string name="language_selection_button">Dil seçimi</string>
+    <string name="information_title">Bilgi</string>
+    <string name="information_message">Bu, öğrenmeye yardımcı bir uygulamadır,\nsoru oluşturmayı\nve cevaplamayı mümkün kılar.\nAmaç, öğrenme materyalinin\ntekrar yoluyla etkili bir şekilde edinilmesidir.\nLearningApp\nSürüm: 1.0\nYapımcı: Attibexx\n</string>
+    <string name="select_language_title">Dil seçimi: %1$s</string>
+    <string name="other_settings_title">Diğer ayarlar</string>
+    <string name="setting_enable_animations">Animasyonu etkinleştir</string>
+    <string name="setting_enable_hints">İpucunu etkinleştir</string>
+    <string name="button_save">Kaydet</string>
+    <string name="zoom_Button_Enable_hints">Yakınlaştırmayı etkinleştir</string>
+    <string name="settings_saved">Ayarlar kaydedildi</string>
+    <string name="hint_on" />
+    <string name="pruntyiContentDesc">Prüntyi dalgalı muhabbet kuşu</string>
+    <string name="pakitoContentDescr">Pákító yeşil papağan</string>
+</resources>

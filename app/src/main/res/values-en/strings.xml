@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Learning_App</string>
+    <string name="wrong_answer_with_correct_answer">Wrong answer. The correct answer is: %1$s</string>
+    <string name="questionCounter_format">Question: %1$d/%2$d</string>
+    <string name="questionTextHint">The question will appear here</string>
+    <string name="answerInputHint">Type the answer(s) here</string>
+    <string name="feedbackTetxtHint">The correct answer will be here!</string>
+    <string name="previousQuestionButtonHint">Previous question</string>
+    <string name="nextQuestionButtonHint">Next question</string>
+    <string name="checkAnswerButtonText" tools:ignore="Typos">Check Answer(s)</string>
+    <string name="restartQuestionButtonText">Restart Questions</string>
+    <string name="jsonFilesLoadingText">Load Json file</string>
+    <string name="EditQuestionButtonText">Edit Questions</string>
+    <string name="CreateQuestionsButtonText">Create Questions</string>
+    <string name="settingsButtonText">Settings</string>
+    <string name="checkStoragePermissionText1">Permission granted!</string>
+    <string name="checkStoragePermissionText2">Permission denied!</string>
+    <string name="permissionRequest_ResultText2">Permissions are required to access files</string>
+    <string name="noQuestionsText">No questions loaded</string>
+    <string name="invalid_question_Index">Error: Invalid question index</string>
+    <string name="inputStreamNullText">Failed to open file because inputStream was null</string>
+    <string name="jsonParseError1">IO Error while reading JSON</string>
+    <string name="jsonParseError2">JSON Processing Error</string>
+    <string name="filePickerLauncherLoadedQuestionText">%1$d questions loaded.</string>
+    <string name="filepickerLauncherErrorText">Failed to read questions from the file, or the file is empty.</string>
+    <string name="filepickerLauncherNofileText">No file selected</string>
+    <string name="rightAnswer">Correct answer!</string>
+    <string name="all_answered">No more questions!</string>
+    <string name="no_questions_loaded_for_checking">No questions loaded to check!</string>
+    <string name="error_checking_answer">An error occurred while checking the answer!</string>
+    <string name="questions_restarted">The questions have been successfully restarted!</string>
+    <string name="no_questions_to_restart">No questions to restart.\n</string>
+    <string name="no_questions_to_navigate">No questions to navigate!</string>
+    <string name="already_at_last_question">You are already at the last question.</string>
+    <string name="already_at_first_question">You are at the first question, you cannot go back.</string>
+    <string name="answerQuestionInputHint">Enter the questions and answers one after another here.</string>
+    <string name="currentStatus">Current status: Entering question</string>
+    <string name="enter_next_question_answer_buttonText">Enter Question/Answer</string>
+    <string name="saveFileButtonText">Save to File</string>
+    <string name="allDataDelete">Delete all entered data</string>
+    <string name="backToTheMainMenuText">Back to the main menu</string>
+    <string name="create_question_status_enter_question">Enter question:</string>
+    <string name="create_question_button_next_to_answers">Next to answers</string>
+    <string name="create_question_hint_enter_question">Please type the question here…</string>
+    <string name="create_question_status_enter_answers_for" tools:ignore="Typos">Enter answer(s) for this question: \"%1$s\"</string>
+    <string name="create_question_button_save_answers_and_next_q">Save Answers and New Question</string>
+    <string name="create_question_hint_enter_answers_csv">Please type the correct answer(s), separated by commas…</string>
+    <string name="create_question_answer_pair_saved">Question-answer pair saved! Total: %1$d</string>
+    <string name="create_question_please_enter_something">Please, enter something!</string>
+    <string name="create_question_error_incomplete_pair">Error: The question or the answers are incomplete for saving.</string>
+    <string name="create_question_nothing_to_save">Nothing to save. You haven\'t entered anything.</string>
+    <string name="create_question_last_pending_pair_saved_toast">The last question-answer pair has been added to the save.</string>
+    <string name="create_question_please_provide_answers_for_current_q_before_saving">Please provide the answers for the current question before saving!</string>
+    <string name="createquestion_press_next_to_add_current_question_first">Please press \'Next\' to record the current question before saving!</string>
+    <string name="create_question_add_answers_for_this_question_too">Please provide the answer(s) for this question as well. (Then press the next button)</string>
+    <string name="create_question_nothing_to_save_final">No data to save.</string>
+    <string name="create_question_error_creating_json">Error creating JSON file: %1$s</string>
+    <string name="wallpaper_image_description">Parrots</string>
+    <string name="appVersion">LearningApp v1.0</string>
+    <string name="question_counter_empty_state">0/0</string>
+    <string name="create_question_json_file_created">The Json file was created successfully!</string>
+    <string name="Create_Question_Save_Cancel_Json">Save canceled</string>
+    <string name="create_question_all_data_cleared_toast">All previously entered data has been deleted.</string>
+    <string name="create_question_nothing_to_delete">Nothing to delete.\nThere was no saved\nquestion-answer pair in the input.</string>
+    <string name="create_question_delete_confirmation_title">Confirmation</string>
+    <string name="create_question_delete_confirmation_message">Are you sure you want to delete\nall previously entered\nquestion and answer pairs?</string>
+    <string name="create_question_delete_confirmation_positive_button">Delete</string>
+    <string name="create_question_delete_confirmation_negative_button">Cancel</string>
+    <string name="jsonEditHint">The questions and answers will be here
+\nin Json format:\n\n
+      [\n
+    {
+        \n\"question\": \"___________?\",
+       \n\"rightAnswers\": [\"_____________\"],
+        \n\"answered\": false
+  \n},
+    \n{
+        \n\"question\": \"_______________?\",
+        \n\"rightAnswers\": [\"_________\", \"___________\"],
+        \n\"answered\": false
+    \n}\n
+        ]
+</string>
+    <string name="edit_activity_openFileJson">Open Json file</string>
+    <string name="edit_Activity_Json_Validate">Validate Json structure</string>
+    <string name="edit_Activity_JsonPretty">Format Json</string>
+    <string name="edit_activity_PasteButton">Paste from clipboard</string>
+    <string name="edit_Activity_copyButton">Copy to clipboard</string>
+    <string name="edit_Activity_JsonSaveButton">Save (JSON)</string>
+    <string name="edit_Activity_jsonFileAsSaveButton">Save as (JSON)</string>
+    <string name="ClipBoard_text">The code has been copied to the clipboard</string>
+    <string name="Clipdata_copied_code">Code copied to clipboard.</string>
+    <string name="ClipBoard_success_message">Pasted from clipboard</string>
+    <string name="paste_not_text_message">The clipboard does not contain text</string>
+    <string name="Clipboard_paste_no_data_message">The clipboard is empty</string>
+    <string name="delete_all_dialog_title">Are you sure you want to delete everything?</string>
+    <string name="delete_all_dialog_message">This action cannot be undone. All content will be lost.</string>
+    <string name="delete_success_message">The content has been deleted.</string>
+    <string name="deleteBuilder_delete_button_text">Delete</string>
+    <string name="cancel_button_text">Cancel</string>
+    <string name="ecit_question_undo_button">Undo</string>
+    <string name="beautify_empty_text">Nothing to format, the file is empty!</string>
+    <string name="json_any_error_message">An error occurred during the process!</string>
+    <string name="beautify_invalid_json">Error: The text is not valid JSON!\nA bracket or something else is missing.</string>
+    <string name="beautify_success_sucess">The JSON file has been successfully formatted.</string>
+    <string name="validate_empty_text">Nothing to validate!\nThe file is empty.</string>
+    <string name="validate_success_text">The JSON structure is valid!</string>
+    <string name="validate_invalid_json">Error: The JSON structure is invalid!</string>
+    <string name="file_read_success">The file was opened successfully.</string>
+    <string name="open_file_read_error">An error occurred while opening the file!</string>
+    <string name="save_file_error">An error occurred while saving the file.</string>
+    <string name="save_file_success">File saved successfully.</string>
+    <string name="save_file_empty_error">Nothing to save, the editor is empty!</string>
+    <string name="overwrite_dialog_title">Overwrite file</string>
+    <string name="overwrite_dialog_message">Are you sure you want to overwrite the existing file? This action cannot be undone.</string>
+    <string name="overwrite_button_text">Overwrite</string>
+    <string name="undoButton_stack_is_empty">Nothing to undo</string>
+    <string name="settings_select_Theme_Button">Select Theme</string>
+    <string name="json_processing_Button">Select Json processor</string>
+    <string name="informationButton">Information</string>
+    <string name="otherSettingsButton">Other settings</string>
+    <string name="select_theme_title">Select Theme</string>
+    <string name="select_json_processor">Select Json processor</string>
+    <string name="choosenJsonProcess">Selected JSON processor: %1$s</string>
+    <string name="error_Json_Save_Format">The text is in an invalid JSON format, save canceled!</string>
+    <string name="writeTextJsonError">The JSON text edited by the user is invalid.</string>
+    <string name="language_selection_button">Select Language</string>
+    <string name="information_title">Information</string>
+    <string name="information_message">This is a learning support application\nthat allows you to create and answer questions.\nThe goal is the effective acquisition of the curriculum\nthrough repetition.\nLearningApp\nVersion: 1.0\nCreated by: Attibexx\n</string>
+    <string name="select_language_title">Select Language: %1$s</string>
+    <string name="other_settings_title">Other settings</string>
+    <string name="setting_enable_animations">Enable animations</string>
+    <string name="setting_enable_hints">Enable hints</string>
+    <string name="button_save">Save</string>
+    <string name="zoom_Button_Enable_hints">Enable zoom</string>
+    <string name="settings_saved">Settings saved</string>
+    <string name="hint_on" />
+    <string name="pruntyiContentDesc">Pruntyi the budgie</string>
+    <string name="pakitoContentDescr">Pakito the Green parrot</string>
+</resources>

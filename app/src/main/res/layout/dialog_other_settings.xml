@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!-- Animáció engedélyezése || Enable animations -->
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switch_animations"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:text="@string/setting_enable_animations"
+        android:textSize="18sp"
+        tools:ignore="VisualLintButtonSize" />
+
+    <!-- Hint engedélyezése || Enable hints -->
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switch_hints"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:text="@string/setting_enable_hints"
+        android:textSize="18sp"
+        tools:ignore="VisualLintButtonSize" />
+
+
+    <!-- Nagyítás engedélyezése || Enable Zoom -->
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switch_zoom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:text="@string/zoom_Button_Enable_hints"
+        android:textSize="18sp"
+        tools:ignore="VisualLintButtonSize" />
+
+
+
+</LinearLayout>

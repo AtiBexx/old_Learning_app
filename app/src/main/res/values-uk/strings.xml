@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Навчальний додаток</string>
+    <string name="wrong_answer_with_correct_answer">Неправильна відповідь. Правильна відповідь: %1$s</string>
+    <string name="questionCounter_format">Питання: %1$d/%2$d</string>
+    <string name="questionTextHint">Питання з\'явиться тут</string>
+    <string name="answerInputHint">Введіть відповідь(і) тут</string>
+    <string name="feedbackTetxtHint">Правильна відповідь буде тут!</string>
+    <string name="previousQuestionButtonHint">Попереднє питання</string>
+    <string name="nextQuestionButtonHint">Наступне питання</string>
+    <string name="checkAnswerButtonText" tools:ignore="Typos">Перевірити відповідь(і)</string>
+    <string name="restartQuestionButtonText">Почати питання спочатку</string>
+    <string name="jsonFilesLoadingText">Завантажити Json-файл</string>
+    <string name="EditQuestionButtonText">Редагувати питання</string>
+    <string name="CreateQuestionsButtonText">Створити питання</string>
+    <string name="settingsButtonText">Налаштування</string>
+    <string name="checkStoragePermissionText1">Дозвіл надано!</string>
+    <string name="checkStoragePermissionText2">У дозволі відмовлено!</string>
+    <string name="permissionRequest_ResultText2">Для доступу до файлів потрібні дозволи</string>
+    <string name="noQuestionsText">Питання не завантажено</string>
+    <string name="invalid_question_Index">Помилка: Недійсний індекс питання</string>
+    <string name="inputStreamNullText">Не вдалося відкрити файл, оскільки inputStream був null</string>
+    <string name="jsonParseError1">Помилка вводу/виводу під час читання JSON</string>
+    <string name="jsonParseError2">Помилка обробки JSON</string>
+    <string name="filePickerLauncherLoadedQuestionText">Завантажено %1$d питань.</string>
+    <string name="filepickerLauncherErrorText">Не вдалося прочитати питання з файлу, або файл порожній.</string>
+    <string name="filepickerLauncherNofileText">Файл не вибрано</string>
+    <string name="rightAnswer">Правильна відповідь!</string>
+    <string name="all_answered">Більше питань немає!</string>
+    <string name="no_questions_loaded_for_checking">Немає завантажених питань для перевірки!</string>
+    <string name="error_checking_answer">Сталася помилка під час перевірки відповіді!</string>
+    <string name="questions_restarted">Питання успішно перезапущено!</string>
+    <string name="no_questions_to_restart">Немає питань для перезапуску.\n</string>
+    <string name="no_questions_to_navigate">Немає питань для навігації!</string>
+    <string name="already_at_last_question">Ви вже на останньому питанні.</string>
+    <string name="already_at_first_question">Ви на першому питанні, ви не можете повернутися.</string>
+    <string name="answerQuestionInputHint">Введіть питання та відповіді тут одне за одним.</string>
+    <string name="currentStatus">Поточний стан: Введення питання</string>
+    <string name="enter_next_question_answer_buttonText">Ввести питання/відповідь</string>
+    <string name="saveFileButtonText">Зберегти у файл</string>
+    <string name="allDataDelete">Видалити всі введені дані</string>
+    <string name="backToTheMainMenuText">Повернутися в головне меню</string>
+    <string name="create_question_status_enter_question">Введіть питання:</string>
+    <string name="create_question_button_next_to_answers">Перейти до відповідей</string>
+    <string name="create_question_hint_enter_question">Будь ласка, введіть питання тут…</string>
+    <string name="create_question_status_enter_answers_for" tools:ignore="Typos">Введіть відповідь(і) на це питання: \"%1$s\"</string>
+    <string name="create_question_button_save_answers_and_next_q">Зберегти відповіді та нове питання</string>
+    <string name="create_question_hint_enter_answers_csv">Будь ласка, введіть правильну(і) відповідь(і), розділені комами…</string>
+    <string name="create_question_answer_pair_saved">Пару питання-відповідь збережено! Всього: %1$d</string>
+    <string name="create_question_please_enter_something">Будь ласка, введіть щось!</string>
+    <string name="create_question_error_incomplete_pair">Помилка: Питання або відповіді неповні для збереження.</string>
+    <string name="create_question_nothing_to_save">Немає що зберігати. Ви нічого не ввели.</string>
+    <string name="create_question_last_pending_pair_saved_toast">Остання очікувана пара питання-відповідь додана до збереження.</string>
+    <string name="create_question_please_provide_answers_for_current_q_before_saving">Будь ласка, надайте відповіді на поточне питання перед збереженням!</string>
+    <string name="createquestion_press_next_to_add_current_question_first">Будь ласка, натисніть \'Далі\', щоб зареєструвати поточне питання перед збереженням!</string>
+    <string name="create_question_add_answers_for_this_question_too">Будь ласка, надайте також відповідь(і) на це питання. (Потім натисніть кнопку "Далі")</string>
+    <string name="create_question_nothing_to_save_final">Немає даних для збереження.</string>
+    <string name="create_question_error_creating_json">Помилка при створенні файлу JSON: %1$s</string>
+    <string name="wallpaper_image_description">Папуги</string>
+    <string name="appVersion">LearningApp v1.0</string>
+    <string name="question_counter_empty_state">0/0</string>
+    <string name="create_question_json_file_created">Json-файл успішно створено!</string>
+    <string name="Create_Question_Save_Cancel_Json">Збереження скасовано</string>
+    <string name="create_question_all_data_cleared_toast">Всі раніше введені дані видалено.</string>
+    <string name="create_question_nothing_to_delete">Немає що видаляти.\nУ вводі не було збереженої\nпари питання-відповідь.</string>
+    <string name="create_question_delete_confirmation_title">Підтвердження</string>
+    <string name="create_question_delete_confirmation_message">Ви впевнені, що хочете видалити\nвсі раніше введені\nпари питань та відповідей?</string>
+    <string name="create_question_delete_confirmation_positive_button">Видалити</string>
+    <string name="create_question_delete_confirmation_negative_button">Скасувати</string>
+    <string name="jsonEditHint">Тут будуть питання\nта відповіді\nу форматі Json:\n\n
+      [\n
+    {
+        \n\"question\": \"___________?\",
+       \n\"rightAnswers\": [\"_____________\"],
+        \n\"answered\": false
+  \n},
+    \n{
+        \n\"question\": \"_______________?\",
+        \n\"rightAnswers\": [\"_________\", \"___________\"],
+        \n\"answered\": false
+    \n}\n
+        ]
+</string>
+    <string name="edit_activity_openFileJson">Відкрити Json-файл</string>
+    <string name="edit_Activity_Json_Validate">Перевірити структуру Json</string>
+    <string name="edit_Activity_JsonPretty">Форматувати Json</string>
+    <string name="edit_activity_PasteButton">Вставити з буфера обміну</string>
+    <string name="edit_Activity_copyButton">Копіювати в буфер обміну</string>
+    <string name="edit_Activity_JsonSaveButton">Зберегти (JSON)</string>
+    <string name="edit_Activity_jsonFileAsSaveButton">Зберегти як (JSON)</string>
+    <string name="ClipBoard_text">Код скопійовано в буфер обміну</string>
+    <string name="Clipdata_copied_code">Код скопійовано в буфер обміну.</string>
+    <string name="ClipBoard_success_message">Вставлено з буфера обміну</string>
+    <string name="paste_not_text_message">Буфер обміну не містить тексту</string>
+    <string name="Clipboard_paste_no_data_message">Буфер обміну порожній</string>
+    <string name="delete_all_dialog_title">Ви впевнені, що хочете все видалити?</string>
+    <string name="delete_all_dialog_message">Цю дію не можна скасувати. Весь вміст буде втрачено.</string>
+    <string name="delete_success_message">Вміст видалено.</string>
+    <string name="deleteBuilder_delete_button_text">Видалити</string>
+    <string name="cancel_button_text">Скасувати</string>
+    <string name="ecit_question_undo_button">Скасувати</string>
+    <string name="beautify_empty_text">Немає що форматувати, файл порожній!</string>
+    <string name="json_any_error_message">Під час процесу сталася помилка!</string>
+    <string name="beautify_invalid_json">Помилка: Текст не є дійсним JSON!\nВідсутня дужка або щось інше.</string>
+    <string name="beautify_success_sucess">JSON-файл успішно відформатовано.</string>
+    <string name="validate_empty_text">Немає що перевіряти!\nФайл порожній.</string>
+    <string name="validate_success_text">Структура JSON дійсна!</string>
+    <string name="validate_invalid_json">Помилка: Структура JSON недійсна!</string>
+    <string name="file_read_success">Файл успішно відкрито.</string>
+    <string name="open_file_read_error">Сталася помилка під час відкриття файлу!</string>
+    <string name="save_file_error">Сталася помилка під час збереження файлу.</string>
+    <string name="save_file_success">Файл успішно збережено.</string>
+    <string name="save_file_empty_error">Немає що зберігати, редактор порожній!</string>
+    <string name="overwrite_dialog_title">Перезаписати файл</string>
+    <string name="overwrite_dialog_message">Ви впевнені, що хочете перезаписати існуючий файл? Цю дію не можна скасувати.</string>
+    <string name="overwrite_button_text">Перезаписати</string>
+    <string name="undoButton_stack_is_empty">Немає що скасовувати</string>
+    <string name="settings_select_Theme_Button">Вибрати тему</string>
+    <string name="json_processing_Button">Вибрати обробник Json</string>
+    <string name="informationButton">Інформація</string>
+    <string name="otherSettingsButton">Інші налаштування</string>
+    <string name="select_theme_title">Вибрати тему</string>
+    <string name="select_json_processor">Вибрати обробник Json</string>
+    <string name="choosenJsonProcess">Обраний обробник JSON: %1$s</string>
+    <string name="error_Json_Save_Format">Текст має недійсний формат JSON, збереження скасовано!</string>
+    <string name="writeTextJsonError">Текст JSON, відредагований користувачем, недійсний.</string>
+    <string name="language_selection_button">Вибрати мову</string>
+    <string name="information_title">Інформація</string>
+    <string name="information_message">Це додаток для підтримки навчання,\nякий дозволяє створювати та відповідати на питання.\nМета - ефективно засвоїти навчальний матеріал\nчерез повторення.\nLearningApp\nВерсія: 1.0\nСтворено: Attibexx\n</string>
+    <string name="select_language_title">Вибрати мову: %1$s</string>
+    <string name="other_settings_title">Інші налаштування</string>
+    <string name="setting_enable_animations">Увімкнути анімації</string>
+    <string name="setting_enable_hints">Увімкнути підказки</string>
+    <string name="button_save">Зберегти</string>
+    <string name="zoom_Button_Enable_hints">Увімкнути масштабування</string>
+    <string name="settings_saved">Налаштування збережено</string>
+    <string name="hint_on" />
+    <string name="pruntyiContentDesc">Прюнті хвилястий папужка</string>
+    <string name="pakitoContentDescr">Пакіто зелений папуга</string>
+</resources>

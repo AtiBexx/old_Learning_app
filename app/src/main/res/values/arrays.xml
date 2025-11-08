@@ -16,4 +16,60 @@
         <item>Beépített Json (Egyszerű)</item>
         <item>Natív C++ (Kísérleti)</item>
     </string-array>
+
+    <!-- Nyelv választó opciók || Language Selection Options -->
+    <!-- Nyelv választó opciók || Language Selection Options -->
+    <string-array name="language_options">
+        <item>Magyar (Magyar)</item>
+        <item>Angol (English)</item>
+        <item>Német (Deutsch)</item>
+        <item>Francia (Français)</item>
+        <item>Spanyol (Español)</item>
+        <item>Olasz (Italiano)</item>
+        <item>Orosz (Русский)</item>
+        <item>Kínai (中文)</item>
+        <item>Japán (日本語)</item>
+        <item>Arab (العربية)</item>
+        <item>Héber (עברית)</item>
+        <item>Svéd (Svenska)</item>
+        <item>Dán (Dansk)</item>
+        <item>Finn (Suomi)</item>
+        <item>Holland (Nederlands)</item>
+        <item>Filipino (fil)</item>
+        <item>Ukran (Українська)</item>
+        <item>Portugál (Português)</item>
+        <item>Hindi (हिन्दी)</item>
+        <item>Korean (한국어)</item>
+        <item>Türkçe (Türkçe)</item>
+        <item>Polski (Polski)</item>
+
+    </string-array>
+    <!-- A nyelvekhez tartozó locale kódok. A sorrendnek egyeznie kell a language_options tömbbel! -->
+    <!-- Locale codes for languages. The order must match the language_options array! -->
+    <string-array name="language_codes">
+        <item>hu</item> <!-- Magyar -->
+        <item>en</item> <!-- Angol -->
+        <item>de</item> <!-- Német -->
+        <item>fr</item> <!-- Francia -->
+        <item>es</item> <!-- Spanyol -->
+        <item>it</item> <!-- Olasz -->
+        <item>ru</item> <!-- Orosz -->
+        <item>zh</item> <!-- Kínai -->
+        <item>ja</item> <!-- Japán -->
+        <item>ar</item> <!-- Arab -->
+        <item>iw</item> <!-- Héber -->
+        <item>sv</item> <!-- Svéd -->
+        <item>da</item> <!-- Dán -->
+        <item>fi</item> <!-- Finn -->
+        <item>nl</item> <!-- Holland -->
+        <item>fil</item> <!-- Filipino -->
+        <item>uk</item> <!-- Ukran -->
+        <item>pt</item> <!-- Portugál -->
+        <item>hi</item> <!-- Hindi -->
+        <item>ko</item> <!-- Korean -->
+        <item>tr</item> <!-- Türkçe -->
+        <item>pl</item> <!-- Polski -->
+    </string-array>
+
+
 </resources>

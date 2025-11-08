@@ -1,0 +1,139 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Learning_App</string>
+    <string name="wrong_answer_with_correct_answer">잘못된 답변입니다. 정답: %1$s</string>
+    <string name="questionCounter_format">질문: %1$d/%2$d</string>
+    <string name="questionTextHint">질문이 여기에 표시됩니다</string>
+    <string name="answerInputHint">여기에 답변을 입력하세요</string>
+    <string name="feedbackTetxtHint">정답이 여기에 표시됩니다!</string>
+    <string name="previousQuestionButtonHint">이전 질문</string>
+    <string name="nextQuestionButtonHint">다음 질문</string>
+    <string name="checkAnswerButtonText" tools:ignore="Typos">답변 확인</string>
+    <string name="restartQuestionButtonText">질문 다시 시작</string>
+    <string name="jsonFilesLoadingText">JSON 파일 로딩 중</string>
+    <string name="EditQuestionButtonText">질문 편집</string>
+    <string name="CreateQuestionsButtonText">질문 생성</string>
+    <string name="settingsButtonText">설정</string>
+    <string name="checkStoragePermissionText1">권한이 부여되었습니다!</string>
+    <string name="checkStoragePermissionText2">권한이 거부되었습니다!</string>
+    <string name="permissionRequest_ResultText2">파일 접근을 위한 권한이 필요합니다</string>
+    <string name="noQuestionsText">로드된 질문이 없습니다</string>
+    <string name="invalid_question_Index">오류: 잘못된 질문 인덱스</string>
+    <string name="inputStreamNullText">입력 스트림이 null이어서 파일을 열 수 없습니다</string>
+    <string name="jsonParseError1">JSON 읽기 중 IO 오류</string>
+    <string name="jsonParseError2">JSON 파싱 오류</string>
+    <string name="filePickerLauncherLoadedQuestionText">%1$d개의 질문이 로드되었습니다.</string>
+    <string name="filepickerLauncherErrorText">파일에서 질문을 읽을 수 없거나 파일이 비어 있습니다.</string>
+    <string name="filepickerLauncherNofileText">선택된 파일이 없습니다</string>
+    <string name="rightAnswer">정답입니다!</string>
+    <string name="all_answered">더 이상 질문이 없습니다!</string>
+    <string name="no_questions_loaded_for_checking">확인할 질문이 로드되지 않았습니다!</string>
+    <string name="error_checking_answer">답변 확인 중 오류가 발생했습니다!</string>
+    <string name="questions_restarted">질문이 성공적으로 다시 시작되었습니다!</string>
+    <string name="no_questions_to_restart">다시 시작할 질문이 없습니다.\n</string>
+    <string name="no_questions_to_navigate">탐색할 질문이 없습니다!</string>
+    <string name="already_at_last_question">이미 마지막 질문입니다.</string>
+    <string name="already_at_first_question">첫 번째 질문이므로 뒤로 갈 수 없습니다.</string>
+    <string name="answerQuestionInputHint">질문과 답변을 차례로 입력하세요.</string>
+    <string name="currentStatus">현재 상태: 질문 입력</string>
+    <string name="enter_next_question_answer_buttonText">질문/답변 입력</string>
+    <string name="saveFileButtonText">파일에 저장</string>
+    <string name="allDataDelete">입력된 모든 데이터 삭제</string>
+    <string name="backToTheMainMenuText">메인 메뉴로 돌아가기</string>
+    <string name="create_question_status_enter_question">질문 입력:</string>
+    <string name="create_question_button_next_to_answers">답변으로 이동</string>
+    <string name="create_question_hint_enter_question">여기에 질문을 입력하세요…</string>
+    <string name="create_question_status_enter_answers_for" tools:ignore="Typos">이 질문에 대한 답변 입력: \"%1$s\"</string>
+    <string name="create_question_button_save_answers_and_next_q">답변 저장 및 새 질문</string>
+    <string name="create_question_hint_enter_answers_csv">정답을 쉼표로 구분하여 입력하세요…</string>
+    <string name="create_question_answer_pair_saved">질문-답변 쌍이 저장되었습니다! 총 개수: %1$d</string>
+    <string name="create_question_please_enter_something">무언가를 입력하세요!</string>
+    <string name="create_question_error_incomplete_pair">오류: 질문 또는 답변이 불완전합니다.</string>
+    <string name="create_question_nothing_to_save">저장할 내용이 없습니다. 아무것도 입력하지 않았습니다.</string>
+    <string name="create_question_last_pending_pair_saved_toast">마지막 질문-답변 쌍이 저장에 추가되었습니다.</string>
+    <string name="create_question_please_provide_answers_for_current_q_before_saving">저장하기 전에 현재 질문에 대한 답변을 제공하세요!</string>
+    <string name="createquestion_press_next_to_add_current_question_first">저장하기 전에 \'다음\' 버튼을 눌러 현재 질문을 등록하세요!</string>
+    <string name="create_question_add_answers_for_this_question_too">이 질문에 대한 답변도 제공하세요. (그런 다음 다음 버튼을 누르세요)</string>
+    <string name="create_question_nothing_to_save_final">데이터가 없습니다. 저장할 내용이 없습니다.</string>
+    <string name="create_question_error_creating_json">JSON 파일 생성 중 오류: %1$s</string>
+    <string name="wallpaper_image_description">앵무새</string>
+    <string name="appVersion">LearningApp v1.0</string>
+    <string name="question_counter_empty_state">0/0</string>
+    <string name="create_question_json_file_created">JSON 파일이 성공적으로 생성되었습니다!</string>
+    <string name="Create_Question_Save_Cancel_Json">저장이 취소되었습니다</string>
+    <string name="create_question_all_data_cleared_toast">입력된 모든 데이터가 삭제되었습니다.</string>
+    <string name="create_question_nothing_to_delete">삭제할 내용이 없습니다.\n입력에 저장된\n질문-답변 쌍이 없습니다.</string>
+    <string name="create_question_delete_confirmation_title">확인</string>
+    <string name="create_question_delete_confirmation_message">지금까지 입력한\n모든 질문과 답변 쌍을\n정말 삭제하시겠습니까?</string>
+    <string name="create_question_delete_confirmation_positive_button">삭제</string>
+    <string name="create_question_delete_confirmation_negative_button">취소</string>
+    <string name="jsonEditHint">질문과 답변이\nJSON 형식으로 여기에 표시됩니다:\n\n
+      [\n
+    {
+        \n\"question\": \"___________?\",
+       \n\"rightAnswers\": [\"_____________\"],
+        \n\"answered\": false
+  \n},
+    \n{
+        \n\"question\": \"_______________?\",
+        \n\"rightAnswers\": [\"_________\", \"___________\"],
+        \n\"answered\": false
+    \n}\n
+        ]
+</string>
+    <string name="edit_activity_openFileJson">JSON 파일 열기</string>
+    <string name="edit_Activity_Json_Validate">JSON 구조 확인</string>
+    <string name="edit_Activity_JsonPretty">JSON 포맷팅</string>
+    <string name="edit_activity_PasteButton">클립보드에서 붙여넣기</string>
+    <string name="edit_Activity_copyButton">클립보드에 복사</string>
+    <string name="edit_Activity_JsonSaveButton">저장(JSON)</string>
+    <string name="edit_Activity_jsonFileAsSaveButton">다른 이름으로 저장(JSON)</string>
+    <string name="ClipBoard_text">코드가 클립보드에 복사되었습니다</string>
+    <string name="Clipdata_copied_code">코드가 클립보드에 복사되었습니다.</string>
+    <string name="ClipBoard_success_message">클립보드에서 붙여넣기 완료</string>
+    <string name="paste_not_text_message">클립보드에 텍스트가 없습니다</string>
+    <string name="Clipboard_paste_no_data_message">클립보드가 비어 있습니다</string>
+    <string name="delete_all_dialog_title">정말 모두 삭제하시겠습니까?</string>
+    <string name="delete_all_dialog_message">이 작업은 되돌릴 수 없습니다. 모든 콘텐츠가 손실됩니다.</string>
+    <string name="delete_success_message">콘텐츠가 삭제되었습니다.</string>
+    <string name="deleteBuilder_delete_button_text">삭제</string>
+    <string name="cancel_button_text">취소</string>
+    <string name="ecit_question_undo_button">실행 취소</string>
+    <string name="beautify_empty_text">포맷팅할 내용이 없습니다. 파일이 비어 있습니다!</string>
+    <string name="json_any_error_message">프로세스 중 오류가 발생했습니다!</string>
+    <string name="beautify_invalid_json">오류: 텍스트가 유효한 JSON이 아닙니다!\n괄호나 기타 항목이 누락되었습니다.</string>
+    <string name="beautify_success_sucess">JSON 파일이 성공적으로 포맷되었습니다.</string>
+    <string name="validate_empty_text">확인할 내용이 없습니다!\n파일이 비어 있습니다.</string>
+    <string name="validate_success_text">JSON 구조가 유효합니다!</string>
+    <string name="validate_invalid_json">오류: JSON 구조가 유효하지 않습니다!</string>
+    <string name="file_read_success">파일이 성공적으로 열렸습니다.</string>
+    <string name="open_file_read_error">파일 열기 중 오류가 발생했습니다!</string>
+    <string name="save_file_error">파일 저장 중 오류가 발생했습니다.</string>
+    <string name="save_file_success">파일이 성공적으로 저장되었습니다.</string>
+    <string name="save_file_empty_error">저장할 내용이 없습니다. 편집기가 비어 있습니다!</string>
+    <string name="overwrite_dialog_title">파일 덮어쓰기</string>
+    <string name="overwrite_dialog_message">기존 파일을 덮어쓰시겠습니까? 이 작업은 되돌릴 수 없습니다.</string>
+    <string name="overwrite_button_text">덮어쓰기</string>
+    <string name="undoButton_stack_is_empty">실행 취소할 내용이 없습니다</string>
+    <string name="settings_select_Theme_Button">테마 선택</string>
+    <string name="json_processing_Button">JSON 프로세서 선택</string>
+    <string name="informationButton">정보</string>
+    <string name="otherSettingsButton">기타 설정</string>
+    <string name="select_theme_title">테마 선택</string>
+    <string name="select_json_processor">JSON 프로세서 선택</string>
+    <string name="choosenJsonProcess">선택된 JSON 프로세서: %1$s</string>
+    <string name="error_Json_Save_Format">텍스트가 잘못된 JSON 형식입니다. 저장이 취소되었습니다!</string>
+    <string name="writeTextJsonError">사용자가 편집한 JSON 텍스트가 잘못되었습니다.</string>
+    <string name="language_selection_button">언어 선택</string>
+    <string name="information_title">정보</string>
+    <string name="information_message">이것은 학습 지원 애플리케이션으로,\n질문을 생성하고 답변할 수 있습니다.\n목표는 반복을 통해\n학습 자료를 효과적으로 습득하는 것입니다.\nLearningApp\n버전: 1.0\n제작자: Attibexx\n</string>
+    <string name="select_language_title">언어 선택: %1$s</string>
+    <string name="other_settings_title">기타 설정</string>
+    <string name="setting_enable_animations">애니메이션 활성화</string>
+    <string name="setting_enable_hints">힌트 활성화</string>
+    <string name="button_save">저장</string>
+    <string name="zoom_Button_Enable_hints">확대/축소 활성화</string>
+    <string name="settings_saved">설정이 저장되었습니다</string>
+    <string name="hint_on" />
+    <string name="pruntyiContentDesc">프륀티 물결 앵무새</string>
+    <string name="pakitoContentDescr">파키토 녹색 앵무새</string>
+</resources>

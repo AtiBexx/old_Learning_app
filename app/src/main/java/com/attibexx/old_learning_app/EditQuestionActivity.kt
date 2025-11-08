@@ -19,6 +19,8 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.toColorInt
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.attibexx.old_learning_app.AppSettingsKeys.ZOOM_ENABLED
+import com.attibexx.old_learning_app.AppSettingsKeys.PREFS_FILE_NAME
 import com.attibexx.old_learning_app.databinding.ActivityEditQuestionBinding
 import com.attibexx.old_learning_app.json.JsonProcessorFactory
 import com.google.gson.GsonBuilder
@@ -41,6 +43,9 @@ class EditQuestionActivity : AppCompatActivity() {
 
     // binding példányosítása || Instance of binding
     private lateinit var binding: ActivityEditQuestionBinding
+
+    // Prefs(központi beállítások) példányosítása || Instance of prefs
+    private val prefs by lazy { getSharedPreferences(PREFS_FILE_NAME, MODE_PRIVATE) }
 
     // A Fájlelválasztó pédányosítása || Instance of the file picker launcher
     private val openFileLauncher = registerForActivityResult(
@@ -103,6 +108,18 @@ class EditQuestionActivity : AppCompatActivity() {
         // A gombok eseménykezelőinek a függvénye
         // Call the button event handlers
         setupButtonListeners()
+    }
+
+    // Beállítások újraolvasására onResume() függvény.
+    // onResume() function to reread settings.
+    override fun onResume() {
+        super.onResume()
+
+        // Kiolvassuk a mentett beállítást.
+        val isZoomAllowed = prefs.getBoolean(
+            ZOOM_ENABLED, false)
+
+        binding.zoomContainer.isZoomEnabled = isZoomAllowed
     }
 
     // Incializáljuk a codeView-et

@@ -11,6 +11,7 @@ import android.widget.FrameLayout
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
+import androidx.core.graphics.withSave
 
 /**
  * A "Cooperative Zoom" modellt megvalósító konténer.
@@ -22,6 +23,10 @@ class CooperativeZoomContainer @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
+
+    // Nagyítás engedélyezése
+    var isZoomEnabled: Boolean = true
+
 
     private val scaleDetector: ScaleGestureDetector
     private var scaleFactor = 1.0f
@@ -42,6 +47,13 @@ class CooperativeZoomContainer @JvmOverloads constructor(
 
     // A dispatchTouchEvent adja a legmagasabb szintű kontrollt az események felett.
     override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
+       // Ha engedélyezve van a nagyítás
+       // if allowed this zoom
+        if (!isZoomEnabled) {
+           if (scaleFactor > 1.0f) {
+               resetZoom()
+           }
+       }
         // A scale detector mindig kapja meg az eseményt.
         scaleDetector.onTouchEvent(ev)
 
@@ -106,12 +118,12 @@ class CooperativeZoomContainer @JvmOverloads constructor(
     // mert azok már helyesen működtek. Csak az eseménykezelés logikája változott.
 
     override fun dispatchDraw(canvas: Canvas) {
-        canvas.save()
-        applyConstraints()
-        canvas.translate(posX, posY)
-        canvas.scale(scaleFactor, scaleFactor)
-        super.dispatchDraw(canvas)
-        canvas.restore()
+        canvas.withSave {
+            applyConstraints()
+            translate(posX, posY)
+            scale(scaleFactor, scaleFactor)
+            super.dispatchDraw(this)
+        }
     }
 
     private fun applyConstraints() {
@@ -159,5 +171,15 @@ class CooperativeZoomContainer @JvmOverloads constructor(
             }
             invalidate()
         }
+    }
+
+    // Nagyítás visszaállítása osztály
+    // Reset zoom class
+    private fun resetZoom() {
+        posX = 0f
+        posY = 0f
+        scaleFactor = 1.0f
+        parent.requestDisallowInterceptTouchEvent(false)
+        invalidate()
     }
 }

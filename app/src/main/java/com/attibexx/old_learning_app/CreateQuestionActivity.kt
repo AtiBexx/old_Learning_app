@@ -13,6 +13,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.attibexx.old_learning_app.AppSettingsKeys.PREFS_FILE_NAME
+import com.attibexx.old_learning_app.AppSettingsKeys.ZOOM_ENABLED
 import com.attibexx.old_learning_app.databinding.ActivityCreateQuestionBinding
 import com.attibexx.old_learning_app.json.JsonProcessorFactory
 
@@ -57,6 +59,10 @@ class CreateQuestionActivity : AppCompatActivity() {
 
     // binding példányosítása || Instance of binding
     private lateinit var binding: ActivityCreateQuestionBinding
+
+    // Prefs(központi beállítások) példányosítása || Instance of prefs
+    private val prefs by lazy {
+        getSharedPreferences(PREFS_FILE_NAME, MODE_PRIVATE) }
 
     // Companion object elsősorban a válaszhtató
     // Json fájl létrehozása módokhoz. + a loggoláshoz
@@ -130,6 +136,18 @@ class CreateQuestionActivity : AppCompatActivity() {
                 )
             }
         }
+
+    // Beállítások újraolvasására onResume() függvény.
+    // onResume() function to reread settings.
+    override fun onResume() {
+        super.onResume()
+
+        // Kiolvassuk a mentett beállítást.
+        val isZoomAllowed = prefs.getBoolean(
+            ZOOM_ENABLED, false)
+
+        binding.zoomContainer.isZoomEnabled = isZoomAllowed
+    }
         /**
         *Függvény az Ui Frisítésére
         *Function to update the Ui

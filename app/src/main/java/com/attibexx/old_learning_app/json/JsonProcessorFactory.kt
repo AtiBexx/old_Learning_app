@@ -2,6 +2,8 @@ package com.attibexx.old_learning_app.json
 
 import android.content.Context
 import android.net.Uri
+import com.attibexx.old_learning_app.AppSettingsKeys.JSON_LOADER_MODE
+import com.attibexx.old_learning_app.AppSettingsKeys.PREFS_FILE_NAME
 import com.attibexx.old_learning_app.QuestionAnswer
 
 /**
@@ -12,13 +14,7 @@ import com.attibexx.old_learning_app.QuestionAnswer
 
 object JsonProcessorFactory {
 
-    // A KÖZÖS BEÁLLÍTÁSOK FÁJLJÁNAK A NEVE
-    const val PREFS_FILE_NAME = "prefs"
 
-    // JSON Feldolgozó Módok Kulcsai || JSON Loader Mode Keys
-    // Ezt a kulcsot használjuk a SharedPreferences-ben a mód mentésére.
-    // Use this key to store the mode in the SharedPreferences.
-    const val JSON_LOADER_MODE = "json_loader_mode"
 
     // Ezek az értékek, amiket a kulcs alatt tárolunk
     const val MODE_SERIALIZABLE = "serializable"

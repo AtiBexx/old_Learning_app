@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">学习应用</string>
+    <string name="wrong_answer_with_correct_answer">回答错误。正确答案是: %1$s</string>
+    <string name="questionCounter_format">问题: %1$d/%2$d</string>
+    <string name="questionTextHint">问题将显示在这里</string>
+    <string name="answerInputHint">在此处输入答案</string>
+    <string name="feedbackTetxtHint">正确答案将在这里！</string>
+    <string name="previousQuestionButtonHint">上一个问题</string>
+    <string name="nextQuestionButtonHint">下一个问题</string>
+    <string name="checkAnswerButtonText" tools:ignore="Typos">检查答案</string>
+    <string name="restartQuestionButtonText">重新开始提问</string>
+    <string name="jsonFilesLoadingText">加载Json文件</string>
+    <string name="EditQuestionButtonText">编辑问题</string>
+    <string name="CreateQuestionsButtonText">创建问题</string>
+    <string name="settingsButtonText">设置</string>
+    <string name="checkStoragePermissionText1">权限已授予！</string>
+    <string name="checkStoragePermissionText2">权限被拒绝！</string>
+    <string name="permissionRequest_ResultText2">需要权限才能访问文件</string>
+    <string name="noQuestionsText">没有加载问题</string>
+    <string name="invalid_question_Index">错误：无效的问题索引</string>
+    <string name="inputStreamNullText">无法打开文件，因为输入流为空</string>
+    <string name="jsonParseError1">读取JSON时发生IO错误</string>
+    <string name="jsonParseError2">JSON处理错误</string>
+    <string name="filePickerLauncherLoadedQuestionText">已加载 %1$d 个问题。</string>
+    <string name="filepickerLauncherErrorText">无法从文件中读取问题，或者文件为空。</string>
+    <string name="filepickerLauncherNofileText">未选择文件</string>
+    <string name="rightAnswer">回答正确！</string>
+    <string name="all_answered">没有更多问题了！</string>
+    <string name="no_questions_loaded_for_checking">没有加载要检查的问题！</string>
+    <string name="error_checking_answer">检查答案时出错！</string>
+    <string name="questions_restarted">问题已成功重新开始！</string>
+    <string name="no_questions_to_restart">没有要重新开始的问题。\n</string>
+    <string name="no_questions_to_navigate">没有可导航的问题！</string>
+    <string name="already_at_last_question">您已在最后一个问题。</string>
+    <string name="already_at_first_question">您在第一个问题，不能返回。</string>
+    <string name="answerQuestionInputHint">在此处逐个输入问题和答案。</string>
+    <string name="currentStatus">当前状态：输入问题</string>
+    <string name="enter_next_question_answer_buttonText">输入问题/答案</string>
+    <string name="saveFileButtonText">保存到文件</string>
+    <string name="allDataDelete">删除所有输入的数据</string>
+    <string name="backToTheMainMenuText">返回主菜单</string>
+    <string name="create_question_status_enter_question">输入问题：</string>
+    <string name="create_question_button_next_to_answers">转到答案</string>
+    <string name="create_question_hint_enter_question">请在此处输入问题…</string>
+    <string name="create_question_status_enter_answers_for" tools:ignore="Typos">为此问题输入答案: \"%1$s\"</string>
+    <string name="create_question_button_save_answers_and_next_q">保存答案并提问新问题</string>
+    <string name="create_question_hint_enter_answers_csv">请输入正确答案，用逗号分隔…</string>
+    <string name="create_question_answer_pair_saved">问答对已保存！总计: %1$d</string>
+    <string name="create_question_please_enter_something">请输入内容！</string>
+    <string name="create_question_error_incomplete_pair">错误：问题或答案不完整，无法保存。</string>
+    <string name="create_question_nothing_to_save">没有要保存的内容。您没有输入任何内容。</string>
+    <string name="create_question_last_pending_pair_saved_toast">最后一个待处理的问答对已添加到保存中。</string>
+    <string name="create_question_please_provide_answers_for_current_q_before_saving">请在保存前为当前问题提供答案！</string>
+    <string name="createquestion_press_next_to_add_current_question_first">请在保存前按“下一步”记录当前问题！</string>
+    <string name="create_question_add_answers_for_this_question_too">请也为这个问题提供答案。（然后按下一步按钮）</string>
+    <string name="create_question_nothing_to_save_final">没有要保存的数据。</string>
+    <string name="create_question_error_creating_json">创建JSON文件时出错: %1$s</string>
+    <string name="wallpaper_image_description">鹦鹉</string>
+    <string name="appVersion">学习应用 v1.0</string>
+    <string name="question_counter_empty_state">0/0</string>
+    <string name="create_question_json_file_created">Json文件已成功创建！</string>
+    <string name="Create_Question_Save_Cancel_Json">保存已取消</string>
+    <string name="create_question_all_data_cleared_toast">所有先前输入的数据已被删除。</string>
+    <string name="create_question_nothing_to_delete">无可删除内容。\n输入中没有保存的问答对。</string>
+    <string name="create_question_delete_confirmation_title">确认</string>
+    <string name="create_question_delete_confirmation_message">您确定要删除\n所有先前输入的\n问答对吗？</string>
+    <string name="create_question_delete_confirmation_positive_button">删除</string>
+    <string name="create_question_delete_confirmation_negative_button">取消</string>
+    <string name="jsonEditHint">问题和答案将\n以Json格式显示在这里：\n\n
+      [\n
+    {
+        \n\"question\": \"___________?\",
+       \n\"rightAnswers\": [\"_____________\"],
+        \n\"answered\": false
+  \n},
+    \n{
+        \n\"question\": \"_______________?\",
+        \n\"rightAnswers\": [\"_________\", \"___________\"],
+        \n\"answered\": false
+    \n}\n
+        ]
+</string>
+    <string name="edit_activity_openFileJson">打开Json文件</string>
+    <string name="edit_Activity_Json_Validate">验证Json结构</string>
+    <string name="edit_Activity_JsonPretty">格式化Json</string>
+    <string name="edit_activity_PasteButton">从剪贴板粘贴</string>
+    <string name="edit_Activity_copyButton">复制到剪贴板</string>
+    <string name="edit_Activity_JsonSaveButton">保存(JSON)</string>
+    <string name="edit_Activity_jsonFileAsSaveButton">另存为(JSON)</string>
+    <string name="ClipBoard_text">代码已复制到剪贴板</string>
+    <string name="Clipdata_copied_code">代码已复制到剪贴板。</string>
+    <string name="ClipBoard_success_message">已从剪贴板粘贴</string>
+    <string name="paste_not_text_message">剪贴板中不包含文本</string>
+    <string name="Clipboard_paste_no_data_message">剪贴板为空</string>
+    <string name="delete_all_dialog_title">确定要删除所有内容吗？</string>
+    <string name="delete_all_dialog_message">此操作无法撤销。所有内容都将丢失。</string>
+    <string name="delete_success_message">内容已删除。</string>
+    <string name="deleteBuilder_delete_button_text">删除</string>
+    <string name="cancel_button_text">取消</string>
+    <string name="ecit_question_undo_button">撤销</string>
+    <string name="beautify_empty_text">文件为空，无需格式化！</string>
+    <string name="json_any_error_message">处理过程中发生错误！</string>
+    <string name="beautify_invalid_json">错误：文本不是有效的JSON！\n缺少括号或其他内容。</string>
+    <string name="beautify_success_sucess">JSON文件已成功格式化。</string>
+    <string name="validate_empty_text">无需验证！\n文件为空。</string>
+    <string name="validate_success_text">JSON结构有效！</string>
+    <string name="validate_invalid_json">错误：JSON结构无效！</string>
+    <string name="file_read_success">文件已成功打开。</string>
+    <string name="open_file_read_error">打开文件时出错！</string>
+    <string name="save_file_error">保存文件时出错。</string>
+    <string name="save_file_success">文件已成功保存。</string>
+    <string name="save_file_empty_error">编辑器为空，无可保存内容！</string>
+    <string name="overwrite_dialog_title">覆盖文件</string>
+    <string name="overwrite_dialog_message">您确定要覆盖现有文件吗？此操作无法撤销。</string>
+    <string name="overwrite_button_text">覆盖</string>
+    <string name="undoButton_stack_is_empty">无可撤销内容</string>
+    <string name="settings_select_Theme_Button">选择主题</string>
+    <string name="json_processing_Button">选择Json处理器</string>
+    <string name="informationButton">信息</string>
+    <string name="otherSettingsButton">其他设置</string>
+    <string name="select_theme_title">选择主题</string>
+    <string name="select_json_processor">选择Json处理器</string>
+    <string name="choosenJsonProcess">选择的JSON处理器: %1$s</string>
+    <string name="error_Json_Save_Format">文本为无效JSON格式，保存已取消！</string>
+    <string name="writeTextJsonError">用户编辑的JSON文本无效。</string>
+    <string name="language_selection_button">选择语言</string>
+    <string name="information_title">信息</string>
+    <string name="information_message">这是一个学习辅助应用程序\n允许您创建和回答问题。\n目标是通过重复有效\n地掌握课程内容。\n学习应用\n版本: 1.0\n创建者: Attibexx\n</string>
+    <string name="select_language_title">选择语言: %1$s</string>
+    <string name="other_settings_title">其他设置</string>
+    <string name="setting_enable_animations">启用动画</string>
+    <string name="setting_enable_hints">启用提示</string>
+    <string name="button_save">保存</string>
+    <string name="zoom_Button_Enable_hints">启用缩放</string>
+    <string name="settings_saved">设置已保存</string>
+    <string name="hint_on" />
+    <string name="pruntyiContentDesc">Prüntyi 虎皮鹦鹉</string>
+    <string name="pakitoContentDescr">Pákító 绿色鹦鹉</string>
+</resources>

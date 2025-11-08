@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CMakePythonSetting">
     <option name="pythonIntegrationState" value="YES" />
@@ -15,7 +16,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.2392626953125" />
+        <option name="scale" value="0.67" />
       </ProjectState>
     </option>
   </component>

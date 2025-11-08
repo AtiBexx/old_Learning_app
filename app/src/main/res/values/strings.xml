@@ -15,14 +15,8 @@
     <string name="settingsButtonText">Beállítások</string>
     <string name="checkStoragePermissionText1">Engedély megadva!</string>
     <string name="checkStoragePermissionText2">Engedély megtagadva!</string>
-    <string name="permissionRequest_ResultText1">Engedélyek megadva</string>
     <string name="permissionRequest_ResultText2">Engedélyek szükségesek a fájlok eléréséhez</string>
-    <string name="RequestStoragePermission_Text1">Teljes fájlhozzáférés már engedélyezve!</string>
-    <string name="RequestStoragePermissionFile_Text1">Fájlhozzáférési engedély már megadva!</string>
-    <string name="RequestStoragePermissionWrite_Text1">Fájl írási engedély már megadva</string>
-    <string name="alreadyHasPermissionsText">Minden szükséges engedély már meg van adva</string>
     <string name="noQuestionsText">Nincsenek kérdések betöltve</string>
-    <string name="questionCounter_empty">0/0</string>
     <string name="invalid_question_Index">Hiba : Érvénytelen kérdésindex</string>
     <string name="inputStreamNullText">Nem sikerült megnyitni a fájlt mert az inputStream null volt</string>
     <string name="jsonParseError1">IO Hiba a JSON olvasása közben</string>
@@ -45,8 +39,6 @@
     <string name="saveFileButtonText">Mentés Fájlba</string>
     <string name="allDataDelete">Az eddigi bevitt adatok tőrlése</string>
     <string name="backToTheMainMenuText">Visszalépés a főmenübe</string>
-    <string name="create_question_save_file_location_selected">Mentési hely kiválasztva: %1$s</string>
-    <string name="create_question_file_selection_cancelled_or_error">Fájl kiválasztása megszakítva valami hiba történt!</string>
     <string name="create_question_status_enter_question">Kérdés megadása:</string>
     <string name="create_question_button_next_to_answers">Tovább a válaszokhoz</string>
     <string name="create_question_hint_enter_question">Kérlek ide írd be a kérdést…</string>
@@ -63,17 +55,11 @@
     <string name="create_question_add_answers_for_this_question_too">Kérlek, add meg a választ/válaszokat is ehhez a kérdéshez.(Utány nyomj a tovább gombra)</string>
     <string name="create_question_nothing_to_save_final">Nincs adat nincsenek adatok nincs mit menteni.</string>
     <string name="create_question_error_creating_json">Hiba a JSON fájl létrehozásakor: %1$s</string>
-    <string name="create_question_please_select_save_location_first">Kérlek, válaszd ki a mentési helyet!</string>
-    <string name="create_question_file_saved_to_location">A fájl sikeresen mentve ide: %1$s</string>
-    <string name="create_question_error_saving_file_location">Hiba a fájl mentésekor a kiválasztott helyre: %1$s</string>
-    <string name="not_available">Nem elérhető</string>
     <string name="wallpaper_image_description">Papagájok</string>
     <string name="appVersion">LearningApp v1.0</string>
     <string name="question_counter_empty_state">0/0</string>
     <string name="create_question_json_file_created">A Json fájl sikeresen léterhozva!</string>
     <string name="Create_Question_Save_Cancel_Json">Mentés megszakítva</string>
-    <string name="create_question_file_location_selected">A mentési hely kiválasztva.</string>
-    <string name="create_question_file_location_not_selected">A mentési hely nincskiválasztva(megszakítva)</string>
     <string name="create_question_all_data_cleared_toast">Minden eddigi bevitt adat törölve lett.</string>
     <string name="create_question_nothing_to_delete">Nincs mit törölni.\nNem volt a bemenetben elmentett\nkérdés-válasz pár.</string>
     <string name="create_question_delete_confirmation_title">Megerősítés</string>
@@ -102,7 +88,6 @@
     <string name="edit_Activity_copyButton">Másolás vágolapra</string>
     <string name="edit_Activity_JsonSaveButton">Mentés(JSON)</string>
     <string name="edit_Activity_jsonFileAsSaveButton">Mentés másként(JSON)</string>
-    <string name="code_editor_description">Kódszerkesztő mező</string>
     <string name="ClipBoard_text">A kód a vágolapra másolva</string>
     <string name="Clipdata_copied_code">Kód vágolapra másolva.</string>
     <string name="ClipBoard_success_message">Beillesztve a vágólapról</string>
@@ -140,6 +125,16 @@
     <string name="error_Json_Save_Format">A szöveg hibás JSON formátumú, mentés megszakítva!</string>
     <string name="writeTextJsonError">A felhasználó által szerkesztett JSON szöveg hibás.</string>
     <string name="language_selection_button">Nyelv választáss</string>
-
-
+    <string name="information_title">Információ</string>
+    <string name="information_message">Ez egy tanulást segítő alkalmazás, \namely lehetővé teszi a kérdések létrehozását\n és megválaszolását.\nA cél a tananyag hatékony elsajátítása \nismétlésen keresztül. \nLearningApp\nVerzió: 1.0\nKészítette: Attibexx\n</string>
+    <string name="select_language_title">Nyelv kiválasztása: %1$s</string>
+    <string name="other_settings_title">Egyéb beállítások</string>
+    <string name="setting_enable_animations">Animáció engedélyezése</string>
+    <string name="setting_enable_hints">Hint engedélyezése</string>
+    <string name="button_save">Mentés</string>
+    <string name="zoom_Button_Enable_hints">Nagyítás engedélyezése</string>
+    <string name="settings_saved">Beállítások elmentve</string>
+    <string name="hint_on" />
+    <string name="pruntyiContentDesc">Prüntyi hullámos papagáj</string>
+    <string name="pakitoContentDescr">Pákító a Zöld papagáj</string>
 </resources>

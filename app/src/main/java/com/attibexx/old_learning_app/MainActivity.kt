@@ -9,6 +9,8 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
+import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.ActivityResultLauncher
@@ -20,6 +22,9 @@ import androidx.core.content.edit
 import androidx.core.net.toUri
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.attibexx.old_learning_app.AppSettingsKeys.HINTS_ENABLED
+import com.attibexx.old_learning_app.AppSettingsKeys.PREFS_FILE_NAME
+import com.attibexx.old_learning_app.AppSettingsKeys.ZOOM_ENABLED
 import com.attibexx.old_learning_app.databinding.ActivityMainBinding
 import com.attibexx.old_learning_app.json.JsonProcessorFactory
 
@@ -53,8 +58,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var filePickerLauncher: ActivityResultLauncher<String>
 
     //A prefs használatához példányosítás
-    //Toast üzenetek állapotainak elmentésére ||
-    private val prefs by lazy { getSharedPreferences(JsonProcessorFactory.PREFS_FILE_NAME, MODE_PRIVATE) }
+    private val prefs by lazy {
+        getSharedPreferences(
+            PREFS_FILE_NAME, MODE_PRIVATE
+        )
+    }
     //a by lazy miatt nem kell elhelyzni az oncreate-ban
     //because of by lazy it doesn't need to be placed in oncreate
     /*private lateinit var prefs: SharedPreferences
@@ -133,6 +141,19 @@ Used when you need a "static" variable or function in Kotlin.
                 "onConfigurationChanged: New orientation: ${newConfig.orientation}"
             )
         }
+    }
+
+    // Beállítások újraolvasására onResume() függvény.
+    // onResume() function to reread settings.
+    override fun onResume() {
+        super.onResume()
+
+        // Kiolvassuk a mentett beállítást.
+        val isZoomAllowed = prefs.getBoolean(
+            ZOOM_ENABLED, false
+        )
+
+        binding.zoomContainer.isZoomEnabled = isZoomAllowed
     }
 
     /*Tárhelyel kapcsolatos függvények
@@ -391,25 +412,58 @@ Used when you need a "static" variable or function in Kotlin.
     //Shows the question based on the Json file index
     //A QuestionCounter és a QuestionOfText-hez
     private fun showQuestion(index: Int = currentQuestionIndex) {
+
+        // Animáció || Animation
+        // kiolvassuk a beállítást engedélyezve van -e
+        // read out the setting is enabled
+        val areAnimationsEnabled = prefs.getBoolean(
+            AppSettingsKeys.ANIMATIONS_ENABLED, false)
+
+        // A beállítás alapján állítsuk be a papagájok láthatóságát
+        // Adjust the visibility of the parrots based on the setting
+        if (areAnimationsEnabled) {
+            // Ha az animációk be vannak kapcsolva, legyenek láthatóak
+            // If the animations are enabled, make them visible
+            binding.pruntyiImageView.visibility = View.VISIBLE
+            binding.pakitoImageView.visibility = View.VISIBLE
+
+            // És futtassuk le a visszatérés animációt, hogy finoman megjelenjenek
+            // And let's run the return animation to make them appear subtly
+            val returnAnimation = AnimationUtils.loadAnimation(
+                this, R.anim.anim_return)
+            binding.pruntyiImageView.startAnimation(returnAnimation)
+            binding.pakitoImageView.startAnimation(returnAnimation)
+
+        } else {
+            // Ha az animációk ki vannak kapcsolva, tüntessük el őket teljesen
+            // If animations are turned off, turn them off completely
+            binding.pruntyiImageView.visibility = View.GONE
+            binding.pakitoImageView.visibility = View.GONE
+        }
+
         if (index >= 0 && index < questionList.size) {
             //frissítjük az indexet
             //update the index
             currentQuestionIndex = index
             /*questionAndAnswerInTheIndex == questionAndAnswerAtIndex*/
             val questionAndAnswerAtIndex = questionList[index]
+
             //betöltjük a kérdés mezőt a fájl indexe alapján
             //load the question field based on the file index
             binding.questionOfText.text = questionAndAnswerAtIndex.question
+
             //a válasz mezőt ürítjük(answerInput)
             //clear the answer field(answerInput)
             //binding.answerInput.setText("") de jobb a text.clear() kevesebb erőforrás
             //binding.answerInput.setText("") is better than text.clear() because it is less resource consuming
             binding.answerInput.text.clear()
+
             //visszajelzési mező űrítése(feedbackText)
             //feedback text clear(feedbackText)
             //A textViewnek nincs clear() függvénye
             //the textView has no clear() function
             binding.feedbackText.text = ""
+
             //Beállítjuk a kérdésSzámláló szövegét(QuestonCounter)
             //Set the question counter text
             binding.questionCounter.text = getString(
@@ -417,24 +471,39 @@ Used when you need a "static" variable or function in Kotlin.
                 currentQuestionIndex + 1,
                 totalQuestionsCount
             )
+
             //Frisitjük a gombok állapotát
             //Update the button states
             updateButtonStatesForQuestion()
+
+            // Frisitjük a hintet a kérdés után
+            // Update the hint after the question
+            updateHint()
+
         } else if (questionList.isEmpty()) {//Ha üres a lista
             binding.questionOfText.text = getString(R.string.noQuestionsText)
             //binding.questionCounter.text = ""
+
             //nem ürítjük hanem beállítjuk az üres szöveget
             //we set the empty state text
             binding.questionCounter.text = getString(R.string.question_counter_empty_state)
+
             //a felhasználó válaszát is ürítjük
             //we clear the user answer
             binding.answerInput.text.clear()
+
             //a visszajelzési szöveget is ürítjük
             //we clear the feedback text
             binding.feedbackText.text = ""
+
             //Frisitjük a gombok állapotát mert üres a lista letiltunk néhányat
             //Update the button states because the list is empty we disable some buttons
             updateButtonStatesForQuestion()
+
+            // Frisitjük a hintet a kérdés után
+            // Update the hint after the question
+            updateHint()
+
         } else {
             Toast.makeText(
                 this, getString(
@@ -454,13 +523,16 @@ Used when you need a "static" variable or function in Kotlin.
             //Only do something if there are questions
             if (questionList.isNotEmpty()) {
                 if (currentQuestionIndex > 0) {
+
                     //Csökkentjük a kérdések indexét a visszalépéshez
                     //Decrease the question index for back navigation
                     currentQuestionIndex--
+
                     //megjelenítjük a kérdést
                     //show the question
                     showQuestion()
                 } else {
+
                     //Ha az első kérdésnél vagyunk nem tudunk visszalépni
                     //if we are at the first question we cannot go back
                     Toast.makeText(
@@ -484,6 +556,7 @@ Used when you need a "static" variable or function in Kotlin.
                     Toast.LENGTH_SHORT
                 ).show()
             }
+
             //Rendszerüzenet hogy használtuk a gombot
             //System message that we used the button
             if ((Log.isLoggable(TAG, Log.DEBUG))) {
@@ -496,17 +569,21 @@ Used when you need a "static" variable or function in Kotlin.
         }
         //következő kérdés gomb || Right navigation button
         binding.nextQuestionButton.setOnClickListener {
+
             //Csak akkor csinálunk bármit ha vannak kérdések
             //Only do something if there are questions
             if (questionList.isNotEmpty()) {
                 if (currentQuestionIndex < questionList.size - 1) {
-                    //Nüveljük a kérdések indexét 1-el
+
+                    //Növeljük a kérdések indexét 1-el
                     //Increase the question index by 1
                     currentQuestionIndex++
+
                     //megjelenítjük a kérdést
                     //show the question
                     showQuestion()
                 } else {
+
                     //Ha az utolsó kérdésnél vagyunk nem tudunk navigálni
                     //if we are at the last question we cannot navigate
                     Toast.makeText(
@@ -566,6 +643,11 @@ Used when you need a "static" variable or function in Kotlin.
                 val isAnswerCorrect = currentQuestionAnswer.rightAnswers.any { correctAnswer ->
                     correctAnswer.trim().lowercase() == userAnswer
                 }
+                //Animáció || Animations
+                val areAnimationsEnabled = prefs.getBoolean(
+                    AppSettingsKeys.ANIMATIONS_ENABLED, false
+                )
+
                 if (isAnswerCorrect) {
                     binding.feedbackText.text = getString(R.string.rightAnswer)
                     //A helyes válasz színe zöld lesz
@@ -578,6 +660,17 @@ Used when you need a "static" variable or function in Kotlin.
                     //Megjelöljük a választ megválaszoltként ha helyes volt
                     //Mark the answer as answered correctly
                     currentQuestionAnswer.answered = true
+
+                    //Animáció ha bekapcsolva || Animations if enabled
+                    if (areAnimationsEnabled) {
+                        val kisspruntyi = AnimationUtils.loadAnimation(
+                            this,R.anim.kiss_pruntyi)
+                        val kisspakito = AnimationUtils.loadAnimation(
+                            this,R.anim.kiss_pakito)
+                        binding.pruntyiImageView.startAnimation(kisspruntyi)
+                        binding.pakitoImageView.startAnimation(kisspakito)
+                    }
+
                     //Hozzáadunk egy kis késleltetést hogy a felhasználó lássa
                     // mielött megjelenik a következő kérdés
                     //We add a little delay for the user to see
@@ -622,6 +715,23 @@ Used when you need a "static" variable or function in Kotlin.
                             this, android.R.color.holo_red_dark
                         )
                     )
+                    // Animáció ha engedélyezve van || Animations if enabled
+                    if (areAnimationsEnabled) {
+
+                        val flyPruntyi = AnimationUtils.loadAnimation(
+                            this,R.anim.anim_fly_away_pruntyi)
+                        val flyPakito = AnimationUtils.loadAnimation(
+                            this,R.anim.anim_fly_away_pakito)
+
+                        // Az Animáció végén a nézet az animáció végállapotában marad
+                        // At the end of the Animation, the view remains
+                        // in the final state of the animation.
+                        flyPruntyi.fillAfter = true
+                        flyPakito.fillAfter = true
+
+                        binding.pruntyiImageView.startAnimation(flyPruntyi)
+                        binding.pakitoImageView.startAnimation(flyPakito)
+                    }
                 }
             } else if (questionList.isEmpty()) {
                 //Ha nincsenek kérdések betöltve
@@ -759,5 +869,54 @@ Used when you need a "static" variable or function in Kotlin.
             )
         }
     }
+
+    // A hint funkció szürkével fog látszani a helyes válasz
+    // /válaszok a válasz beviteli mezőben.("@+id/answerInput")
+    // The hint function will show the correct answer in gray
+    // /answers in the answer input field.("@+id/answerInput")
+    private fun updateHint() {
+
+        // Kiolvassuk a hint állapotát
+        // Read the hint state
+        val isHintEnabled = prefs.getBoolean(
+            HINTS_ENABLED, false
+        )
+        // Csak akkor próbáljunk tippet mutatni,
+        // ha a tippek be vannak kapcsolva és van aktuális kérdés.
+        // Let's just try to give a hint,
+        // if hints are turned on and there is a current question.
+        if (isHintEnabled && questionList.isNotEmpty()
+            && currentQuestionIndex < questionList.size
+        ) {
+            val currentQuestionAnswer = questionList[currentQuestionIndex]
+            val firstCorrectAnswer = currentQuestionAnswer.rightAnswers.firstOrNull()
+
+            if (firstCorrectAnswer != null) {
+                binding.hintTextView.text = firstCorrectAnswer
+                binding.answerInput.hint = ""
+            } else {
+                // Ha a tipp be van kapcsolva,
+                // de valamiért nincs helyes válasz,
+                // akkor is alaphelyzetbe állunk.
+                // If hints are turned on,
+                // but there is no correct answer,
+                // we reset the hint to the default state.
+                resetHintToDefault()
+        }
+    } else {
+        // Tipp kikapcsolva vagy nincs kérdés
+        // If hints are turned off or there is no question
+        resetHintToDefault()
+        }
+}
+
+// Ez a függvény visszaállítja a hintet alapértelmezet állapotba
+// This function resets the hint to the default state
+private fun resetHintToDefault() {
+    // 1. A háttér TextView szövegét töröljük.
+    binding.hintTextView.text = ""
+    // 2. Az EditText-ben megjelenítjük az általános, alapértelmezett hintet.
+    binding.answerInput.hint = getString(R.string.answerInputHint)
+}
 }
 

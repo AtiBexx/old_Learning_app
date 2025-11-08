@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">تطبيق التعلم</string>
+    <string name="wrong_answer_with_correct_answer">إجابة خاطئة. الإجابة الصحيحة هي: %1$s</string>
+    <string name="questionCounter_format">السؤال: %1$d/%2$d</string>
+    <string name="questionTextHint">سيظهر السؤال هنا</string>
+    <string name="answerInputHint">اكتب الإجابة (الإجابات) هنا</string>
+    <string name="feedbackTetxtHint">ستكون الإجابة الصحيحة هنا!</string>
+    <string name="previousQuestionButtonHint">السؤال السابق</string>
+    <string name="nextQuestionButtonHint">السؤال التالي</string>
+    <string name="checkAnswerButtonText" tools:ignore="Typos">تحقق من الإجابة (الإجابات)</string>
+    <string name="restartQuestionButtonText">إعادة تشغيل الأسئلة</string>
+    <string name="jsonFilesLoadingText">تحميل ملف Json</string>
+    <string name="EditQuestionButtonText">تعديل الأسئلة</string>
+    <string name="CreateQuestionsButtonText">إنشاء أسئلة</string>
+    <string name="settingsButtonText">الإعدادات</string>
+    <string name="checkStoragePermissionText1">تم منح الإذن!</string>
+    <string name="checkStoragePermissionText2">تم رفض الإذن!</string>
+    <string name="permissionRequest_ResultText2">الأذونات مطلوبة للوصول إلى الملفات</string>
+    <string name="noQuestionsText">لم يتم تحميل أي أسئلة</string>
+    <string name="invalid_question_Index">خطأ: فهرس سؤال غير صالح</string>
+    <string name="inputStreamNullText">فشل فتح الملف لأن inputStream كان فارغًا</string>
+    <string name="jsonParseError1">خطأ في الإدخال/الإخراج أثناء قراءة JSON</string>
+    <string name="jsonParseError2">خطأ في معالجة JSON</string>
+    <string name="filePickerLauncherLoadedQuestionText">تم تحميل %1$d سؤال.</string>
+    <string name="filepickerLauncherErrorText">فشل في قراءة الأسئلة من الملف، أو أن الملف فارغ.</string>
+    <string name="filepickerLauncherNofileText">لم يتم اختيار أي ملف</string>
+    <string name="rightAnswer">إجابة صحيحة!</string>
+    <string name="all_answered">لا يوجد المزيد من الأسئلة!</string>
+    <string name="no_questions_loaded_for_checking">لا توجد أسئلة محملة للتحقق!</string>
+    <string name="error_checking_answer">حدث خطأ أثناء التحقق من الإجابة!</string>
+    <string name="questions_restarted">تمت إعادة تشغيل الأسئلة بنجاح!</string>
+    <string name="no_questions_to_restart">لا توجد أسئلة لإعادة تشغيلها.\n</string>
+    <string name="no_questions_to_navigate">لا توجد أسئلة للتنقل!</string>
+    <string name="already_at_last_question">أنت بالفعل في السؤال الأخير.</string>
+    <string name="already_at_first_question">أنت في السؤال الأول، لا يمكنك العودة.</string>
+    <string name="answerQuestionInputHint">أدخل الأسئلة والأجوبة هنا واحدًا تلو الآخر.</string>
+    <string name="currentStatus">الحالة الحالية: إدخال السؤال</string>
+    <string name="enter_next_question_answer_buttonText">أدخل سؤال/إجابة</string>
+    <string name="saveFileButtonText">حفظ في ملف</string>
+    <string name="allDataDelete">حذف جميع البيانات المدخلة</string>
+    <string name="backToTheMainMenuText">العودة إلى القائمة الرئيسية</string>
+    <string name="create_question_status_enter_question">أدخل السؤال:</string>
+    <string name="create_question_button_next_to_answers">الانتقال إلى الإجابات</string>
+    <string name="create_question_hint_enter_question">الرجاء إدخال السؤال هنا…</string>
+    <string name="create_question_status_enter_answers_for" tools:ignore="Typos">أدخل الإجابة (الإجابات) لهذا السؤال: \"%1$s\"</string>
+    <string name="create_question_button_save_answers_and_next_q">حفظ الإجابات وسؤال جديد</string>
+    <string name="create_question_hint_enter_answers_csv">الرجاء إدخال الإجابة (الإجابات) الصحيحة، مفصولة بفواصل…</string>
+    <string name="create_question_answer_pair_saved">تم حفظ زوج السؤال والإجابة! المجموع: %1$d</string>
+    <string name="create_question_please_enter_something">الرجاء إدخال شيء ما!</string>
+    <string name="create_question_error_incomplete_pair">خطأ: السؤال أو الإجابات غير مكتملة للحفظ.</string>
+    <string name="create_question_nothing_to_save">لا شيء للحفظ. لم تدخل أي شيء.</string>
+    <string name="create_question_last_pending_pair_saved_toast">تمت إضافة آخر زوج سؤال وإجابة معلق إلى الحفظ.</string>
+    <string name="create_question_please_provide_answers_for_current_q_before_saving">الرجاء تقديم إجابات للسؤال الحالي قبل الحفظ!</string>
+    <string name="createquestion_press_next_to_add_current_question_first">الرجاء الضغط على "التالي" لتسجيل السؤال الحالي قبل الحفظ!</string>
+    <string name="create_question_add_answers_for_this_question_too">الرجاء تقديم الإجابة (الإجابات) لهذا السؤال أيضًا. (ثم اضغط على الزر التالي)</string>
+    <string name="create_question_nothing_to_save_final">لا توجد بيانات للحفظ.</string>
+    <string name="create_question_error_creating_json">خطأ في إنشاء ملف JSON: %1$s</string>
+    <string name="wallpaper_image_description">ببغاوات</string>
+    <string name="appVersion">تطبيق التعلم v1.0</string>
+    <string name="question_counter_empty_state">0/0</string>
+    <string name="create_question_json_file_created">تم إنشاء ملف Json بنجاح!</string>
+    <string name="Create_Question_Save_Cancel_Json">تم إلغاء الحفظ</string>
+    <string name="create_question_all_data_cleared_toast">تم حذف جميع البيانات التي تم إدخالها مسبقًا.</string>
+    <string name="create_question_nothing_to_delete">لا شيء للحذف.\nلم يكن هناك زوج سؤال وإجابة\nمحفوظ في الإدخال.</string>
+    <string name="create_question_delete_confirmation_title">تأكيد</string>
+    <string name="create_question_delete_confirmation_message">هل أنت متأكد من أنك تريد حذف\nجميع أزواج الأسئلة والأجوبة\nالتي تم إدخالها مسبقًا؟</string>
+    <string name="create_question_delete_confirmation_positive_button">حذف</string>
+    <string name="create_question_delete_confirmation_negative_button">إلغاء</string>
+    <string name="jsonEditHint">ستكون الأسئلة والأجوبة هنا\nبتنسيق Json:\n\n
+      [\n
+    {
+        \n\"question\": \"___________?\",
+       \n\"rightAnswers\": [\"_____________\"],
+        \n\"answered\": false
+  \n},
+    \n{
+        \n\"question\": \"_______________?\",
+        \n\"rightAnswers\": [\"_________\", \"___________\"],
+        \n\"answered\": false
+    \n}\n
+        ]
+</string>
+    <string name="edit_activity_openFileJson">فتح ملف Json</string>
+    <string name="edit_Activity_Json_Validate">التحقق من بنية Json</string>
+    <string name="edit_Activity_JsonPretty">تنسيق Json</string>
+    <string name="edit_activity_PasteButton">لصق من الحافظة</string>
+    <string name="edit_Activity_copyButton">نسخ إلى الحافظة</string>
+    <string name="edit_Activity_JsonSaveButton">حفظ (JSON)</string>
+    <string name="edit_Activity_jsonFileAsSaveButton">حفظ باسم (JSON)</string>
+    <string name="ClipBoard_text">تم نسخ الرمز إلى الحافظة</string>
+    <string name="Clipdata_copied_code">تم نسخ الرمز إلى الحافظة.</string>
+    <string name="ClipBoard_success_message">تم اللصق من الحافظة</string>
+    <string name="paste_not_text_message">الحافظة لا تحتوي على نص</string>
+    <string name="Clipboard_paste_no_data_message">الحافظة فارغة</string>
+    <string name="delete_all_dialog_title">هل أنت متأكد من أنك تريد حذف كل شيء؟</string>
+    <string name="delete_all_dialog_message">لا يمكن التراجع عن هذا الإجراء. سيتم فقدان كل المحتوى.</string>
+    <string name="delete_success_message">تم حذف المحتوى.</string>
+    <string name="deleteBuilder_delete_button_text">حذف</string>
+    <string name="cancel_button_text">إلغاء</string>
+    <string name="ecit_question_undo_button">تراجع</string>
+    <string name="beautify_empty_text">لا يوجد شيء لتنسيقه، الملف فارغ!</string>
+    <string name="json_any_error_message">حدث خطأ أثناء العملية!</string>
+    <string name="beautify_invalid_json">خطأ: النص ليس بتنسيق JSON صالح!\nقوس أو شيء آخر مفقود.</string>
+    <string name="beautify_success_sucess">تم تنسيق ملف JSON بنجاح.</string>
+    <string name="validate_empty_text">لا يوجد شيء للتحقق منه!\nالملف فارغ.</string>
+    <string name="validate_success_text">بنية JSON صالحة!</string>
+    <string name="validate_invalid_json">خطأ: بنية JSON غير صالحة!</string>
+    <string name="file_read_success">تم فتح الملف بنجاح.</string>
+    <string name="open_file_read_error">حدث خطأ أثناء فتح الملف!</string>
+    <string name="save_file_error">حدث خطأ أثناء حفظ الملف.</string>
+    <string name="save_file_success">تم حفظ الملف بنجاح.</string>
+    <string name="save_file_empty_error">لا يوجد شيء للحفظ، المحرر فارغ!</string>
+    <string name="overwrite_dialog_title">الكتابة فوق الملف</string>
+    <string name="overwrite_dialog_message">هل أنت متأكد من أنك تريد الكتابة فوق الملف الحالي؟ لا يمكن التراجع عن هذا الإجراء.</string>
+    <string name="overwrite_button_text">الكتابة فوق</string>
+    <string name="undoButton_stack_is_empty">لا يوجد شيء للتراجع عنه</string>
+    <string name="settings_select_Theme_Button">اختر المظهر</string>
+    <string name="json_processing_Button">اختر معالج Json</string>
+    <string name="informationButton">معلومات</string>
+    <string name="otherSettingsButton">إعدادات أخرى</string>
+    <string name="select_theme_title">اختر المظهر</string>
+    <string name="select_json_processor">اختر معالج Json</string>
+    <string name="choosenJsonProcess">معالج JSON المختار: %1$s</string>
+    <string name="error_Json_Save_Format">النص بتنسيق JSON غير صالح، تم إلغاء الحفظ!</string>
+    <string name="writeTextJsonError">نص JSON الذي قام المستخدم بتحريره غير صالح.</string>
+    <string name="language_selection_button">اختر اللغة</string>
+    <string name="information_title">معلومات</string>
+    <string name="information_message">هذا تطبيق دعم تعليمي\nيسمح لك بإنشاء الأسئلة والإجابة عليها.\nالهدف هو اكتساب المنهج الدراسي بفعالية\nمن خلال التكرار.\nتطبيق التعلم\nالإصدار: 1.0\nأنشأه: Attibexx\n</string>
+    <string name="select_language_title">اختر اللغة: %1$s</string>
+    <string name="other_settings_title">إعدادات أخرى</string>
+    <string name="setting_enable_animations">تمكين الرسوم المتحركة</string>
+    <string name="setting_enable_hints">تمكين التلميحات</string>
+    <string name="button_save">حفظ</string>
+    <string name="zoom_Button_Enable_hints">تمكين التكبير</string>
+    <string name="settings_saved">تم حفظ الإعدادات</string>
+    <string name="hint_on" />
+    <string name="pruntyiContentDesc">برونتي البادجي</string>
+    <string name="pakitoContentDescr">باكيتو الببغاء الأخضر</string>
+</resources>
